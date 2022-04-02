@@ -64,69 +64,76 @@ class SouraScreen extends StatelessWidget {
                                   itemBuilder: (context,index)
                                   {
                                     return ListTile(
-                                      title: Row(
-                                        children: [
-                                          Expanded(
+                                      title: InkWell(
+                                        onLongPress: ()
+                                        {
+
+                                        },
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                                child: Container(
+                                                  width: size.width,
+                                                  height: size.height * 0.04,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(11),
+                                                    gradient: const LinearGradient(
+                                                        begin: Alignment.topLeft,
+                                                        end: Alignment.bottomRight,
+                                                        colors: [Color.fromARGB(255, 83, 183, 214) , Color.fromARGB(255, 134, 231, 214)]
+                                                      // [Colors.blue.shade300 , Colors.green.shade200.withOpacity(0.8)]
+                                                    ),
+                                                  ),
+                                                  child: Center(
+                                                      child: Text(
+                                                        '${index + 1}',
+                                                        style: TextStyle(
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: size.width * 0.04,
+                                                            color: Colors.white
+                                                        ),
+                                                      )
+                                                  ),
+                                                )
+                                            ),
+                                            SizedBox(width: size.width * 0.02,),
+                                            Expanded(
+                                              flex: 10,
                                               child: Container(
                                                 width: size.width,
-                                                height: size.height * 0.04,
                                                 decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(11),
-                                                  gradient:  const LinearGradient(
-                                                      begin: Alignment.topLeft,
-                                                      end: Alignment.bottomRight,
-                                                      colors: [Color.fromARGB(255, 83, 183, 214) , Color.fromARGB(255, 134, 231, 214)]
-                                                    // [Colors.blue.shade300 , Colors.green.shade200.withOpacity(0.8)]
-                                                  ),
-                                                ),
-                                                child: Center(
-                                                    child: Text(
-                                                      '${index + 1}',
-                                                      style: TextStyle(
-                                                          fontWeight: FontWeight.bold,
-                                                          fontSize: size.width * 0.04,
-                                                          color: Colors.white
-                                                      ),
+                                                    borderRadius: BorderRadius.circular(11),
+                                                    gradient:  const LinearGradient(
+                                                        begin: Alignment.topLeft,
+                                                        end: Alignment.bottomRight,
+                                                        colors: [Color.fromARGB(255, 83, 183, 214) , Color.fromARGB(255, 134, 231, 214)]
                                                     )
                                                 ),
-                                              )
-                                          ),
-                                          SizedBox(width: size.width * 0.02,),
-                                          Expanded(
-                                            flex: 10,
-                                            child: Container(
-                                              width: size.width,
-                                              decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(11),
-                                                  gradient:  const LinearGradient(
-                                                      begin: Alignment.topLeft,
-                                                      end: Alignment.bottomRight,
-                                                      colors: [Color.fromARGB(255, 83, 183, 214) , Color.fromARGB(255, 134, 231, 214)]
-                                                  )
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsets.fromLTRB(
-                                                    size.width * 0.04,
-                                                    size.width * 0.04,
-                                                    size.width * 0.04,
-                                                    size.width * 0.04
-                                                ),
-                                                child: Text(
-                                                  quran.getVerse(
-                                                    numOfSoura,
-                                                    index + 1,
+                                                child: Padding(
+                                                  padding: EdgeInsets.fromLTRB(
+                                                      size.width * 0.04,
+                                                      size.width * 0.04,
+                                                      size.width * 0.04,
+                                                      size.width * 0.04
                                                   ),
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: size.width * 0.05,
-                                                      color: Colors.white
+                                                  child: SelectableText(
+                                                    quran.getVerse(
+                                                      numOfSoura,
+                                                      index + 1,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: size.width * 0.05,
+                                                        color: Colors.white,
+                                                        //Colors.white
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     );
                                   }

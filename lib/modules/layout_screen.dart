@@ -1,13 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../shared/components/components.dart';
+import 'package:nakhtm/modules/prayer_time.dart';
 import 'home_screen.dart';
-import 'marker_screen.dart';
 import 'quran_screen.dart';
-import 'multi_screen.dart';
-import 'search_screen.dart';
+import 'sebha.dart';
 
 class LayoutScreen extends StatefulWidget {
    LayoutScreen({Key? key}) : super(key: key);
@@ -168,22 +165,22 @@ class _LayoutScreenState extends State<LayoutScreen> {
     Icons.home_outlined,
     Icons.menu_book_outlined,
     Icons.confirmation_number_outlined,
-    Icons.bookmark_outline,
+    Icons.access_time_outlined,
   ];
 
   List<String> indexText =
   [
     'الرئيسية',
     'القرآن',
-    'متنوع',
-    'علامة',
+    'سبحة',
+    'مواعيد',
   ];
   List<Widget> screens =
   [
     HomeScreen(),
     QuranScreen(),
-    MultiScreen(),
-    MarkerScreen(),
+    SebhaScreen(),
+    PrayerScreen(),
   ];
 }
 
