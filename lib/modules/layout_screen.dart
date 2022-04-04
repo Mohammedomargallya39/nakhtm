@@ -26,7 +26,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
           color: Colors.white.withOpacity(0.8),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey,
+              color: Colors.lightGreenAccent.withOpacity(0.7),
               blurRadius: size.width * 0.07,
               offset: Offset(0, 10),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:nakhtm/cubit/cubit.dart';
 import 'package:nakhtm/cubit/states.dart';
 import '../shared/components/components.dart';
@@ -38,58 +39,63 @@ class PrayerScreen extends StatelessWidget {
         builder: (context , state)
         {
           return Scaffold(
-            body: SafeArea(
-                child: SingleChildScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: size.height * 0.02,
-                        width: size.width,
-                        child: Icon(
-                          Icons.access_time_outlined,
-                          color: Colors.cyanAccent,
-                          size: size.width * 0.5,
-                        ),
-                      ),
-                      SizedBox(height: size.height * 0.1,),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(
-                            size.width * 0.11,
-                            size.width * 0.3,
-                            size.width * 0.11,
-                            size.width * 0.11
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.cyan.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(size.width * 0.05),
-                        ),
-                        child: expentionTile(
-                          mainText: "مواعيد الصلاة",
-                          mainTextSize: size.width * 0.07,
-                          leftPaddingTrailing: size.width * 0.02,
-                          topPaddingTrailing: size.height * 0.01,
-                          rightPaddingTrailing: size.width * 0.02,
-                          bottomPaddingTrailing: size.height * 0.04,
-                          iconTrailingSize: size.width * 0.1,
-                          secondreyMainFontSize: size.width * 0.04,
-                          sizedBoxWidth: size.width * 0.03,
-                          thirdFontSize: size.width * 0.04,
-                          elFagrText: '$fajrTime'.substring(11,19),
-                          elDuhaText: '$sunriseTime'.substring(11,19),
-                          elZuhrText: '$dhuhrTime'.substring(11,19),
-                          elAsrText:  '$asrTime'.substring(11,19),
-                          elMaghrebText: '$maghribTime'.substring(11,19),
-                          elEshaaText: '$ishaTime'.substring(11,19),
-                          qiamAlayl: '$lastThirdOfTheNight'.substring(11,19),
-                          current: current,
-                          next: next,
+            body: Stack(
+              children: [
+                Image.asset(
+                  'assets/images/background.jpg',
+                  height: size.height,
+                  width: size.width,
+                  fit: BoxFit.cover,
+                ),
+                SafeArea(
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Column(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/images/1.svg',
+                            height: size.height * 0.3,
+                            width: size.width,
+                          ),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(
+                                size.width * 0.11,
+                                size.width * 0.1,
+                                size.width * 0.11,
+                                size.width * 0.11
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.cyan.withOpacity(0.7),
+                              borderRadius: BorderRadius.circular(size.width * 0.05),
+                            ),
+                            child: expentionTile(
+                              mainText: "مواعيد الصلاة",
+                              mainTextSize: size.width * 0.07,
+                              leftPaddingTrailing: size.width * 0.02,
+                              topPaddingTrailing: size.height * 0.01,
+                              rightPaddingTrailing: size.width * 0.02,
+                              bottomPaddingTrailing: size.height * 0.04,
+                              iconTrailingSize: size.width * 0.1,
+                              secondreyMainFontSize: size.width * 0.04,
+                              sizedBoxWidth: size.width * 0.03,
+                              thirdFontSize: size.width * 0.04,
+                              elFagrText: '$fajrTime'.substring(11,19),
+                              elDuhaText: '$sunriseTime'.substring(11,19),
+                              elZuhrText: '$dhuhrTime'.substring(11,19),
+                              elAsrText:  '$asrTime'.substring(11,19),
+                              elMaghrebText: '$maghribTime'.substring(11,19),
+                              elEshaaText: '$ishaTime'.substring(11,19),
+                              qiamAlayl: '$lastThirdOfTheNight'.substring(11,19),
+                              current: current,
+                              next: next,
 
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    )
                 )
+              ],
             ),
           );
         }

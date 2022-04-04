@@ -181,7 +181,7 @@ Widget chooseKhetma(
             Text(
               mainText ,
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: mainTextSize
               ),
@@ -198,7 +198,7 @@ Widget chooseKhetma(
         bottomPaddingTrailing,
       ),
       child: Icon(
-        Icons.arrow_drop_down, color: Colors.black, size: iconTrailingSize,
+        Icons.arrow_drop_down, color: Colors.white, size: iconTrailingSize,
       ),
     ),
     children: [
@@ -213,7 +213,7 @@ Widget chooseKhetma(
                     'الفجر' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -226,7 +226,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -243,7 +243,7 @@ Widget chooseKhetma(
                     'الظهر' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -256,7 +256,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -273,7 +273,7 @@ Widget chooseKhetma(
                     'العصر' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -286,7 +286,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -303,7 +303,7 @@ Widget chooseKhetma(
                     'المغرب' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -316,7 +316,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -333,7 +333,7 @@ Widget chooseKhetma(
                     'العشاء' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -346,7 +346,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white.withOpacity(0.7),
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -393,7 +393,7 @@ Widget expentionTile(
             Text(
               mainText ,
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: mainTextSize
               ),
@@ -410,7 +410,7 @@ Widget expentionTile(
         bottomPaddingTrailing,
       ),
       child: Icon(
-        Icons.arrow_drop_down, color: Colors.black, size: iconTrailingSize,
+        Icons.arrow_drop_down, color: Colors.white, size: iconTrailingSize,
       ),
     ),
     children: [
@@ -425,7 +425,7 @@ Widget expentionTile(
                     'الصلاة الحالية' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -438,7 +438,7 @@ Widget expentionTile(
                     current ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -455,7 +455,7 @@ Widget expentionTile(
                     'الصلاة التالية' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -468,7 +468,7 @@ Widget expentionTile(
                     next ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -486,7 +486,7 @@ Widget expentionTile(
                     'الفجر' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -499,7 +499,7 @@ Widget expentionTile(
                     elFagrText ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -516,7 +516,7 @@ Widget expentionTile(
                     'الضحي' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -529,7 +529,7 @@ Widget expentionTile(
                     elDuhaText ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -546,7 +546,7 @@ Widget expentionTile(
                     'الظهر' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -559,7 +559,7 @@ Widget expentionTile(
                     elZuhrText ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -576,7 +576,7 @@ Widget expentionTile(
                     'العصر' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -589,7 +589,7 @@ Widget expentionTile(
                     elAsrText ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -606,7 +606,7 @@ Widget expentionTile(
                     'المغرب' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -619,7 +619,7 @@ Widget expentionTile(
                     elMaghrebText ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -636,7 +636,7 @@ Widget expentionTile(
                     'العشاء' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -649,7 +649,7 @@ Widget expentionTile(
                     elEshaaText ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -667,7 +667,7 @@ Widget expentionTile(
                     'قيام الليل' ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -680,7 +680,7 @@ Widget expentionTile(
                     qiamAlayl ,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: Colors.black.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
