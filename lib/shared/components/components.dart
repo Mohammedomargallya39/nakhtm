@@ -2,10 +2,6 @@ import 'package:animated_button/animated_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:nakhtm/shared/network/shared/dio_helper.dart';
-
-import '../../models/soura_model.dart';
-import '../network/end_points.dart';
 
 void navigateAndEnd(context,Widget widget){
   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>widget), (route) => false);

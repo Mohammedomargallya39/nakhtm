@@ -31,8 +31,9 @@ class _SouraScreen extends State<SouraScreen>{
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance!.addPostFrameCallback((_) => scrollToItem());
+    if(constAyahNum !=0) {
+      WidgetsBinding.instance!.addPostFrameCallback((_) => scrollToItem());
+    }
   }
 
   @override

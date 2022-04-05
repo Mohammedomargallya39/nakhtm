@@ -7,7 +7,7 @@ import 'quran_screen.dart';
 import 'sebha.dart';
 
 class LayoutScreen extends StatefulWidget {
-   LayoutScreen({Key? key}) : super(key: key);
+   const LayoutScreen({Key? key}) : super(key: key);
 
   @override
   State<LayoutScreen> createState() => _LayoutScreenState();
@@ -28,7 +28,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
             BoxShadow(
               color: Colors.lightGreenAccent.withOpacity(0.7),
               blurRadius: size.width * 0.07,
-              offset: Offset(0, 10),
+              offset: const Offset(0, 10),
             ),
           ],
           borderRadius: BorderRadius.circular(size.width * 0.02,),

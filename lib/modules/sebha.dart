@@ -575,11 +575,6 @@ class SebhaScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-
-
-
-
-
                       ],
                     ),
                   )

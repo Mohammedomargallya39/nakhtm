@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:nakhtm/cubit/cubit.dart';
 import 'package:nakhtm/cubit/states.dart';
 import 'package:nakhtm/modules/soura_screen.dart';
 import 'package:nakhtm/shared/components/constants.dart';
 import '../shared/components/components.dart';
-
-import 'package:adhan_dart/adhan_dart.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/quran.dart' as quran;
 
@@ -40,10 +37,7 @@ class MarkerScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           SizedBox(height: size.height * 0.11),
-                          if (
-                          constJuza != 0
-                          )
-                            Column(
+                          Column(
                               children: [
                                 Container(
                                   decoration: BoxDecoration(
