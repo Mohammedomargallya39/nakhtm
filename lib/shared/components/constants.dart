@@ -7,7 +7,10 @@ void printLongString(dynamic text) {
 // int? ayahNumC;
 // String? surahNameC;
 // String? ayahC;
-int juza = 0;
-int ayahNum = 0;
-String surahName = '';
-String ayah = '';
+
+int constJuza = 0;
+int constAyahNum = 0;
+int constAyatSurahNum=0;
+int constSurahNum = 0;
+String constSurahName = '';
+String constAyah = '';

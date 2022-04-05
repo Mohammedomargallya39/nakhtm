@@ -779,3 +779,55 @@ Widget soura(
   );
 }
 
+Widget listTiles ( {
+  required mainText,
+  required secondText,
+  required sizeWidth,
+  required sizeHeight,
+
+} )
+{
+  return Column(
+    children: [
+      ListTile(
+        title: Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Text(
+                secondText ,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: sizeWidth * 0.04
+                ),
+              ),
+            ),
+            SizedBox(width: sizeWidth * 0.02,),
+            Expanded(
+              flex: 2,
+              child: Text(
+                mainText,
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: sizeWidth * 0.06
+                ),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+      ListTile(
+        title: Container(
+          height: sizeHeight * 0.0001,
+          width: sizeWidth,
+          color: Colors.black,
+        ),
+      ),
+    ],
+  );
+}
+

@@ -20,10 +20,12 @@ void main() async
 
 
 
-  juza = CacheHelper.getData(key: 'juza') ?? 0 ;
-  ayahNum = CacheHelper.getData(key: 'ayahNum') ?? 0;
-  surahName = CacheHelper.getData(key: 'surahName') ?? 'لم تقرأ بعد';
-  ayah = CacheHelper.getData(key: 'ayah') ?? 'لم تقرأ بعد';
+  constJuza = CacheHelper.getData(key: 'juza') ?? 0 ;
+  constAyahNum = CacheHelper.getData(key: 'ayahNum') ?? 0;
+  constAyatSurahNum = CacheHelper.getData(key: 'ayatSurahNum') ?? 0;
+  constSurahNum= CacheHelper.getData(key: 'surahNum') ?? 0;
+  constSurahName = CacheHelper.getData(key: 'surahName') ?? 'لم تقرأ بعد';
+  constAyah = CacheHelper.getData(key: 'ayah') ?? 'لم تقرأ بعد';
 
 
 
@@ -32,10 +34,12 @@ void main() async
   runApp(
       MyApp(
         startWidget: widget,
-        ayah: ayah,
-        ayahNum: ayahNum,
-        juza: juza,
-        surahName: surahName,
+        ayah: constAyah,
+        ayahNum: constAyahNum,
+        juza: constJuza,
+        surahName: constSurahName,
+        surahNum: constSurahNum,
+        ayatSurahNum: constAyatSurahNum,
       )
   );
 
@@ -46,8 +50,16 @@ class MyApp extends StatelessWidget {
   final String ayah;
   final int juza;
   final int ayahNum;
-  const MyApp({Key? key,required this.startWidget
-    ,required this.surahName,required this.ayah,required this.juza,required this.ayahNum
+  final int surahNum;
+  final int ayatSurahNum;
+  const MyApp({Key? key,
+    required this.startWidget
+    ,required this.surahName,
+    required this.ayah,
+    required this.juza,
+    required this.ayahNum,
+    required this.surahNum,
+    required this.ayatSurahNum
   }) : super(key: key);
 
   @override

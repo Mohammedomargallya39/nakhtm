@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nakhtm/shared/network/local/cache_helper.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:nakhtm/shared/components/constants.dart';
 import 'states.dart';
 
 class AppCubit extends Cubit<AppStates> {
@@ -18,8 +17,17 @@ class AppCubit extends Cubit<AppStates> {
     emit(SebhaState());
   }
 
+  // int sharedJuza = constJuza;
+  // int sharedAyahNum = constAyahNum;
+  // String sharedSurahName = constSurahName;
+  // String sharedAyah= constAyah;
+
+
+
   int? juza = 0;
   int? ayahNum = 0;
+  int? ayatSurahNum = 0;
+  int? surahNum = 0;
   String? surahName = 'لم تقرأ بعد';
   String? ayah = 'لم تقرأ بعد';
   void lastRead(
@@ -64,6 +72,7 @@ class AppCubit extends Cubit<AppStates> {
     //   });
     // }
   }
+
 }
 
 

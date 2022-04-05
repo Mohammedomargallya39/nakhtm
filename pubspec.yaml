@@ -48,6 +48,9 @@ dependencies:
   quran: ^1.1.2
   animated_splash_screen: ^1.2.0
   webview_flutter: ^3.0.1
+  scrollable_positioned_list: ^0.2.3
+
+
 
 
 

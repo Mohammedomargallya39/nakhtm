@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nakhtm/modules/prayer_time.dart';
+import 'package:nakhtm/modules/marker.dart';
 import 'home_screen.dart';
 import 'quran_screen.dart';
 import 'sebha.dart';
@@ -165,22 +165,22 @@ class _LayoutScreenState extends State<LayoutScreen> {
     Icons.home_outlined,
     Icons.menu_book_outlined,
     Icons.confirmation_number_outlined,
-    Icons.access_time_outlined,
+    Icons.bookmark_outline,
   ];
 
   List<String> indexText =
   [
     'الرئيسية',
     'القرآن',
-    'سبحة',
-    'مواعيد',
+    'متنوعات',
+    'علامة',
   ];
   List<Widget> screens =
   [
     HomeScreen(),
     QuranScreen(),
     SebhaScreen(),
-    PrayerScreen(),
+    MarkerScreen(),
   ];
 }
 
