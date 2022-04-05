@@ -31,7 +31,7 @@ class _SouraScreen extends State<SouraScreen>{
   @override
   void initState() {
     super.initState();
-    if(constAyahNum !=0) {
+    if(constAyahNum !=0 && constSurahName == widget.sourahName) {
       WidgetsBinding.instance!.addPostFrameCallback((_) => scrollToItem());
     }
   }
@@ -397,32 +397,6 @@ class _SouraScreen extends State<SouraScreen>{
                                               ),
                                             ),
                                           ),
-                                          // SizedBox(width: size.width * 0.02,),
-                                          // Expanded(
-                                          //     child: Container(
-                                          //       width: size.width,
-                                          //       height: size.height * 0.04,
-                                          //       decoration: BoxDecoration(
-                                          //         borderRadius: BorderRadius.circular(11),
-                                          //         gradient: const LinearGradient(
-                                          //             begin: Alignment.topLeft,
-                                          //             end: Alignment.bottomRight,
-                                          //             colors: [Color.fromARGB(255, 83, 183, 214) , Color.fromARGB(255, 134, 231, 214)]
-                                          //           // [Colors.blue.shade300 , Colors.green.shade200.withOpacity(0.8)]
-                                          //         ),
-                                          //       ),
-                                          //       child: Center(
-                                          //           child: Text(
-                                          //             '${AppCubit.get(context).juza}',
-                                          //             style: TextStyle(
-                                          //                 fontWeight: FontWeight.bold,
-                                          //                 fontSize: size.width * 0.04,
-                                          //                 color: Colors.white
-                                          //             ),
-                                          //           )
-                                          //       ),
-                                          //     )
-                                          // ),
                                         ],
                                       ),
                                     ),
@@ -432,150 +406,6 @@ class _SouraScreen extends State<SouraScreen>{
                           ),
 
                         ),
-
-                        // Expanded(
-                        //   flex:  20,
-                        //   child: ListView.separated(
-                        //       physics: const BouncingScrollPhysics(),
-                        //       separatorBuilder: (context,index)
-                        //       {
-                        //         return Container(
-                        //           height: size.height * 0.02,
-                        //           width: size.width,
-                        //         );
-                        //       },
-                        //       itemCount: quran.getVerseCount(numOfSoura),
-                        //       itemBuilder: (context,index)
-                        //       {
-                        //         AppCubit.get(context).juza = quran.getJuzNumber(numOfSoura, index + 1);
-                        //         return ListTile(
-                        //           title: InkWell(
-                        //             onDoubleTap: ()
-                        //             {
-                        //               AppCubit.get(context).lastRead();
-                        //               AppCubit.get(context).juza = quran.getJuzNumber(numOfSoura, index + 1);
-                        //               AppCubit.get(context).surahName = sourahName;
-                        //               AppCubit.get(context).ayah = (quran.getVerse(numOfSoura, index + 1,));
-                        //               AppCubit.get(context).ayahNum = index + 1;
-                        //               AppCubit.get(context).surahNum = numOfSoura;
-                        //               AppCubit.get(context).ayatSurahNum = quran.getVerseCount(numOfSoura);
-                        //
-                        //               print(constAyah);
-                        //               print(constJuza);
-                        //               print(constAyahNum);
-                        //               print(constSurahName);
-                        //               print(constSurahNum);
-                        //
-                        //               CacheHelper.saveData(key: 'juza', value: AppCubit.get(context).juza);
-                        //               CacheHelper.saveData(key: 'surahName', value: AppCubit.get(context).surahName);
-                        //               CacheHelper.saveData(key: 'ayah', value: AppCubit.get(context).ayah);
-                        //               CacheHelper.saveData(key: 'ayahNum', value: AppCubit.get(context).ayahNum);
-                        //               CacheHelper.saveData(key: 'surahNum', value: AppCubit.get(context).surahNum);
-                        //               CacheHelper.saveData(key: 'ayatSurahNum', value: AppCubit.get(context).ayatSurahNum);
-                        //
-                        //               showToast(message: 'تم حفظ آخر ما قرأت بنجاح', state: ToastStates.SUCCESS);
-                        //
-                        //             },
-                        //             child: Container(
-                        //               child: Row(
-                        //                 children: [
-                        //                   Expanded(
-                        //                       child: Container(
-                        //                         width: size.width,
-                        //                         height: size.height * 0.04,
-                        //                         decoration: BoxDecoration(
-                        //                           borderRadius: BorderRadius.circular(11),
-                        //                           gradient: const LinearGradient(
-                        //                               begin: Alignment.topLeft,
-                        //                               end: Alignment.bottomRight,
-                        //                               colors: [Color.fromARGB(255, 83, 183, 214) , Color.fromARGB(255, 134, 231, 214)]
-                        //                             // [Colors.blue.shade300 , Colors.green.shade200.withOpacity(0.8)]
-                        //                           ),
-                        //                         ),
-                        //                         child: Center(
-                        //                             child: Text(
-                        //                               '${index + 1}',
-                        //                               style: TextStyle(
-                        //                                   fontWeight: FontWeight.bold,
-                        //                                   fontSize: size.width * 0.04,
-                        //                                   color: Colors.white
-                        //                               ),
-                        //                             )
-                        //                         ),
-                        //                       )
-                        //                   ),
-                        //                   SizedBox(width: size.width * 0.02,),
-                        //                   Expanded(
-                        //                     flex: 10,
-                        //                     child: Container(
-                        //                       width: size.width,
-                        //                       decoration: BoxDecoration(
-                        //                           borderRadius: BorderRadius.circular(11),
-                        //                           gradient:  const LinearGradient(
-                        //                               begin: Alignment.topLeft,
-                        //                               end: Alignment.bottomRight,
-                        //                               colors: [Color.fromARGB(255, 83, 183, 214) , Color.fromARGB(255, 134, 231, 214)]
-                        //                           )
-                        //                       ),
-                        //                       child: Padding(
-                        //                         padding: EdgeInsets.fromLTRB(
-                        //                             size.width * 0.04,
-                        //                             size.width * 0.04,
-                        //                             size.width * 0.04,
-                        //                             size.width * 0.04
-                        //                         ),
-                        //                         child: SelectableText(
-                        //                           quran.getVerse(
-                        //                             numOfSoura,
-                        //                             index + 1,
-                        //                           ),
-                        //                           textAlign: TextAlign.center,
-                        //                           style: TextStyle(
-                        //                             fontWeight: FontWeight.bold,
-                        //                             fontSize: size.width * 0.05,
-                        //                             color: Colors.white,
-                        //                             //Colors.white
-                        //                           ),
-                        //                         ),
-                        //                       ),
-                        //                     ),
-                        //                   ),
-                        //                   // SizedBox(width: size.width * 0.02,),
-                        //                   // Expanded(
-                        //                   //     child: Container(
-                        //                   //       width: size.width,
-                        //                   //       height: size.height * 0.04,
-                        //                   //       decoration: BoxDecoration(
-                        //                   //         borderRadius: BorderRadius.circular(11),
-                        //                   //         gradient: const LinearGradient(
-                        //                   //             begin: Alignment.topLeft,
-                        //                   //             end: Alignment.bottomRight,
-                        //                   //             colors: [Color.fromARGB(255, 83, 183, 214) , Color.fromARGB(255, 134, 231, 214)]
-                        //                   //           // [Colors.blue.shade300 , Colors.green.shade200.withOpacity(0.8)]
-                        //                   //         ),
-                        //                   //       ),
-                        //                   //       child: Center(
-                        //                   //           child: Text(
-                        //                   //             '${AppCubit.get(context).juza}',
-                        //                   //             style: TextStyle(
-                        //                   //                 fontWeight: FontWeight.bold,
-                        //                   //                 fontSize: size.width * 0.04,
-                        //                   //                 color: Colors.white
-                        //                   //             ),
-                        //                   //           )
-                        //                   //       ),
-                        //                   //     )
-                        //                   // ),
-                        //
-                        //                 ],
-                        //               ),
-                        //             ),
-                        //           ),
-                        //         );
-                        //       }
-                        //   ),
-                        //
-                        // ),
                       ],
                     ),
                   ),

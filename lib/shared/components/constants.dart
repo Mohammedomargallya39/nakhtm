@@ -3,11 +3,6 @@ void printLongString(dynamic text) {
   pattern.allMatches(text).forEach((RegExpMatch match) =>   print(match.group(0)));
 }
 
-// int? juzaNumC;
-// int? ayahNumC;
-// String? surahNameC;
-// String? ayahC;
-
 int constJuza = 0;
 int constAyahNum = 0;
 int constAyatSurahNum=0;

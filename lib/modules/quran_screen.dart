@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nakhtm/cubit/states.dart';
-import 'package:nakhtm/shared/components/constants.dart';
 import '../cubit/cubit.dart';
 import '../shared/components/components.dart';
 import 'soura_screen.dart';
@@ -22,11 +21,6 @@ class QuranScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    // Appcubit.get(context).juza
-    // Appcubit.get(context).ayahNum
-    // Appcubit.get(context).surahName
-    // Appcubit.get(context).ayah
 
     return BlocConsumer<AppCubit,AppStates>(
       listener: (context, state) {},
@@ -359,11 +353,6 @@ class QuranScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-
-
-
-
-
                     ],
                   ),
                 ),
