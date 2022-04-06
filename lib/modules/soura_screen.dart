@@ -83,17 +83,6 @@ class _SouraScreen extends State<SouraScreen>{
                                   color: Colors.white
                               ),
                             ),
-                            trailing: Padding(
-                              padding: EdgeInsets.fromLTRB(
-                                size.width * 0.02,
-                                size.width * 0.02,
-                                size.width * 0.02,
-                                size.width * 0.02,
-                              ),
-                              child: Icon(
-                                Icons.arrow_drop_down, color: Colors.white, size: size.width * 0.05,
-                              ),
-                            ),
                             children: [
                               Column(
                                 children: [

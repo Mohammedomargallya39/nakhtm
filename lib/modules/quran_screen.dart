@@ -71,17 +71,6 @@ class QuranScreen extends StatelessWidget {
                                 color: Colors.white
                             ),
                           ),
-                          trailing: Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              size.width * trailingPadding,
-                              size.width * trailingPadding,
-                              size.width * trailingPadding,
-                              size.width * trailingPadding,
-                            ),
-                            child: Icon(
-                              Icons.arrow_drop_down, color: Colors.white, size: size.width * trailingIconSize,
-                            ),
-                          ),
                           children: [
                             Column(
                               children: [
@@ -283,17 +272,6 @@ class QuranScreen extends StatelessWidget {
                                 fontSize: size.width * mainFontSize,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white
-                            ),
-                          ),
-                          trailing: Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              size.width * trailingPadding,
-                              size.width * trailingPadding,
-                              size.width * trailingPadding,
-                              size.width * trailingPadding,
-                            ),
-                            child: Icon(
-                              Icons.arrow_drop_down, color: Colors.white, size: size.width * trailingIconSize,
                             ),
                           ),
                           children: [
