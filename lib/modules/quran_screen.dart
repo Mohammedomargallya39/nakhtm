@@ -329,6 +329,7 @@ class QuranScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+                      SizedBox(height: size.height * 0.01),
                     ],
                   ),
                 ),

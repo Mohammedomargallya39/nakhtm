@@ -39,6 +39,82 @@ class MarkerScreen extends StatelessWidget {
                           SizedBox(height: size.height * 0.05),
                           Column(
                               children: [
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(
+                                      size.width * 0.01,
+                                      size.width * 0.02,
+                                      size.width * 0.01,
+                                      size.width * 0.02
+                                  ),
+                                  child: Container(
+                                    height: size.height * 0.2,
+                                    width: size.width,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(size.width * 0.02),
+                                        //color: Colors.purple
+                                        gradient: const LinearGradient(
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                            colors: [Colors.purpleAccent , Colors.lightBlue]
+                                        )
+                                    ),
+                                    margin: EdgeInsets.fromLTRB(
+                                        size.width * 0.02,
+                                        size.width * 0,
+                                        size.width * 0.02,
+                                        size.width * 0
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                          size.width * 0.05,
+                                          size.width * 0.15,
+                                          size.width * 0.05,
+                                          size.width * 0.15
+                                      ),
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  '${constJuza/30 * 100}%',
+
+                                                  maxLines: 1,
+                                                  textAlign: TextAlign.left,
+                                                  style: TextStyle(
+                                                      fontSize: size.width * 0.04,
+                                                      fontWeight: FontWeight.w600,
+                                                      color: Colors.white
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 3,
+                                                child: Text(
+                                                  'معدل الختمة (للمره الواحدة)',
+                                                  textAlign: TextAlign.right,
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: size.width * 0.04,
+                                                      fontWeight: FontWeight.w600
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(height: size.height* 0.02,),
+                                          LinearProgressIndicator(
+                                            value: constJuza/30,
+                                            color: Colors.white,
+                                            backgroundColor: Colors.grey.shade700,
+                                            minHeight: size.height * 0.01,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: size.height * 0.05),
                                 Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(size.width * 0.02),
@@ -234,103 +310,32 @@ class MarkerScreen extends StatelessWidget {
                                             ),
                                           ),
                                           if (constAyahNum !=0)
-                                          ListTile(
-                                            title: TextButton(
-                                                onPressed: ()
-                                                {
-                                                  navigateTo(context, SouraScreen(
-                                                    numOfSoura: constSurahNum,
-                                                    sourahName: quran.getSurahNameArabic(constSurahNum),
-                                                  ),
-                                                  );
-                                                },
-                                                child: Text(
-                                                  'اضغط لتكملة القراءة' ,
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: size.width * 0.06
-                                                  ),
-                                                )
-                                            ),
+                                            ListTile(
+                                              title: TextButton(
+                                                  onPressed: ()
+                                                  {
+                                                    navigateTo(context, SouraScreen(
+                                                      numOfSoura: constSurahNum,
+                                                      sourahName: quran.getSurahNameArabic(constSurahNum),
+                                                    ),
+                                                    );
+                                                  },
+                                                  child: Text(
+                                                    'اضغط لتكملة القراءة' ,
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: size.width * 0.06
+                                                    ),
+                                                  )
+                                              ),
 
-                                          ),
+                                            ),
 
                                         ],
                                       ),
                                     ],
-                                  ),
-                                ),
-                                SizedBox(height: size.height * 0.03),
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(
-                                      size.width * 0.01,
-                                      size.width * 0.02,
-                                      size.width * 0.01,
-                                      size.width * 0.02
-                                  ),
-                                  child: Container(
-                                    height: size.height * 0.2,
-                                    width: size.width,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(size.width * 0.02),
-                                        //color: Colors.purple
-                                        gradient: const LinearGradient(
-                                            begin: Alignment.topCenter,
-                                            end: Alignment.bottomCenter,
-                                            colors: [Colors.purpleAccent , Colors.lightBlue]
-                                        )
-                                    ),
-                                    margin: EdgeInsets.all(size.width * 0.05),
-                                    child: Padding(
-                                      padding: EdgeInsets.fromLTRB(
-                                          size.width * 0.05,
-                                          size.width * 0.15,
-                                          size.width * 0.05,
-                                          size.width * 0.15
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  '${constJuza/30 * 100}%',
-
-                                                  maxLines: 1,
-                                                  textAlign: TextAlign.left,
-                                                  style: TextStyle(
-                                                      fontSize: size.width * 0.04,
-                                                      fontWeight: FontWeight.w600,
-                                                      color: Colors.white
-                                                  ),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                flex: 3,
-                                                child: Text(
-                                                  'معدل الختمة (للمره الواحدة)',
-                                                  textAlign: TextAlign.right,
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: size.width * 0.04,
-                                                      fontWeight: FontWeight.w600
-                                                  ),
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                          SizedBox(height: size.height* 0.02,),
-                                          LinearProgressIndicator(
-                                            value: constJuza/30,
-                                            color: Colors.white,
-                                            backgroundColor: Colors.grey.shade700,
-                                            minHeight: size.height * 0.01,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
                                   ),
                                 ),
                                 SizedBox(height: size.height * 0.03),
@@ -360,14 +365,6 @@ class MarkerScreen extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(height: size.height * 0.03),
-                                Text(
-                                  'اختم خلال شهر',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: size.width * mainFontSize,
-                                  ),
-                                ),
-                                SizedBox(height: size.height * 0.03,),
                                 Container(
                                   margin: EdgeInsets.fromLTRB(
                                       size.width * marginLeft,
@@ -382,6 +379,14 @@ class MarkerScreen extends StatelessWidget {
                                   //color: Colors.blueGrey.withOpacity(0.3),
                                   child: Column(
                                     children: [
+                                      Text(
+                                        'اختم خلال شهر',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: size.width * mainFontSize,
+                                          color: Colors.white
+                                        ),
+                                      ),
                                       chooseKhetma(
                                         mainText: 'مره واحده',
                                         mainTextSize: size.width * mainFontSize,
@@ -445,6 +450,7 @@ class MarkerScreen extends StatelessWidget {
                                     ],
                                   ),
                                 ),
+                                SizedBox(height: size.height * 0.01),
                               ],
                             ),
                         ],

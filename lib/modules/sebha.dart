@@ -9,14 +9,12 @@ import 'package:nakhtm/shared/components/constants.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
-
 class SebhaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
     tz.initializeTimeZones();
     final location = tz.getLocation('Africa/Cairo');
-
     DateTime date = tz.TZDateTime.from(DateTime.now(), location);
     Coordinates coordinates = Coordinates(26.820553, 30.802498);
     CalculationParameters params = CalculationMethod.MuslimWorldLeague();
@@ -32,7 +30,6 @@ class SebhaScreen extends StatelessWidget {
     String next = prayerTimes.nextPrayer();
     SunnahTimes sunnahTimes = SunnahTimes(prayerTimes);
     DateTime lastThirdOfTheNight = tz.TZDateTime.from(sunnahTimes.lastThirdOfTheNight, location);
-
     Size size = MediaQuery.of(context).size;
 
     return BlocConsumer<AppCubit,AppStates>(
@@ -557,6 +554,7 @@ class SebhaScreen extends StatelessWidget {
                             ],
                           ),
                         ),
+                        SizedBox(height: size.height * 0.01),
                       ],
                     ),
                   )

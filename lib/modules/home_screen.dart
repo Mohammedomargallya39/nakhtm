@@ -27,8 +27,6 @@ class HomeScreen extends StatelessWidget {
                     height: size.height * 0.3,
                     width: size.width,
                   ),
-                  //SizedBox(height: size.height * 0.04,),
-                  //ExpansionTile(title: title),
                   SizedBox(height: size.height * 0.04,),
                   Container(
                     decoration: BoxDecoration(
@@ -738,6 +736,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  SizedBox(height: size.height * 0.01),
                 ],
               ),
             )

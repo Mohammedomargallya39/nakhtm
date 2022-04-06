@@ -25,7 +25,7 @@ class _SouraScreen extends State<SouraScreen>{
 
   Future scrollToItem() async
   {
-    widget.itemController.jumpTo(index:constAyahNum -1);
+    widget.itemController.scrollTo(index:constAyahNum -1, duration: const Duration(seconds: 1));
   }
 
   @override
@@ -35,6 +35,7 @@ class _SouraScreen extends State<SouraScreen>{
       WidgetsBinding.instance!.addPostFrameCallback((_) => scrollToItem());
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,7 @@ class _SouraScreen extends State<SouraScreen>{
                         size.width * 0.03,
                         size.height * 0.02
                     ),
-                    child:Column(
+                    child: Column(
                       children: [
                         Container(
                           decoration: BoxDecoration(
@@ -273,8 +274,8 @@ class _SouraScreen extends State<SouraScreen>{
                           ),
                         SizedBox(height: size.height * 0.03,),
                         Expanded(
-                          flex:  20,
                           child: ScrollablePositionedList.separated(
+                              shrinkWrap: true,
                               physics: const BouncingScrollPhysics(),
                               itemScrollController: widget.itemController,
                               separatorBuilder: (context,index)
