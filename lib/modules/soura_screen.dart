@@ -283,11 +283,6 @@ class _SouraScreen extends State<SouraScreen>{
                             ),
                           ),
                         SizedBox(height: size.height * 0.03,),
-
-
-
-
-
                         Expanded(
                           flex:  20,
                           child: ScrollablePositionedList.separated(
@@ -308,7 +303,6 @@ class _SouraScreen extends State<SouraScreen>{
                                   title: InkWell(
                                     onDoubleTap: ()
                                     {
-                                      AppCubit.get(context).lastRead();
                                       AppCubit.get(context).juza = quran.getJuzNumber(widget.numOfSoura, index + 1);
                                       AppCubit.get(context).surahName = widget.sourahName;
                                       AppCubit.get(context).ayah = (quran.getVerse(widget.numOfSoura, index + 1,));
@@ -316,18 +310,21 @@ class _SouraScreen extends State<SouraScreen>{
                                       AppCubit.get(context).surahNum = widget.numOfSoura;
                                       AppCubit.get(context).ayatSurahNum = quran.getVerseCount(widget.numOfSoura);
 
-                                      print(constAyah);
-                                      print(constJuza);
-                                      print(constAyahNum);
-                                      print(constSurahName);
-                                      print(constSurahNum);
-
                                       CacheHelper.saveData(key: 'juza', value: AppCubit.get(context).juza);
                                       CacheHelper.saveData(key: 'surahName', value: AppCubit.get(context).surahName);
                                       CacheHelper.saveData(key: 'ayah', value: AppCubit.get(context).ayah);
                                       CacheHelper.saveData(key: 'ayahNum', value: AppCubit.get(context).ayahNum);
                                       CacheHelper.saveData(key: 'surahNum', value: AppCubit.get(context).surahNum);
                                       CacheHelper.saveData(key: 'ayatSurahNum', value: AppCubit.get(context).ayatSurahNum);
+
+                                      AppCubit.get(context).lastRead();
+
+                                      constJuza = AppCubit.get(context).juza!;
+                                      constSurahName = AppCubit.get(context).surahName! ;
+                                      constAyah = AppCubit.get(context).ayah!;
+                                      constAyahNum = AppCubit.get(context).ayahNum!;
+                                      constSurahNum = AppCubit.get(context).surahNum!;
+                                      constAyatSurahNum = AppCubit.get(context).ayatSurahNum!;
 
                                       showToast(message: 'تم حفظ آخر ما قرأت بنجاح', state: ToastStates.SUCCESS);
 

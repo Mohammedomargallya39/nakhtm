@@ -36,7 +36,7 @@ class MarkerScreen extends StatelessWidget {
                       physics: const BouncingScrollPhysics(),
                       child: Column(
                         children: [
-                          SizedBox(height: size.height * 0.11),
+                          SizedBox(height: size.height * 0.05),
                           Column(
                               children: [
                                 Container(
@@ -61,23 +61,12 @@ class MarkerScreen extends StatelessWidget {
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: size.width * 0.05
+                                                  fontSize: size.width * mainFontSize
                                               ),
                                             ),
                                           ],
                                         ),
                                       ],
-                                    ),
-                                    trailing: Padding(
-                                      padding: EdgeInsets.fromLTRB(
-                                        size.width * 0.02,
-                                        size.width * 0.02,
-                                        size.width * 0.02,
-                                        size.width * 0.02,
-                                      ),
-                                      child: Icon(
-                                        Icons.arrow_drop_down, color: Colors.white, size: size.width * 0.05,
-                                      ),
                                     ),
                                     children: [
                                       Column(
@@ -93,14 +82,14 @@ class MarkerScreen extends StatelessWidget {
                                             title: Row(
                                               children: [
                                                 Expanded(
-                                                  flex: 4,
+                                                  flex: 1,
                                                   child: Text(
                                                     // AppCubit.get(context).sharedSurahName,
                                                     constSurahName,
                                                     textAlign: TextAlign.left,
                                                     style: TextStyle(
                                                         color: Colors.white,
-                                                        fontSize: size.width * 0.06
+                                                        fontSize: size.width * thirdFontSize
                                                     ),
                                                   ),
                                                 ),
@@ -113,7 +102,7 @@ class MarkerScreen extends StatelessWidget {
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * 0.05
+                                                        fontSize: size.width * secondFontSize
                                                     ),
                                                   ),
                                                 ),
@@ -132,7 +121,7 @@ class MarkerScreen extends StatelessWidget {
                                             title: Row(
                                               children: [
                                                 Expanded(
-                                                  flex: 4,
+                                                  flex: 1,
                                                   child: Text(
                                                     // AppCubit.get(context).sharedAyah,
                                                     constAyah,
@@ -141,7 +130,7 @@ class MarkerScreen extends StatelessWidget {
                                                     overflow: TextOverflow.ellipsis,
                                                     style: TextStyle(
                                                         color: Colors.white,
-                                                        fontSize: size.width * 0.06
+                                                        fontSize: size.width * thirdFontSize
                                                     ),
                                                   ),
                                                 ),
@@ -154,7 +143,7 @@ class MarkerScreen extends StatelessWidget {
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * 0.05
+                                                        fontSize: size.width * secondFontSize
                                                     ),
                                                   ),
                                                 ),
@@ -172,14 +161,14 @@ class MarkerScreen extends StatelessWidget {
                                             title: Row(
                                               children: [
                                                 Expanded(
-                                                  flex: 4,
+                                                  flex: 1,
                                                   child: Text(
                                                     // '${AppCubit.get(context).sharedAyahNum}',
                                                     '$constAyahNum' ,
                                                     textAlign: TextAlign.left,
                                                     style: TextStyle(
                                                         color: Colors.white,
-                                                        fontSize: size.width * 0.06
+                                                        fontSize: size.width * thirdFontSize
                                                     ),
                                                   ),
                                                 ),
@@ -192,7 +181,7 @@ class MarkerScreen extends StatelessWidget {
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * 0.05
+                                                        fontSize: size.width * secondFontSize
                                                     ),
                                                   ),
                                                 ),
@@ -210,14 +199,14 @@ class MarkerScreen extends StatelessWidget {
                                             title: Row(
                                               children: [
                                                 Expanded(
-                                                  flex: 4,
+                                                  flex: 1,
                                                   child: Text(
                                                     // '${AppCubit.get(context).sharedJuza}' ,
                                                     '$constJuza',
                                                     textAlign: TextAlign.left,
                                                     style: TextStyle(
                                                         color: Colors.white,
-                                                        fontSize: size.width * 0.06
+                                                        fontSize: size.width * thirdFontSize
                                                     ),
                                                   ),
                                                 ),
@@ -230,7 +219,7 @@ class MarkerScreen extends StatelessWidget {
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * 0.05
+                                                        fontSize: size.width * secondFontSize
                                                     ),
                                                   ),
                                                 ),
@@ -244,6 +233,7 @@ class MarkerScreen extends StatelessWidget {
                                               color: Colors.black,
                                             ),
                                           ),
+                                          if (constAyahNum !=0)
                                           ListTile(
                                             title: TextButton(
                                                 onPressed: ()
@@ -272,7 +262,7 @@ class MarkerScreen extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: size.height * 0.05),
+                                SizedBox(height: size.height * 0.03),
                                 Padding(
                                   padding: EdgeInsets.fromLTRB(
                                       size.width * 0.01,
@@ -288,8 +278,8 @@ class MarkerScreen extends StatelessWidget {
                                         //color: Colors.purple
                                         gradient: const LinearGradient(
                                             begin: Alignment.topCenter,
-                                            end: Alignment.bottomRight,
-                                            colors: [Colors.purple , Colors.blue]
+                                            end: Alignment.bottomCenter,
+                                            colors: [Colors.purpleAccent , Colors.lightBlue]
                                         )
                                     ),
                                     margin: EdgeInsets.all(size.width * 0.05),
@@ -343,7 +333,7 @@ class MarkerScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: size.height * 0.05),
+                                SizedBox(height: size.height * 0.03),
                                 Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(size.width * 0.02),
@@ -367,6 +357,92 @@ class MarkerScreen extends StatelessWidget {
                                             color: Colors.white
                                         ),
                                       ),
+                                  ),
+                                ),
+                                SizedBox(height: size.height * 0.03),
+                                Text(
+                                  'اختم خلال شهر',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: size.width * mainFontSize,
+                                  ),
+                                ),
+                                SizedBox(height: size.height * 0.03,),
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(
+                                      size.width * marginLeft,
+                                      size.width * marginTop,
+                                      size.width * marginRight,
+                                      size.width * marginBottom
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.cyan,
+                                    borderRadius: BorderRadius.circular(size.width * 0.02),
+                                  ),
+                                  //color: Colors.blueGrey.withOpacity(0.3),
+                                  child: Column(
+                                    children: [
+                                      chooseKhetma(
+                                        mainText: 'مره واحده',
+                                        mainTextSize: size.width * mainFontSize,
+                                        secondreyMainFontSize: size.width * secondFontSize,
+                                        sizedBoxWidth: size.width * thirdFontSize,
+                                        thirdFontSize: size.width * 0.039,
+                                        numOfElfagr: '4 صفحات',
+                                        sizedBoxHeight: size.height * 0.02,
+                                      ),
+                                      SizedBox(height: size.height * 0.02,),
+                                      chooseKhetma(
+                                        mainText: 'مرتان',
+                                        mainTextSize: size.width * mainFontSize,
+                                        secondreyMainFontSize: size.width * secondFontSize,
+                                        sizedBoxWidth: size.width * 0.02,
+                                        thirdFontSize: size.width * thirdFontSize,
+                                        numOfElfagr: '8 صفحات',
+                                        sizedBoxHeight: size.height * 0.02,
+                                      ),
+                                      SizedBox(height: size.height * 0.02,),
+                                      chooseKhetma(
+                                        mainText: 'ثلاث مرات',
+                                        mainTextSize: size.width * mainFontSize,
+                                        secondreyMainFontSize: size.width * secondFontSize,
+                                        sizedBoxWidth: size.width * 0.02,
+                                        thirdFontSize: size.width * thirdFontSize,
+                                        numOfElfagr: '12 صفحات',
+                                        sizedBoxHeight: size.height * 0.02,
+                                      ),
+                                      SizedBox(height: size.height * 0.02,),
+                                      chooseKhetma(
+                                        mainText: 'خمس مرات',
+                                        mainTextSize: size.width * mainFontSize,
+                                        secondreyMainFontSize: size.width * secondFontSize,
+                                        sizedBoxWidth: size.width * 0.02,
+                                        thirdFontSize: size.width * thirdFontSize,
+                                        numOfElfagr: '20 صفحات',
+                                        sizedBoxHeight: size.height * 0.02,
+                                      ),
+                                      SizedBox(height: size.height * 0.02,),
+                                      chooseKhetma(
+                                        mainText: 'ست مرات',
+                                        mainTextSize: size.width * mainFontSize,
+                                        secondreyMainFontSize: size.width * secondFontSize,
+                                        sizedBoxWidth: size.width * 0.02,
+                                        thirdFontSize: size.width * thirdFontSize,
+                                        numOfElfagr: '24 صفحات',
+                                        sizedBoxHeight: size.height * 0.02,
+                                      ),
+                                      SizedBox(height: size.height * 0.02,),
+                                      chooseKhetma(
+                                        mainText: 'عشر مرات',
+                                        mainTextSize: size.width * mainFontSize,
+                                        secondreyMainFontSize: size.width * secondFontSize,
+                                        sizedBoxWidth: size.width * 0.02,
+                                        thirdFontSize: size.width * thirdFontSize,
+                                        numOfElfagr: '40 صفحات',
+                                        sizedBoxHeight: size.height * 0.02,
+                                      ),
+                                      SizedBox(height: size.height * 0.02,),
+                                    ],
                                   ),
                                 ),
                               ],

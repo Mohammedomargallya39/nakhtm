@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nakhtm/cubit/states.dart';
+import 'package:nakhtm/shared/components/constants.dart';
 import '../cubit/cubit.dart';
 import '../shared/components/components.dart';
 import 'soura_screen.dart';
@@ -56,29 +57,29 @@ class QuranScreen extends StatelessWidget {
                         ),
                         width: size.width,
                         margin: EdgeInsets.fromLTRB(
-                            size.width * 0.02,
-                            0,
-                            size.width * 0.02,
-                            0
+                            size.width * marginLeft,
+                            size.width * marginTop,
+                            size.width * marginRight,
+                            size.width * marginBottom
                         ),
                         child: ExpansionTile(
                           title: Text(
                             'معلومات عن القرآن',
                             style: TextStyle(
-                                fontSize: size.width * 0.06,
+                                fontSize: size.width * mainFontSize,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white
                             ),
                           ),
                           trailing: Padding(
                             padding: EdgeInsets.fromLTRB(
-                              size.width * 0.02,
-                              size.width * 0.02,
-                              size.width * 0.02,
-                              size.width * 0.02,
+                              size.width * trailingPadding,
+                              size.width * trailingPadding,
+                              size.width * trailingPadding,
+                              size.width * trailingPadding,
                             ),
                             child: Icon(
-                              Icons.arrow_drop_down, color: Colors.white, size: size.width * 0.05,
+                              Icons.arrow_drop_down, color: Colors.white, size: size.width * trailingIconSize,
                             ),
                           ),
                           children: [
@@ -93,7 +94,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05
+                                              fontSize: size.width * thirdFontSize
                                           ),
                                         ),
                                       ),
@@ -104,7 +105,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.right,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05,
+                                              fontSize: size.width * secondFontSize,
                                               fontWeight: FontWeight.bold
                                           ),
                                         ),
@@ -121,7 +122,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05
+                                              fontSize: size.width * thirdFontSize
                                           ),
                                         ),
                                       ),
@@ -132,7 +133,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.right,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05,
+                                              fontSize: size.width * secondFontSize,
                                               fontWeight: FontWeight.bold
                                           ),
                                         ),
@@ -149,7 +150,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05
+                                              fontSize: size.width * thirdFontSize
                                           ),
                                         ),
                                       ),
@@ -160,7 +161,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.right,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05,
+                                              fontSize: size.width * secondFontSize,
                                               fontWeight: FontWeight.bold
                                           ),
                                         ),
@@ -177,7 +178,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05
+                                              fontSize: size.width * thirdFontSize
                                           ),
                                         ),
                                       ),
@@ -188,7 +189,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.right,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05,
+                                              fontSize: size.width * secondFontSize,
                                               fontWeight: FontWeight.bold
                                           ),
                                         ),
@@ -206,7 +207,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05
+                                              fontSize: size.width * thirdFontSize
                                           ),
                                         ),
                                       ),
@@ -218,7 +219,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.right,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05,
+                                              fontSize: size.width * secondFontSize,
                                               fontWeight: FontWeight.bold
                                           ),
                                         ),
@@ -236,7 +237,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05
+                                              fontSize: size.width * thirdFontSize
                                           ),
                                         ),
                                       ),
@@ -248,7 +249,7 @@ class QuranScreen extends StatelessWidget {
                                           textAlign: TextAlign.right,
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: size.width * 0.05,
+                                              fontSize: size.width * secondFontSize,
                                               fontWeight: FontWeight.bold
                                           ),
                                         ),
@@ -262,7 +263,7 @@ class QuranScreen extends StatelessWidget {
 
                         ),
                       ),
-                      SizedBox(height: size.height * 0.05),
+                      SizedBox(height: size.height * 0.04),
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(size.width * 0.02),
@@ -270,29 +271,29 @@ class QuranScreen extends StatelessWidget {
                         ),
                         width: size.width,
                         margin: EdgeInsets.fromLTRB(
-                            size.width * 0.02,
-                            0,
-                            size.width * 0.02,
-                            0
+                            size.width * marginLeft,
+                            size.width * marginTop,
+                            size.width * marginRight,
+                            size.width * marginBottom,
                         ),
                         child: ExpansionTile(
                           title: Text(
                             'السور',
                             style: TextStyle(
-                                fontSize: size.width * 0.06,
+                                fontSize: size.width * mainFontSize,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white
                             ),
                           ),
                           trailing: Padding(
                             padding: EdgeInsets.fromLTRB(
-                              size.width * 0.02,
-                              size.width * 0.02,
-                              size.width * 0.02,
-                              size.width * 0.02,
+                              size.width * trailingPadding,
+                              size.width * trailingPadding,
+                              size.width * trailingPadding,
+                              size.width * trailingPadding,
                             ),
                             child: Icon(
-                              Icons.arrow_drop_down, color: Colors.white, size: size.width * 0.05,
+                              Icons.arrow_drop_down, color: Colors.white, size: size.width * trailingIconSize,
                             ),
                           ),
                           children: [
@@ -306,14 +307,11 @@ class QuranScreen extends StatelessWidget {
                                     SizedBox(height: size.height * 0.02,),
                                     InkWell(
                                       child: soura(
-                                        firstContainerWidth: size.width,
-                                        firstContainerHeight: size.height * 0.07,
                                         secondContainerWidth: size.width * 0.2,
-                                        secondContainerHeight: size.height * 0.07,
                                         souraNum: souraNum[index],
-                                        souraNumSize: size.width * 0.05,
+                                        souraNumSize: size.width * thirdFontSize,
                                         souraName: quran.getSurahNameArabic(int.parse(souraNum[index])),
-                                        souraNameSize: size.width * 0.05,
+                                        souraNameSize: size.width * secondFontSize,
                                         bottomMargin: size.height * 0.01,
                                         leftMargin: size.width * 0,
                                         rightMargin: size.width * 0,
@@ -325,7 +323,7 @@ class QuranScreen extends StatelessWidget {
                                         souraNumColor: Colors.white,
                                         souraNumWeight: FontWeight.bold,
                                         bottomPadding: size.height * 0,
-                                        leftPadding: size.width * 0,
+                                        leftPadding: size.width * 0.04,
                                         rightPadding: size.width * 0.04,
                                         topPadding: size.height * 0,
                                       ),

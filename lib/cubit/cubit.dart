@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nakhtm/shared/components/constants.dart';
 import 'states.dart';
@@ -30,47 +31,28 @@ class AppCubit extends Cubit<AppStates> {
   int? surahNum = 0;
   String? surahName = 'لم تقرأ بعد';
   String? ayah = 'لم تقرأ بعد';
-  void lastRead(
-      // {
-      // required String sharedSurahName,
-      // required String sharedAyah,
-      // required int sharedAyahNum,
-      // required int sharedJuza
-      // }
-      )
+  void lastRead()
   {
-
+    debugPrint('juza is $juza');
+    debugPrint('ayah num is $ayahNum');
+    debugPrint('ayat surah num is $ayatSurahNum');
+    debugPrint('surah num is $surahNum');
+    debugPrint('surah name is $surahName');
+    debugPrint('ayah is $ayah');
+    constJuza =juza! ;
+    constAyahNum = ayahNum! ;
+    constAyatSurahNum = ayatSurahNum! ;
+    constSurahNum = surahNum! ;
+    constSurahName = surahName!;
+    constAyah = ayah!;
+    debugPrint('shared juza is $constJuza');
+    debugPrint('shared ayah num is $constAyahNum');
+    debugPrint('shared ayat surah num is $constAyatSurahNum');
+    debugPrint('shared surah num is $constSurahNum');
+    debugPrint('shared surah name is $constSurahName');
+    debugPrint('shared ayah is $constAyah');
     emit(LastRead());
 
-    // // ignore: unnecessary_null_comparison
-    // if (sharedSurahName != null || sharedAyah != null || sharedAyahNum != null || sharedJuza != null) {
-    //   juza = sharedJuza;
-    //   ayah = sharedAyah;
-    //   ayahNum = sharedAyahNum;
-    //   surahName = sharedSurahName;
-    //   emit(LastRead());
-    // } else {
-    //   juza;
-    //   ayah;
-    //   ayahNum;
-    //   surahName;
-    //   CacheHelper.saveData(key: 'juza', value: juza).then((value)
-    //   {
-    //     emit(LastRead());
-    //   });
-    //   CacheHelper.saveData(key: 'surahName', value: surahName).then((value)
-    //   {
-    //     emit(LastRead());
-    //   });
-    //   CacheHelper.saveData(key: 'ayah', value: ayah).then((value)
-    //   {
-    //     emit(LastRead());
-    //   });
-    //   CacheHelper.saveData(key: 'ayahNum', value: ayahNum).then((value)
-    //   {
-    //
-    //   });
-    // }
   }
 
 }

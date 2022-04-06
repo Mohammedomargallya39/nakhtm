@@ -156,15 +156,11 @@ Widget chooseKhetma(
       {
         required String mainText,
         required double mainTextSize,
-        required double leftPaddingTrailing,
-        required double topPaddingTrailing,
-        required double rightPaddingTrailing,
-        required double bottomPaddingTrailing,
-        required double iconTrailingSize,
         required double secondreyMainFontSize,
         required double sizedBoxWidth,
         required double thirdFontSize,
         required String numOfElfagr,
+        required double sizedBoxHeight,
 
       }
     )
@@ -186,17 +182,6 @@ Widget chooseKhetma(
         ),
       ],
     ),
-    trailing: Padding(
-      padding: EdgeInsets.fromLTRB(
-        leftPaddingTrailing,
-        topPaddingTrailing,
-        rightPaddingTrailing,
-        bottomPaddingTrailing,
-      ),
-      child: Icon(
-        Icons.arrow_drop_down, color: Colors.white, size: iconTrailingSize,
-      ),
-    ),
     children: [
       Column(
         children: [
@@ -207,9 +192,9 @@ Widget chooseKhetma(
                   flex: 1,
                   child: Text(
                     'الفجر' ,
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -222,7 +207,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -230,6 +215,7 @@ Widget chooseKhetma(
               ],
             ),
           ),
+          SizedBox(height: sizedBoxHeight,),
           ListTile(
             title: Row(
               children: [
@@ -237,9 +223,9 @@ Widget chooseKhetma(
                   flex: 1,
                   child: Text(
                     'الظهر' ,
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -252,7 +238,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -260,6 +246,7 @@ Widget chooseKhetma(
               ],
             ),
           ),
+          SizedBox(height: sizedBoxHeight,),
           ListTile(
             title: Row(
               children: [
@@ -267,9 +254,9 @@ Widget chooseKhetma(
                   flex: 1,
                   child: Text(
                     'العصر' ,
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -282,7 +269,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -290,6 +277,7 @@ Widget chooseKhetma(
               ],
             ),
           ),
+          SizedBox(height: sizedBoxHeight,),
           ListTile(
             title: Row(
               children: [
@@ -297,9 +285,9 @@ Widget chooseKhetma(
                   flex: 1,
                   child: Text(
                     'المغرب' ,
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -312,7 +300,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -320,6 +308,7 @@ Widget chooseKhetma(
               ],
             ),
           ),
+          SizedBox(height: sizedBoxHeight,),
           ListTile(
             title: Row(
               children: [
@@ -327,9 +316,9 @@ Widget chooseKhetma(
                   flex: 1,
                   child: Text(
                     'العشاء' ,
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
                     ),
@@ -342,7 +331,7 @@ Widget chooseKhetma(
                     numOfElfagr ,
                     textAlign: TextAlign.right,
                     style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
+                        color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
@@ -360,11 +349,6 @@ Widget expentionTile(
     {
       required String mainText,
       required double mainTextSize,
-      required double leftPaddingTrailing,
-      required double topPaddingTrailing,
-      required double rightPaddingTrailing,
-      required double bottomPaddingTrailing,
-      required double iconTrailingSize,
       required double secondreyMainFontSize,
       required double sizedBoxWidth,
       required double thirdFontSize,
@@ -398,23 +382,24 @@ Widget expentionTile(
         ),
       ],
     ),
-    trailing: Padding(
-      padding: EdgeInsets.fromLTRB(
-        leftPaddingTrailing,
-        topPaddingTrailing,
-        rightPaddingTrailing,
-        bottomPaddingTrailing,
-      ),
-      child: Icon(
-        Icons.arrow_drop_down, color: Colors.white, size: iconTrailingSize,
-      ),
-    ),
     children: [
       Column(
         children: [
           ListTile(
             title: Row(
               children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    current ,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: thirdFontSize
+                    ),
+                  ),
+                ),
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -427,24 +412,24 @@ Widget expentionTile(
                     ),
                   ),
                 ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    current ,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
           ListTile(
             title: Row(
               children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    next ,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: thirdFontSize
+                    ),
+                  ),
+                ),
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -457,25 +442,24 @@ Widget expentionTile(
                     ),
                   ),
                 ),
-                SizedBox(width: sizedBoxWidth,),
+              ],
+            ),
+          ),
+          ListTile(
+            title: Row(
+              children: [
                 Expanded(
-                  flex: 4,
+                  flex: 2,
                   child: Text(
-                    next ,
-                    textAlign: TextAlign.center,
+                    elFagrText ,
+                    textAlign: TextAlign.left,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-          //,,,,,,,,,,
-          ListTile(
-            title: Row(
-              children: [
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -488,24 +472,24 @@ Widget expentionTile(
                     ),
                   ),
                 ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    elFagrText ,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
           ListTile(
             title: Row(
               children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    elDuhaText ,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: thirdFontSize
+                    ),
+                  ),
+                ),
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -518,24 +502,24 @@ Widget expentionTile(
                     ),
                   ),
                 ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    elDuhaText ,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
           ListTile(
             title: Row(
               children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    elZuhrText ,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: thirdFontSize
+                    ),
+                  ),
+                ),
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -548,24 +532,24 @@ Widget expentionTile(
                     ),
                   ),
                 ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    elZuhrText ,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
           ListTile(
             title: Row(
               children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    elAsrText ,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: thirdFontSize
+                    ),
+                  ),
+                ),
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -578,24 +562,24 @@ Widget expentionTile(
                     ),
                   ),
                 ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    elAsrText ,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
           ListTile(
             title: Row(
               children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    elMaghrebText ,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: thirdFontSize
+                    ),
+                  ),
+                ),
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -608,24 +592,24 @@ Widget expentionTile(
                     ),
                   ),
                 ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    elMaghrebText ,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
           ListTile(
             title: Row(
               children: [
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    elEshaaText ,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: thirdFontSize
+                    ),
+                  ),
+                ),
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -638,25 +622,24 @@ Widget expentionTile(
                     ),
                   ),
                 ),
-                SizedBox(width: sizedBoxWidth,),
+              ],
+            ),
+          ),
+          ListTile(
+            title: Row(
+              children: [
                 Expanded(
-                  flex: 4,
+                  flex: 2,
                   child: Text(
-                    elEshaaText ,
-                    textAlign: TextAlign.center,
+                    qiamAlayl ,
+                    textAlign: TextAlign.left,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: thirdFontSize
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-          //........
-          ListTile(
-            title: Row(
-              children: [
+                SizedBox(width: sizedBoxWidth,),
                 Expanded(
                   flex: 2,
                   child: Text(
@@ -666,18 +649,6 @@ Widget expentionTile(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: secondreyMainFontSize
-                    ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    qiamAlayl ,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
                     ),
                   ),
                 ),
@@ -692,11 +663,8 @@ Widget expentionTile(
 
 Widget soura(
 {
-  required double firstContainerWidth,
-  required double firstContainerHeight,
   dynamic firstContainerColor,
   required double secondContainerWidth,
-  required double secondContainerHeight,
   dynamic secondContainerColor,
   required String souraNum,
   dynamic souraNumColor,
@@ -714,15 +682,10 @@ Widget soura(
   required double rightPadding,
   required double topPadding,
   required double bottomPadding,
-
-
-
 }
     )
 {
   return Container(
-    width: firstContainerWidth,
-    height: firstContainerHeight,
     margin: EdgeInsets.fromLTRB(
         leftMargin,
         topMargin,
@@ -733,47 +696,40 @@ Widget soura(
       color: firstContainerColor,
       borderRadius: BorderRadius.circular(20),
     ),
-    child: Row(
-      children: [
-        Container(
-          width: secondContainerWidth,
-          height: secondContainerHeight,
-          decoration: BoxDecoration(
-            color: secondContainerColor,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Center(
-            child: Text(
-              souraNum,
-              style: TextStyle(
-                color: souraNumColor,
-                fontSize: souraNumSize,
-                fontWeight: souraNumWeight,
-              ),
+    child: Padding(
+      padding: EdgeInsets.fromLTRB(
+          leftPadding,
+          topPadding,
+          rightPadding,
+          bottomPadding
+      ),
+      child: Row(
+        children: [
+          Text(
+            souraNum,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: souraNumColor,
+              fontSize: souraNumSize,
+              fontWeight: souraNumWeight,
             ),
           ),
-        ),
-        const Spacer(),
-        Padding(
-          padding: EdgeInsets.fromLTRB(
-              leftPadding,
-              topPadding,
-              rightPadding,
-              bottomPadding
-          ),
-          child: Text(
+          const Spacer(),
+          Text(
             souraName,
+            textAlign: TextAlign.right,
             style: TextStyle(
               color: souraNameColor,
               fontSize: souraNameSize,
               fontWeight: souraNameWeight,
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }
+
 
 Widget listTiles ( {
   required mainText,

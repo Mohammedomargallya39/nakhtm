@@ -5,6 +5,7 @@ import 'package:nakhtm/cubit/cubit.dart';
 import 'package:nakhtm/cubit/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nakhtm/shared/components/components.dart';
+import 'package:nakhtm/shared/components/constants.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -61,26 +62,21 @@ class SebhaScreen extends StatelessWidget {
                         SizedBox(height: size.height * 0.04,),
                         Container(
                           margin: EdgeInsets.fromLTRB(
-                              size.width * 0.05,
-                              size.width * 0,
-                              size.width * 0.05,
-                              size.width * 0
+                              size.width * marginLeft,
+                              size.width * marginTop,
+                              size.width * marginRight,
+                              size.width * marginBottom
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.cyan.withOpacity(0.7),
-                            borderRadius: BorderRadius.circular(size.width * 0.05),
+                            color: Colors.cyan,
+                            borderRadius: BorderRadius.circular(size.width * 0.02),
                           ),
                           child: expentionTile(
                             mainText: "مواعيد الصلاة",
-                            mainTextSize: size.width * 0.07,
-                            leftPaddingTrailing: size.width * 0.02,
-                            topPaddingTrailing: size.height * 0.01,
-                            rightPaddingTrailing: size.width * 0.02,
-                            bottomPaddingTrailing: size.height * 0.04,
-                            iconTrailingSize: size.width * 0.06,
-                            secondreyMainFontSize: size.width * 0.04,
+                            mainTextSize: size.width * mainFontSize,
+                            secondreyMainFontSize: size.width * thirdFontSize,
                             sizedBoxWidth: size.width * 0.03,
-                            thirdFontSize: size.width * 0.04,
+                            thirdFontSize: size.width * thirdFontSize,
                             elFagrText: '$fajrTime'.substring(11,19),
                             elDuhaText: '$sunriseTime'.substring(11,19),
                             elZuhrText: '$dhuhrTime'.substring(11,19),
@@ -90,34 +86,27 @@ class SebhaScreen extends StatelessWidget {
                             qiamAlayl: '$lastThirdOfTheNight'.substring(11,19),
                             current: current,
                             next: next,
-
                           ),
                         ),
                         SizedBox(height: size.height * 0.04,),
                         Container(
-                          margin: EdgeInsets.all(size.width * 0.05),
+                          margin: EdgeInsets.fromLTRB(
+                              size.width * marginLeft,
+                              size.width * marginTop,
+                              size.width * marginRight,
+                              size.width * marginBottom
+                          ),
                           decoration: BoxDecoration(
-                            color: Colors.cyan.withOpacity(0.7),
-                            borderRadius: BorderRadius.circular(size.width * 0.05),
+                            color: Colors.cyan,
+                            borderRadius: BorderRadius.circular(size.width * 0.02),
                           ),
                           child: ExpansionTile(
                             title: Text(
                               'سبحة',
                               style: TextStyle(
-                                  fontSize: size.width * 0.07,
+                                  fontSize: size.width * mainFontSize,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white
-                              ),
-                            ),
-                            trailing: Padding(
-                              padding: EdgeInsets.fromLTRB(
-                                size.width * 0.02,
-                                size.width * 0.02,
-                                size.width * 0.02,
-                                size.width * 0.02,
-                              ),
-                              child: Icon(
-                                Icons.arrow_drop_down, color: Colors.white, size: size.width * 0.05,
                               ),
                             ),
                             children: [
@@ -146,12 +135,13 @@ class SebhaScreen extends StatelessWidget {
                                           child: Text(
                                             'سبحان الله',
                                             style: TextStyle(
-                                                fontSize: size.width * 0.05,
+                                                fontSize: size.width * secondFontSize,
                                                 color: Colors.white
                                             ),
                                           ),
                                         ),
                                       ),
+                                      SizedBox(height: size.height * 0.02,),
                                       Padding(
                                         padding: EdgeInsets.fromLTRB(
                                             size.width * 0,
@@ -163,7 +153,7 @@ class SebhaScreen extends StatelessWidget {
                                           child: Text(
                                             '${AppCubit.get(context).countSubhanAllah}',
                                             style: TextStyle(
-                                                fontSize: size.width * 0.1,
+                                                fontSize: size.width * thirdFontSize,
                                                 color: Colors.white
                                             ),
                                           ),
@@ -176,7 +166,7 @@ class SebhaScreen extends StatelessWidget {
                               Container(
                                 margin: EdgeInsets.all(size.width * 0.05),
                                 decoration: BoxDecoration(
-                                  color: Colors.cyan.withOpacity(0.7),
+                                  color: Colors.cyan,
                                   borderRadius: BorderRadius.circular(size.width * 0.05),
                                 ),
                                 child: InkWell(
@@ -198,12 +188,13 @@ class SebhaScreen extends StatelessWidget {
                                           child: Text(
                                             'الحمد الله',
                                             style: TextStyle(
-                                                fontSize: size.width * 0.05,
+                                                fontSize: size.width * secondFontSize,
                                                 color: Colors.white
                                             ),
                                           ),
                                         ),
                                       ),
+                                      SizedBox(height: size.height * 0.02,),
                                       Padding(
                                         padding: EdgeInsets.fromLTRB(
                                             size.width * 0,
@@ -215,7 +206,7 @@ class SebhaScreen extends StatelessWidget {
                                           child: Text(
                                             '${AppCubit.get(context).countAlhamdullah}',
                                             style: TextStyle(
-                                                fontSize: size.width * 0.1,
+                                                fontSize: size.width * thirdFontSize,
                                                 color: Colors.white
                                             ),
                                           ),
@@ -228,7 +219,7 @@ class SebhaScreen extends StatelessWidget {
                               Container(
                                 margin: EdgeInsets.all(size.width * 0.05),
                                 decoration: BoxDecoration(
-                                  color: Colors.cyan.withOpacity(0.7),
+                                  color: Colors.cyan,
                                   borderRadius: BorderRadius.circular(size.width * 0.05),
                                 ),
                                 child: InkWell(
@@ -250,12 +241,13 @@ class SebhaScreen extends StatelessWidget {
                                           child: Text(
                                             ' الله أكبر',
                                             style: TextStyle(
-                                                fontSize: size.width * 0.05,
+                                                fontSize: size.width * secondFontSize,
                                                 color: Colors.white
                                             ),
                                           ),
                                         ),
                                       ),
+                                      SizedBox(height: size.height * 0.02,),
                                       Padding(
                                         padding: EdgeInsets.fromLTRB(
                                             size.width * 0,
@@ -267,7 +259,7 @@ class SebhaScreen extends StatelessWidget {
                                           child: Text(
                                             '${AppCubit.get(context).countAllahAkbar}',
                                             style: TextStyle(
-                                                fontSize: size.width * 0.1,
+                                                fontSize: size.width * thirdFontSize,
                                                 color: Colors.white
                                             ),
                                           ),
@@ -280,7 +272,7 @@ class SebhaScreen extends StatelessWidget {
                               Container(
                                 margin: EdgeInsets.all(size.width * 0.05),
                                 decoration: BoxDecoration(
-                                  color: Colors.cyan.withOpacity(0.7),
+                                  color: Colors.cyan,
                                   borderRadius: BorderRadius.circular(size.width * 0.05),
                                 ),
                                 child: InkWell(
@@ -303,12 +295,13 @@ class SebhaScreen extends StatelessWidget {
                                             'لا إله إلا الله وحده لا شريك له له المك وله الحمد و هو علي كل شئ قدير',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                                fontSize: size.width * 0.05,
+                                                fontSize: size.width * secondFontSize,
                                                 color: Colors.white
                                             ),
                                           ),
                                         ),
                                       ),
+                                      SizedBox(height: size.height * 0.02,),
                                       Padding(
                                         padding: EdgeInsets.fromLTRB(
                                             size.width * 0,
@@ -320,7 +313,7 @@ class SebhaScreen extends StatelessWidget {
                                           child: Text(
                                             '${AppCubit.get(context).countLaElahElaAllah}',
                                             style: TextStyle(
-                                                fontSize: size.width * 0.1,
+                                                fontSize: size.width * thirdFontSize,
                                                 color: Colors.white
                                             ),
                                           ),
@@ -356,23 +349,12 @@ class SebhaScreen extends StatelessWidget {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
-                                          fontSize: size.width * 0.05
+                                          fontSize: size.width * mainFontSize
                                       ),
                                     ),
                                   ],
                                 ),
                               ],
-                            ),
-                            trailing: Padding(
-                              padding: EdgeInsets.fromLTRB(
-                                size.width * 0.02,
-                                size.width * 0.02,
-                                size.width * 0.02,
-                                size.width * 0.02,
-                              ),
-                              child: Icon(
-                                Icons.arrow_drop_down, color: Colors.white, size: size.width * 0.05,
-                              ),
                             ),
                             children: [
                               Column(
