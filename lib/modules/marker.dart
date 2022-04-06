@@ -8,14 +8,9 @@ import '../shared/components/components.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/quran.dart' as quran;
 
-
-
 class MarkerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-
-
     Size size = MediaQuery.of(context).size;
 
     return BlocConsumer<AppCubit,AppStates>(
@@ -135,7 +130,7 @@ class MarkerScreen extends StatelessWidget {
                                             Row(
                                               children: [
                                                 Text(
-                                                  'آخر ما قرأت:' ,
+                                                  'آخر ما قرأت' ,
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontWeight: FontWeight.bold,
@@ -380,82 +375,87 @@ class MarkerScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(size.width * 0.02),
                                   ),
                                   //color: Colors.blueGrey.withOpacity(0.3),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        'اختم خلال شهر',
-                                        style: TextStyle(
+                                  child: ExpansionTile(
+                                    title: Text(
+                                      'اختم خلال شهر',
+                                      style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: size.width * mainFontSize,
                                           color: Colors.white
-                                        ),
                                       ),
-                                      chooseKhetma(
-                                        mainText: 'مره واحده',
-                                        mainTextSize: size.width * mainFontSize,
-                                        secondreyMainFontSize: size.width * secondFontSize,
-                                        sizedBoxWidth: size.width * thirdFontSize,
-                                        thirdFontSize: size.width * 0.039,
-                                        numOfElfagr: 'متوسط 42 ايه',
-                                        sizedBoxHeight: size.height * 0.02,
-                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-                                      ),
-                                      SizedBox(height: size.height * 0.02,),
-                                      chooseKhetma(
-                                        mainText: 'مرتان',
-                                        mainTextSize: size.width * mainFontSize,
-                                        secondreyMainFontSize: size.width * secondFontSize,
-                                        sizedBoxWidth: size.width * 0.02,
-                                        thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: 'متوسط 84 ايه',
-                                        sizedBoxHeight: size.height * 0.02,
-                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-                                      ),
-                                      SizedBox(height: size.height * 0.02,),
-                                      chooseKhetma(
-                                        mainText: 'ثلاث مرات',
-                                        mainTextSize: size.width * mainFontSize,
-                                        secondreyMainFontSize: size.width * secondFontSize,
-                                        sizedBoxWidth: size.width * 0.02,
-                                        thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: 'متوسط 125 ايه',
-                                        sizedBoxHeight: size.height * 0.02,
-                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-                                      ),
-                                      SizedBox(height: size.height * 0.02,),
-                                      chooseKhetma(
-                                        mainText: 'خمس مرات',
-                                        mainTextSize: size.width * mainFontSize,
-                                        secondreyMainFontSize: size.width * secondFontSize,
-                                        sizedBoxWidth: size.width * 0.02,
-                                        thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: 'متوسط 208 ايه',
-                                        sizedBoxHeight: size.height * 0.02,
-                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-                                      ),
-                                      SizedBox(height: size.height * 0.02,),
-                                      chooseKhetma(
-                                        mainText: 'ست مرات',
-                                        mainTextSize: size.width * mainFontSize,
-                                        secondreyMainFontSize: size.width * secondFontSize,
-                                        sizedBoxWidth: size.width * 0.02,
-                                        thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: 'متوسط 250 ايه',
-                                        sizedBoxHeight: size.height * 0.02,
-                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-                                      ),
-                                      SizedBox(height: size.height * 0.02,),
-                                      chooseKhetma(
-                                        mainText: 'عشر مرات',
-                                        mainTextSize: size.width * mainFontSize,
-                                        secondreyMainFontSize: size.width * secondFontSize,
-                                        sizedBoxWidth: size.width * 0.02,
-                                        thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: 'متوسط 416 ايه',
-                                        sizedBoxHeight: size.height * 0.02,
-                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-                                      ),
-                                      SizedBox(height: size.height * 0.02,),
+                                    ),
+                                    children: [
+                                      Column(
+                                        children: [
+                                          SizedBox(height: size.height * 0.03,),
+                                          chooseKhetma(
+                                            mainText: 'مره واحده',
+                                            mainTextSize: size.width * secondFontSize,
+                                            secondreyMainFontSize: size.width * secondFontSize,
+                                            sizedBoxWidth: size.width * thirdFontSize,
+                                            thirdFontSize: size.width * 0.039,
+                                            numOfElfagr: 'متوسط 42 ايه',
+                                            sizedBoxHeight: size.height * 0.02,
+                                            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                                          ),
+                                          SizedBox(height: size.height * 0.02,),
+                                          chooseKhetma(
+                                            mainText: 'مرتان',
+                                            mainTextSize: size.width * secondFontSize,
+                                            secondreyMainFontSize: size.width * secondFontSize,
+                                            sizedBoxWidth: size.width * 0.02,
+                                            thirdFontSize: size.width * thirdFontSize,
+                                            numOfElfagr: 'متوسط 84 ايه',
+                                            sizedBoxHeight: size.height * 0.02,
+                                            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                                          ),
+                                          SizedBox(height: size.height * 0.02,),
+                                          chooseKhetma(
+                                            mainText: 'ثلاث مرات',
+                                            mainTextSize: size.width * secondFontSize,
+                                            secondreyMainFontSize: size.width * secondFontSize,
+                                            sizedBoxWidth: size.width * 0.02,
+                                            thirdFontSize: size.width * thirdFontSize,
+                                            numOfElfagr: 'متوسط 125 ايه',
+                                            sizedBoxHeight: size.height * 0.02,
+                                            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                                          ),
+                                          SizedBox(height: size.height * 0.02,),
+                                          chooseKhetma(
+                                            mainText: 'خمس مرات',
+                                            mainTextSize: size.width * secondFontSize,
+                                            secondreyMainFontSize: size.width * secondFontSize,
+                                            sizedBoxWidth: size.width * 0.02,
+                                            thirdFontSize: size.width * thirdFontSize,
+                                            numOfElfagr: 'متوسط 208 ايه',
+                                            sizedBoxHeight: size.height * 0.02,
+                                            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                                          ),
+                                          SizedBox(height: size.height * 0.02,),
+                                          chooseKhetma(
+                                            mainText: 'ست مرات',
+                                            mainTextSize: size.width * secondFontSize,
+                                            secondreyMainFontSize: size.width * secondFontSize,
+                                            sizedBoxWidth: size.width * 0.02,
+                                            thirdFontSize: size.width * thirdFontSize,
+                                            numOfElfagr: 'متوسط 250 ايه',
+                                            sizedBoxHeight: size.height * 0.02,
+                                            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                                          ),
+                                          SizedBox(height: size.height * 0.02,),
+                                          chooseKhetma(
+                                            mainText: 'عشر مرات',
+                                            mainTextSize: size.width * secondFontSize,
+                                            secondreyMainFontSize: size.width * secondFontSize,
+                                            sizedBoxWidth: size.width * 0.02,
+                                            thirdFontSize: size.width * thirdFontSize,
+                                            numOfElfagr: 'متوسط 416 ايه',
+                                            sizedBoxHeight: size.height * 0.02,
+                                            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                                          ),
+                                          SizedBox(height: size.height * 0.02,),
+                                        ],
+                                      )
                                     ],
                                   ),
                                 ),

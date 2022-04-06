@@ -9,6 +9,8 @@ import '../cubit/cubit.dart';
 import '../cubit/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/quran.dart' as quran;
+import 'package:google_language_fonts/google_language_fonts.dart';
+
 
 class SouraScreen extends StatefulWidget {
   SouraScreen({Key? key,required this.numOfSoura,required this.sourahName}) : super(key: key);
@@ -377,12 +379,14 @@ class _SouraScreen extends State<SouraScreen>{
                                                     index + 1,
                                                   ),
                                                   textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: size.width * 0.05,
-                                                    color: Colors.white,
-                                                    //Colors.white
-                                                  ),
+                                                  style: ArabicFonts.mirza(
+                                                    textStyle: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: size.width * 0.05,
+                                                      color: Colors.white,
+                                                      //Colors.white
+                                                    ),
+                                                  )
                                                 ),
                                               ),
                                             ),

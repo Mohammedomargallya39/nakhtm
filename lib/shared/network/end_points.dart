@@ -1,1 +1,0 @@
-var SOURALINK = 'quran/verses/imlaei';

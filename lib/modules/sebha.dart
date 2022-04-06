@@ -16,10 +16,10 @@ class SebhaScreen extends StatelessWidget {
     tz.initializeTimeZones();
     final location = tz.getLocation('Africa/Cairo');
     DateTime date = tz.TZDateTime.from(DateTime.now(), location);
-    Coordinates coordinates = Coordinates(26.820553, 30.802498);
+    Coordinates coordinates = Coordinates(33.291201, 31.740620);
     CalculationParameters params = CalculationMethod.MuslimWorldLeague();
-    params.madhab = Madhab.Hanafi;
-    PrayerTimes prayerTimes = PrayerTimes(coordinates, date, params, precision: true);
+    params.madhab = Madhab.Shafi;
+    PrayerTimes prayerTimes = PrayerTimes(coordinates, date, params, precision: false);
     DateTime fajrTime = tz.TZDateTime.from(prayerTimes.fajr!, location);
     DateTime sunriseTime = tz.TZDateTime.from(prayerTimes.sunrise!, location);
     DateTime dhuhrTime = tz.TZDateTime.from(prayerTimes.dhuhr!, location);
@@ -30,6 +30,52 @@ class SebhaScreen extends StatelessWidget {
     String next = prayerTimes.nextPrayer();
     SunnahTimes sunnahTimes = SunnahTimes(prayerTimes);
     DateTime lastThirdOfTheNight = tz.TZDateTime.from(sunnahTimes.lastThirdOfTheNight, location);
+    // String? selectCity = 'Select Your City';
+    // List<String> cities =
+    // [
+    //   'Select Your City',
+    //   'Cairo',
+    //   'Alexandria',
+    //   'Gizeh',
+    //   'Shubra El-Kheima',
+    //   'Port Said',
+    //   'Suez',
+    //   'Luxor',
+    //   'al-Mansura',
+    //   'El-Mahalla El-Kubra',
+    //   'Tanta',
+    //   'Asyut',
+    //   'Ismailia',
+    //   'Fayyum',
+    //   'Zagazig',
+    //   'Aswan',
+    //   'Damietta',
+    //   'Damanhur',
+    //   'al-Minya',
+    //   'Beni Suef',
+    //   'Qena',
+    //   'Sohag',
+    //   'Hurghada',
+    //   '6th of October City',
+    //   'Shibin El Kom',
+    //   'Banha',
+    //   'Kafr el-Sheikh',
+    //   'Arish',
+    //   'Mallawi',
+    //   '10th of Ramadan City',
+    //   'Bilbais',
+    //   'Marsa Matruh',
+    //   'Idfu',
+    //   'Mit Ghamr',
+    //   'Al-Hamidiyya',
+    //   'Desouk',
+    //   'Qalyub',
+    //   'Abu Kabir',
+    //   'Kafr el-Dawwar',
+    //   'Girga',
+    //   'Akhmim',
+    //   'Matareya',
+    // ];
     Size size = MediaQuery.of(context).size;
 
     return BlocConsumer<AppCubit,AppStates>(
@@ -68,22 +114,73 @@ class SebhaScreen extends StatelessWidget {
                             color: Colors.cyan,
                             borderRadius: BorderRadius.circular(size.width * 0.02),
                           ),
-                          child: expentionTile(
-                            mainText: "مواعيد الصلاة",
-                            mainTextSize: size.width * mainFontSize,
-                            secondreyMainFontSize: size.width * thirdFontSize,
-                            sizedBoxWidth: size.width * 0.03,
-                            thirdFontSize: size.width * thirdFontSize,
-                            elFagrText: '$fajrTime'.substring(11,19),
-                            elDuhaText: '$sunriseTime'.substring(11,19),
-                            elZuhrText: '$dhuhrTime'.substring(11,19),
-                            elAsrText:  '$asrTime'.substring(11,19),
-                            elMaghrebText: '$maghribTime'.substring(11,19),
-                            elEshaaText: '$ishaTime'.substring(11,19),
-                            qiamAlayl: '$lastThirdOfTheNight'.substring(11,19),
-                            current: current,
-                            next: next,
-                            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                          child: Theme(
+                              data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                              child:
+                              expentionTile(
+                              mainText: "مواعيد الصلاة",
+                              mainTextSize: size.width * mainFontSize,
+                              secondreyMainFontSize: size.width * thirdFontSize,
+                              sizedBoxWidth: size.width * 0.03,
+                              thirdFontSize: size.width * thirdFontSize,
+                              elFagrText: '$fajrTime'.substring(11,16),
+                              elDuhaText: '$sunriseTime'.substring(11,16),
+                              elZuhrText: '$dhuhrTime'.substring(11,16),
+                              elAsrText:  '$asrTime'.substring(11,16),
+                              elMaghrebText: '$maghribTime'.substring(11,16),
+                              elEshaaText: '$ishaTime'.substring(11,16),
+                              qiamAlayl: '$lastThirdOfTheNight'.substring(11,16),
+                              current: current,
+                              next: next,
+                              data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                            ),
+                              // ExpansionTile(
+                              //   title: Text(
+                              //     'مواعيد الصلاة',
+                              //     style: TextStyle(
+                              //         fontSize: size.width * mainFontSize,
+                              //         fontWeight: FontWeight.bold,
+                              //         color: Colors.white
+                              //     ),
+                              //   ),
+                              //   children: [
+                              //     Padding(
+                              //         padding: EdgeInsets.fromLTRB(
+                              //             size.width * 0.04,
+                              //             size.height * 0.01,
+                              //             size.width * 0.04,
+                              //             size.height * 0.01
+                              //         ),
+                              //       child: Center(
+                              //           child: DropdownButtonFormField(
+                              //             value: selectCity,
+                              //             dropdownColor: Colors.cyan,
+                              //             alignment: Alignment.centerLeft,
+                              //             style: TextStyle(
+                              //                 color: Colors.white ,
+                              //                 fontSize: size.width * 0.04
+                              //             ),
+                              //             onChanged: (String? value)
+                              //             {
+                              //               selectCity =  value!;
+                              //               AppCubit.get(context).azanTimer();
+                              //             },
+                              //             items: cities.map<DropdownMenuItem<String>>((String value)
+                              //             {
+                              //               return
+                              //                 DropdownMenuItem<String>(
+                              //                   value: value,
+                              //                   child: Text(value),
+                              //                 );
+                              //             }).toList(),
+                              //           )
+                              //       ),
+                              //     ),
+                              //     SizedBox(height: size.height * 0.01,),
+                              //     //Text(AppCubit.get(context).azanTimerModel!.data![0].timings!.fajr!),
+                              //
+                              //   ],
+                              // ) ,
                           ),
                         ),
                         SizedBox(height: size.height * 0.04,),

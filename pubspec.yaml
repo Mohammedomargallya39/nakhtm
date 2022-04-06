@@ -49,7 +49,7 @@ dependencies:
   animated_splash_screen: ^1.2.0
   webview_flutter: ^3.0.1
   scrollable_positioned_list: ^0.2.3
-
+  google_language_fonts: ^2.0.0
 
 
 

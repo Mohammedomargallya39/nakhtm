@@ -18,13 +18,6 @@ class AppCubit extends Cubit<AppStates> {
     emit(SebhaState());
   }
 
-  // int sharedJuza = constJuza;
-  // int sharedAyahNum = constAyahNum;
-  // String sharedSurahName = constSurahName;
-  // String sharedAyah= constAyah;
-
-
-
   int? juza = 0;
   int? ayahNum = 0;
   int? ayatSurahNum = 0;
@@ -54,7 +47,6 @@ class AppCubit extends Cubit<AppStates> {
     emit(LastRead());
 
   }
-
 }
 
 
