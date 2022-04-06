@@ -75,164 +75,167 @@ class _SouraScreen extends State<SouraScreen>{
                               size.width * 0.02,
                               0
                           ),
-                          child: ExpansionTile(
-                            title: Text(
-                              'معلومات عن السورة',
-                              style: TextStyle(
-                                  fontSize: size.width * 0.06,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white
-                              ),
-                            ),
-                            children: [
-                              Column(
+                          child: Theme(
+                              data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                              child: ExpansionTile(
+                                title: Text(
+                                  'معلومات عن السورة',
+                                  style: TextStyle(
+                                      fontSize: size.width * 0.06,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white
+                                  ),
+                                ),
                                 children: [
-                                  ListTile(
-                                    title: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            '${widget.sourahName}' ,
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05
+                                  Column(
+                                    children: [
+                                      ListTile(
+                                        title: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                '${widget.sourahName}' ,
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        SizedBox(width: size.width * 0.03,),
-                                        Expanded(
-                                          child: Text(
-                                            'اسم السورة' ,
-                                            textAlign: TextAlign.right,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05,
-                                                fontWeight: FontWeight.bold
+                                            SizedBox(width: size.width * 0.03,),
+                                            Expanded(
+                                              child: Text(
+                                                'اسم السورة' ,
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05,
+                                                    fontWeight: FontWeight.bold
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  ListTile(
-                                    title: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            '${quran.getVerseCount(widget.numOfSoura)}' ,
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05
+                                      ),
+                                      ListTile(
+                                        title: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                '${quran.getVerseCount(widget.numOfSoura)}' ,
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        SizedBox(width: size.width * 0.03,),
-                                        Expanded(
-                                          child: Text(
-                                            'عدد آيات السورة' ,
-                                            textAlign: TextAlign.right,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05,
-                                                fontWeight: FontWeight.bold
+                                            SizedBox(width: size.width * 0.03,),
+                                            Expanded(
+                                              child: Text(
+                                                'عدد آيات السورة' ,
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05,
+                                                    fontWeight: FontWeight.bold
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  ListTile(
-                                    title: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            quran.getPlaceOfRevelation(widget.numOfSoura) ,
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05
+                                      ),
+                                      ListTile(
+                                        title: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                quran.getPlaceOfRevelation(widget.numOfSoura) ,
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        SizedBox(width: size.width * 0.03,),
-                                        Expanded(
-                                          child: Text(
-                                            'مكان نزول اسورة' ,
-                                            textAlign: TextAlign.right,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05,
-                                                fontWeight: FontWeight.bold
+                                            SizedBox(width: size.width * 0.03,),
+                                            Expanded(
+                                              child: Text(
+                                                'مكان نزول اسورة' ,
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05,
+                                                    fontWeight: FontWeight.bold
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  ListTile(
-                                    title: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            '${quran.getJuzNumber(widget.numOfSoura, 1)}' ,
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05
+                                      ),
+                                      ListTile(
+                                        title: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                '${quran.getJuzNumber(widget.numOfSoura, 1)}' ,
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        SizedBox(width: size.width * 0.03,),
-                                        Expanded(
-                                          child: Text(
-                                            'الجزء' ,
-                                            textAlign: TextAlign.right,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05,
-                                                fontWeight: FontWeight.bold
+                                            SizedBox(width: size.width * 0.03,),
+                                            Expanded(
+                                              child: Text(
+                                                'الجزء' ,
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05,
+                                                    fontWeight: FontWeight.bold
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                  ListTile(
-                                    title: Row(
-                                      children: [
-                                        Expanded(
-                                          child: SelectableText(
-                                            quran.getSurahURL(widget.numOfSoura),
-                                            textAlign: TextAlign.left,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.04
+                                      ),
+                                      ListTile(
+                                        title: Row(
+                                          children: [
+                                            Expanded(
+                                              child: SelectableText(
+                                                quran.getSurahURL(widget.numOfSoura),
+                                                textAlign: TextAlign.left,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.04
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                        SizedBox(width: size.width * 0.03,),
-                                        Expanded(
-                                          child: Text(
-                                            'لينك السورة' ,
-                                            textAlign: TextAlign.right,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: size.width * 0.05,
-                                                fontWeight: FontWeight.bold
+                                            SizedBox(width: size.width * 0.03,),
+                                            Expanded(
+                                              child: Text(
+                                                'لينك السورة' ,
+                                                textAlign: TextAlign.right,
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: size.width * 0.05,
+                                                    fontWeight: FontWeight.bold
+                                                ),
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  ),
+                                      ),
 
 
+                                    ],
+                                  ),
                                 ],
-                              ),
-                            ],
 
+                              )
                           ),
                         ),
                         SizedBox(height: size.height * 0.03,),

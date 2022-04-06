@@ -62,194 +62,197 @@ class QuranScreen extends StatelessWidget {
                             size.width * marginRight,
                             size.width * marginBottom
                         ),
-                        child: ExpansionTile(
-                          title: Text(
-                            'معلومات عن القرآن',
-                            style: TextStyle(
-                                fontSize: size.width * mainFontSize,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white
+                        child: Theme(
+                          data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                          child: ExpansionTile(
+                            title: Text(
+                              'معلومات عن القرآن',
+                              style: TextStyle(
+                                  fontSize: size.width * mainFontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
+                              ),
                             ),
-                          ),
-                          children: [
-                            Column(
-                              children: [
-                                ListTile(
-                                  title: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          '${quran.totalJuzCount}' ,
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * thirdFontSize
+                            children: [
+                              Column(
+                                children: [
+                                  ListTile(
+                                    title: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            '${quran.totalJuzCount}' ,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * thirdFontSize
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(width: size.width * 0.03,),
-                                      Expanded(
-                                        child: Text(
-                                          'عدد الأجزاء' ,
-                                          textAlign: TextAlign.right,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * secondFontSize,
-                                              fontWeight: FontWeight.bold
+                                        SizedBox(width: size.width * 0.03,),
+                                        Expanded(
+                                          child: Text(
+                                            'عدد الأجزاء' ,
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * secondFontSize,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                ListTile(
-                                  title: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          '${quran.totalSurahCount}' ,
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * thirdFontSize
+                                  ListTile(
+                                    title: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            '${quran.totalSurahCount}' ,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * thirdFontSize
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(width: size.width * 0.03,),
-                                      Expanded(
-                                        child: Text(
-                                          'عدد السور' ,
-                                          textAlign: TextAlign.right,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * secondFontSize,
-                                              fontWeight: FontWeight.bold
+                                        SizedBox(width: size.width * 0.03,),
+                                        Expanded(
+                                          child: Text(
+                                            'عدد السور' ,
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * secondFontSize,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                ListTile(
-                                  title: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          '${quran.totalMakkiSurahs}' ,
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * thirdFontSize
+                                  ListTile(
+                                    title: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            '${quran.totalMakkiSurahs}' ,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * thirdFontSize
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(width: size.width * 0.03,),
-                                      Expanded(
-                                        child: Text(
-                                          'عدد السور المكية' ,
-                                          textAlign: TextAlign.right,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * secondFontSize,
-                                              fontWeight: FontWeight.bold
+                                        SizedBox(width: size.width * 0.03,),
+                                        Expanded(
+                                          child: Text(
+                                            'عدد السور المكية' ,
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * secondFontSize,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                ListTile(
-                                  title: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          '${quran.totalMadaniSurahs}' ,
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * thirdFontSize
+                                  ListTile(
+                                    title: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            '${quran.totalMadaniSurahs}' ,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * thirdFontSize
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(width: size.width * 0.03,),
-                                      Expanded(
-                                        child: Text(
-                                          'عدد السور المدنية' ,
-                                          textAlign: TextAlign.right,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * secondFontSize,
-                                              fontWeight: FontWeight.bold
+                                        SizedBox(width: size.width * 0.03,),
+                                        Expanded(
+                                          child: Text(
+                                            'عدد السور المدنية' ,
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * secondFontSize,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                ListTile(
-                                  title: Row(
-                                    children: [
-                                      Expanded(
-                                        flex: 4,
-                                        child: Text(
-                                          '${quran.totalPagesCount}' ,
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * thirdFontSize
+                                  ListTile(
+                                    title: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 4,
+                                          child: Text(
+                                            '${quran.totalPagesCount}' ,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * thirdFontSize
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(width: size.width * 0.03,),
-                                      Expanded(
-                                        flex: 2,
-                                        child: Text(
-                                          'عدد صفحات' ,
-                                          textAlign: TextAlign.right,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * secondFontSize,
-                                              fontWeight: FontWeight.bold
+                                        SizedBox(width: size.width * 0.03,),
+                                        Expanded(
+                                          flex: 2,
+                                          child: Text(
+                                            'عدد صفحات' ,
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * secondFontSize,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                ListTile(
-                                  title: Row(
-                                    children: [
-                                      Expanded(
-                                        flex: 4,
-                                        child: Text(
-                                          '${quran.totalVerseCount}' ,
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * thirdFontSize
+                                  ListTile(
+                                    title: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 4,
+                                          child: Text(
+                                            '${quran.totalVerseCount}' ,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * thirdFontSize
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(width: size.width * 0.03,),
-                                      Expanded(
-                                        flex: 2,
-                                        child: Text(
-                                          'عدد الآيات' ,
-                                          textAlign: TextAlign.right,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: size.width * secondFontSize,
-                                              fontWeight: FontWeight.bold
+                                        SizedBox(width: size.width * 0.03,),
+                                        Expanded(
+                                          flex: 2,
+                                          child: Text(
+                                            'عدد الآيات' ,
+                                            textAlign: TextAlign.right,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: size.width * secondFontSize,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
 
+                          ),
                         ),
                       ),
                       SizedBox(height: size.height * 0.04),
@@ -265,68 +268,71 @@ class QuranScreen extends StatelessWidget {
                             size.width * marginRight,
                             size.width * marginBottom,
                         ),
-                        child: ExpansionTile(
-                          title: Text(
-                            'السور',
-                            style: TextStyle(
-                                fontSize: size.width * mainFontSize,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white
-                            ),
-                          ),
-                          children: [
-                            ListView.separated(
-                              shrinkWrap: true,
-                              physics: const BouncingScrollPhysics(),
-                              itemBuilder: (context,index)
-                              {
-                                return Column(
-                                  children: [
-                                    SizedBox(height: size.height * 0.02,),
-                                    InkWell(
-                                      child: soura(
-                                        secondContainerWidth: size.width * 0.2,
-                                        souraNum: souraNum[index],
-                                        souraNumSize: size.width * thirdFontSize,
-                                        souraName: quran.getSurahNameArabic(int.parse(souraNum[index])),
-                                        souraNameSize: size.width * secondFontSize,
-                                        bottomMargin: size.height * 0.01,
-                                        leftMargin: size.width * 0,
-                                        rightMargin: size.width * 0,
-                                        topMargin: size.height * 0.01,
-                                        firstContainerColor: Colors.cyan.withOpacity(0.1),
-                                        secondContainerColor: Colors.cyan.withOpacity(0.1),
-                                        souraNameColor:Colors.white ,
-                                        souraNameWeight: FontWeight.bold,
-                                        souraNumColor: Colors.white,
-                                        souraNumWeight: FontWeight.bold,
-                                        bottomPadding: size.height * 0,
-                                        leftPadding: size.width * 0.04,
-                                        rightPadding: size.width * 0.04,
-                                        topPadding: size.height * 0,
-                                      ),
-                                      onTap: ()
-                                      {
-                                        print(souraNum[index]);
-                                        var numberOfSurah = int.parse(souraNum[index]);
-                                        navigateTo(context, SouraScreen(
-                                          numOfSoura: numberOfSurah,
-                                          sourahName: quran.getSurahNameArabic(int.parse(souraNum[index])),
-                                        ),
-                                        );
-
-                                      },
-                                    ),
-                                  ],
-                                );
-                              },
-                              separatorBuilder: (context,index) => SizedBox(
-                                width: size.width,
-                                height: size.height * 0,
+                        child: Theme(
+                            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                            child: ExpansionTile(
+                              title: Text(
+                                'السور',
+                                style: TextStyle(
+                                    fontSize: size.width * mainFontSize,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white
+                                ),
                               ),
-                              itemCount: souraNum.length,
-                            ),
-                          ],
+                              children: [
+                                ListView.separated(
+                                  shrinkWrap: true,
+                                  physics: const BouncingScrollPhysics(),
+                                  itemBuilder: (context,index)
+                                  {
+                                    return Column(
+                                      children: [
+                                        SizedBox(height: size.height * 0.02,),
+                                        InkWell(
+                                          child: soura(
+                                            secondContainerWidth: size.width * 0.2,
+                                            souraNum: souraNum[index],
+                                            souraNumSize: size.width * thirdFontSize,
+                                            souraName: quran.getSurahNameArabic(int.parse(souraNum[index])),
+                                            souraNameSize: size.width * secondFontSize,
+                                            bottomMargin: size.height * 0.01,
+                                            leftMargin: size.width * 0,
+                                            rightMargin: size.width * 0,
+                                            topMargin: size.height * 0.01,
+                                            firstContainerColor: Colors.cyan.withOpacity(0.1),
+                                            secondContainerColor: Colors.cyan.withOpacity(0.1),
+                                            souraNameColor:Colors.white ,
+                                            souraNameWeight: FontWeight.bold,
+                                            souraNumColor: Colors.white,
+                                            souraNumWeight: FontWeight.bold,
+                                            bottomPadding: size.height * 0,
+                                            leftPadding: size.width * 0.04,
+                                            rightPadding: size.width * 0.04,
+                                            topPadding: size.height * 0,
+                                          ),
+                                          onTap: ()
+                                          {
+                                            print(souraNum[index]);
+                                            var numberOfSurah = int.parse(souraNum[index]);
+                                            navigateTo(context, SouraScreen(
+                                              numOfSoura: numberOfSurah,
+                                              sourahName: quran.getSurahNameArabic(int.parse(souraNum[index])),
+                                            ),
+                                            );
+
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                  separatorBuilder: (context,index) => SizedBox(
+                                    width: size.width,
+                                    height: size.height * 0,
+                                  ),
+                                  itemCount: souraNum.length,
+                                ),
+                              ],
+                            )
                         ),
                       ),
                       SizedBox(height: size.height * 0.01),

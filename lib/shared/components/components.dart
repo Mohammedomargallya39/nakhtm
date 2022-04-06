@@ -161,187 +161,191 @@ Widget chooseKhetma(
         required double thirdFontSize,
         required String numOfElfagr,
         required double sizedBoxHeight,
+        required data,
 
       }
     )
 {
-  return ExpansionTile(
-    title: Column(
-      children: [
-        Row(
+  return Theme(
+      data: data,
+      child: ExpansionTile(
+        title: Column(
           children: [
-            Text(
-              mainText ,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: mainTextSize
-              ),
+            Row(
+              children: [
+                Text(
+                  mainText ,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: mainTextSize
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-      ],
-    ),
-    children: [
-      Column(
         children: [
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Text(
-                    'الفجر' ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+          Column(
+            children: [
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'الفجر' ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    numOfElfagr ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        numOfElfagr ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          SizedBox(height: sizedBoxHeight,),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Text(
-                    'الظهر' ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+              ),
+              SizedBox(height: sizedBoxHeight,),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'الظهر' ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    numOfElfagr ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        numOfElfagr ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          SizedBox(height: sizedBoxHeight,),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Text(
-                    'العصر' ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+              ),
+              SizedBox(height: sizedBoxHeight,),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'العصر' ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    numOfElfagr ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        numOfElfagr ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          SizedBox(height: sizedBoxHeight,),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Text(
-                    'المغرب' ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+              ),
+              SizedBox(height: sizedBoxHeight,),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'المغرب' ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    numOfElfagr ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        numOfElfagr ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          SizedBox(height: sizedBoxHeight,),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Text(
-                    'العشاء' ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+              ),
+              SizedBox(height: sizedBoxHeight,),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Text(
+                        'العشاء' ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    numOfElfagr ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        numOfElfagr ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
-      ),
-    ],
+      )
   );
 }
 
@@ -361,303 +365,307 @@ Widget expentionTile(
       required String qiamAlayl,
       required String next,
       required String current,
+      required dynamic data,
 
     }
     )
 {
-  return ExpansionTile(
-    title: Column(
-      children: [
-        Row(
+  return Theme(
+      data: data,
+      child: ExpansionTile(
+        title: Column(
           children: [
-            Text(
-              mainText ,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: mainTextSize
-              ),
+            Row(
+              children: [
+                Text(
+                  mainText ,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: mainTextSize
+                  ),
+                ),
+              ],
             ),
           ],
         ),
-      ],
-    ),
-    children: [
-      Column(
         children: [
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    current ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+          Column(
+            children: [
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        current ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'الصلاة الحالية' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'الصلاة الحالية' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    next ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        next ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'الصلاة التالية' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'الصلاة التالية' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    elFagrText ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        elFagrText ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'الفجر' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'الفجر' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    elDuhaText ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        elDuhaText ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'الضحي' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'الضحي' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    elZuhrText ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        elZuhrText ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'الظهر' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'الظهر' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    elAsrText ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        elAsrText ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'العصر' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'العصر' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    elMaghrebText ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        elMaghrebText ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'المغرب' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'المغرب' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    elEshaaText ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        elEshaaText ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'العشاء' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'العشاء' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ListTile(
-            title: Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    qiamAlayl ,
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: thirdFontSize
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        qiamAlayl ,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: thirdFontSize
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(width: sizedBoxWidth,),
-                Expanded(
-                  flex: 2,
-                  child: Text(
-                    'قيام الليل' ,
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: secondreyMainFontSize
+                    SizedBox(width: sizedBoxWidth,),
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        'قيام الليل' ,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: secondreyMainFontSize
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
-      ),
-    ],
+      )
   );
 }
 

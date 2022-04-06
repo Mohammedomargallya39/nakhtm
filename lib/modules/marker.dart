@@ -127,215 +127,218 @@ class MarkerScreen extends StatelessWidget {
                                       size.width * 0.02,
                                       0
                                   ),
-                                  child: ExpansionTile(
-                                    title: Column(
-                                      children: [
-                                        Row(
+                                  child: Theme(
+                                      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                                      child: ExpansionTile(
+                                        title: Column(
                                           children: [
-                                            Text(
-                                              'آخر ما قرأت:' ,
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: size.width * mainFontSize
-                                              ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  'آخر ما قرأت:' ,
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight: FontWeight.bold,
+                                                      fontSize: size.width * mainFontSize
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
-                                      ],
-                                    ),
-                                    children: [
-                                      Column(
                                         children: [
-                                          ListTile(
-                                            title: Container(
-                                              height: size.height * 0.0001,
-                                              width: size.width,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          ListTile(
-                                            title: Row(
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    // AppCubit.get(context).sharedSurahName,
-                                                    constSurahName,
-                                                    textAlign: TextAlign.left,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: size.width * thirdFontSize
-                                                    ),
-                                                  ),
+                                          Column(
+                                            children: [
+                                              ListTile(
+                                                title: Container(
+                                                  height: size.height * 0.0001,
+                                                  width: size.width,
+                                                  color: Colors.black,
                                                 ),
-                                                SizedBox(width: size.width * 0.02,),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    'سورة' ,
-                                                    textAlign: TextAlign.right,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * secondFontSize
-                                                    ),
-                                                  ),
-                                                ),
-
-                                              ],
-                                            ),
-                                          ),
-                                          ListTile(
-                                            title: Container(
-                                              height: size.height * 0.0001,
-                                              width: size.width,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          ListTile(
-                                            title: Row(
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    // AppCubit.get(context).sharedAyah,
-                                                    constAyah,
-                                                    textAlign: TextAlign.left,
-                                                    maxLines: 1,
-                                                    overflow: TextOverflow.ellipsis,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: size.width * thirdFontSize
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(width: size.width * 0.02,),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    'ايه' ,
-                                                    textAlign: TextAlign.right,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * secondFontSize
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          ListTile(
-                                            title: Container(
-                                              height: size.height * 0.0001,
-                                              width: size.width,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          ListTile(
-                                            title: Row(
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    // '${AppCubit.get(context).sharedAyahNum}',
-                                                    '$constAyahNum' ,
-                                                    textAlign: TextAlign.left,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: size.width * thirdFontSize
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(width: size.width * 0.02,),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    'رقم الآيه' ,
-                                                    textAlign: TextAlign.right,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * secondFontSize
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          ListTile(
-                                            title: Container(
-                                              height: size.height * 0.0001,
-                                              width: size.width,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          ListTile(
-                                            title: Row(
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    // '${AppCubit.get(context).sharedJuza}' ,
-                                                    '$constJuza',
-                                                    textAlign: TextAlign.left,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: size.width * thirdFontSize
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(width: size.width * 0.02,),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Text(
-                                                    'الجزء' ,
-                                                    textAlign: TextAlign.right,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * secondFontSize
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          ListTile(
-                                            title: Container(
-                                              height: size.height * 0.0001,
-                                              width: size.width,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          if (constAyahNum !=0)
-                                            ListTile(
-                                              title: TextButton(
-                                                  onPressed: ()
-                                                  {
-                                                    navigateTo(context, SouraScreen(
-                                                      numOfSoura: constSurahNum,
-                                                      sourahName: quran.getSurahNameArabic(constSurahNum),
-                                                    ),
-                                                    );
-                                                  },
-                                                  child: Text(
-                                                    'اضغط لتكملة القراءة' ,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontSize: size.width * 0.06
-                                                    ),
-                                                  )
                                               ),
+                                              ListTile(
+                                                title: Row(
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        // AppCubit.get(context).sharedSurahName,
+                                                        constSurahName,
+                                                        textAlign: TextAlign.left,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: size.width * thirdFontSize
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(width: size.width * 0.02,),
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        'سورة' ,
+                                                        textAlign: TextAlign.right,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: size.width * secondFontSize
+                                                        ),
+                                                      ),
+                                                    ),
 
-                                            ),
+                                                  ],
+                                                ),
+                                              ),
+                                              ListTile(
+                                                title: Container(
+                                                  height: size.height * 0.0001,
+                                                  width: size.width,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                              ListTile(
+                                                title: Row(
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        // AppCubit.get(context).sharedAyah,
+                                                        constAyah,
+                                                        textAlign: TextAlign.left,
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: size.width * thirdFontSize
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(width: size.width * 0.02,),
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        'ايه' ,
+                                                        textAlign: TextAlign.right,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: size.width * secondFontSize
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              ListTile(
+                                                title: Container(
+                                                  height: size.height * 0.0001,
+                                                  width: size.width,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                              ListTile(
+                                                title: Row(
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        // '${AppCubit.get(context).sharedAyahNum}',
+                                                        '$constAyahNum' ,
+                                                        textAlign: TextAlign.left,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: size.width * thirdFontSize
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(width: size.width * 0.02,),
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        'رقم الآيه' ,
+                                                        textAlign: TextAlign.right,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: size.width * secondFontSize
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              ListTile(
+                                                title: Container(
+                                                  height: size.height * 0.0001,
+                                                  width: size.width,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                              ListTile(
+                                                title: Row(
+                                                  children: [
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        // '${AppCubit.get(context).sharedJuza}' ,
+                                                        '$constJuza',
+                                                        textAlign: TextAlign.left,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: size.width * thirdFontSize
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    SizedBox(width: size.width * 0.02,),
+                                                    Expanded(
+                                                      flex: 1,
+                                                      child: Text(
+                                                        'الجزء' ,
+                                                        textAlign: TextAlign.right,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: size.width * secondFontSize
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              ListTile(
+                                                title: Container(
+                                                  height: size.height * 0.0001,
+                                                  width: size.width,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                              if (constAyahNum !=0)
+                                                ListTile(
+                                                  title: TextButton(
+                                                      onPressed: ()
+                                                      {
+                                                        navigateTo(context, SouraScreen(
+                                                          numOfSoura: constSurahNum,
+                                                          sourahName: quran.getSurahNameArabic(constSurahNum),
+                                                        ),
+                                                        );
+                                                      },
+                                                      child: Text(
+                                                        'اضغط لتكملة القراءة' ,
+                                                        textAlign: TextAlign.center,
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: size.width * 0.06
+                                                        ),
+                                                      )
+                                                  ),
 
+                                                ),
+
+                                            ],
+                                          ),
                                         ],
-                                      ),
-                                    ],
+                                      )
                                   ),
                                 ),
                                 SizedBox(height: size.height * 0.03),
@@ -393,8 +396,9 @@ class MarkerScreen extends StatelessWidget {
                                         secondreyMainFontSize: size.width * secondFontSize,
                                         sizedBoxWidth: size.width * thirdFontSize,
                                         thirdFontSize: size.width * 0.039,
-                                        numOfElfagr: '4 صفحات',
+                                        numOfElfagr: 'متوسط 42 ايه',
                                         sizedBoxHeight: size.height * 0.02,
+                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                                       ),
                                       SizedBox(height: size.height * 0.02,),
                                       chooseKhetma(
@@ -403,8 +407,9 @@ class MarkerScreen extends StatelessWidget {
                                         secondreyMainFontSize: size.width * secondFontSize,
                                         sizedBoxWidth: size.width * 0.02,
                                         thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: '8 صفحات',
+                                        numOfElfagr: 'متوسط 84 ايه',
                                         sizedBoxHeight: size.height * 0.02,
+                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                                       ),
                                       SizedBox(height: size.height * 0.02,),
                                       chooseKhetma(
@@ -413,8 +418,9 @@ class MarkerScreen extends StatelessWidget {
                                         secondreyMainFontSize: size.width * secondFontSize,
                                         sizedBoxWidth: size.width * 0.02,
                                         thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: '12 صفحات',
+                                        numOfElfagr: 'متوسط 125 ايه',
                                         sizedBoxHeight: size.height * 0.02,
+                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                                       ),
                                       SizedBox(height: size.height * 0.02,),
                                       chooseKhetma(
@@ -423,8 +429,9 @@ class MarkerScreen extends StatelessWidget {
                                         secondreyMainFontSize: size.width * secondFontSize,
                                         sizedBoxWidth: size.width * 0.02,
                                         thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: '20 صفحات',
+                                        numOfElfagr: 'متوسط 208 ايه',
                                         sizedBoxHeight: size.height * 0.02,
+                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                                       ),
                                       SizedBox(height: size.height * 0.02,),
                                       chooseKhetma(
@@ -433,8 +440,9 @@ class MarkerScreen extends StatelessWidget {
                                         secondreyMainFontSize: size.width * secondFontSize,
                                         sizedBoxWidth: size.width * 0.02,
                                         thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: '24 صفحات',
+                                        numOfElfagr: 'متوسط 250 ايه',
                                         sizedBoxHeight: size.height * 0.02,
+                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                                       ),
                                       SizedBox(height: size.height * 0.02,),
                                       chooseKhetma(
@@ -443,8 +451,9 @@ class MarkerScreen extends StatelessWidget {
                                         secondreyMainFontSize: size.width * secondFontSize,
                                         sizedBoxWidth: size.width * 0.02,
                                         thirdFontSize: size.width * thirdFontSize,
-                                        numOfElfagr: '40 صفحات',
+                                        numOfElfagr: 'متوسط 416 ايه',
                                         sizedBoxHeight: size.height * 0.02,
+                                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
                                       ),
                                       SizedBox(height: size.height * 0.02,),
                                     ],
