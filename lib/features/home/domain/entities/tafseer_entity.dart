@@ -6,7 +6,6 @@ class TafseerEntity extends Equatable {
   String ayahUrl;
   int ayahNumber;
   String tafseer;
-
   TafseerEntity({
     required this.tafseerId,
     required this.tafseerName,
@@ -14,7 +13,6 @@ class TafseerEntity extends Equatable {
     required this.ayahNumber,
     required this.tafseer
   });
-
   @override
   List<Object?> get props => [
     tafseerId,

@@ -10,7 +10,6 @@ import '../controller/bloc.dart';
 class AzkarViewBuildItem extends StatelessWidget {
   AzkarViewBuildItem({Key? key,required this.azkarColor,required this.azkar,required this.repetitionNum}) : super(key: key);
 
-
   Color azkarColor;
   String azkar;
   int repetitionNum;

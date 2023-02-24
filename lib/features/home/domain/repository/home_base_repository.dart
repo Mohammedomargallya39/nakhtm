@@ -13,13 +13,11 @@ abstract class HomeBaseRepository {
     required String lng,
     required String method,
   });
-
   Future<Either<Failure, TafseerEntity>> tafseer({
     required int tafseerId,
     required int surahId,
     required int ayahId,
   });
-
   Future<Either<Failure, List<HadithEntity>>> hadith({
     required String bookName,
     required int pageNum,

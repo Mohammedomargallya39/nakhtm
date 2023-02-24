@@ -8,7 +8,6 @@ import '../../../../core/util/widgets/default_text.dart';
 class BuildElsalahItem extends StatelessWidget {
    BuildElsalahItem({Key? key,required this.elsalahImage,required this.elsalah, required this.indexImage, required this.timer}) : super(key: key);
 
-
   String elsalahImage;
   String elsalah;
   int indexImage;

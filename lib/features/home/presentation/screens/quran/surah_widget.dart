@@ -9,7 +9,6 @@ import '../../../../../core/util/resources/assets.gen.dart';
 import '../../../../../core/util/resources/colors_manager.dart';
 import '../../../../../core/util/resources/constants_manager.dart';
 import 'package:quran/quran.dart' as quran;
-
 import '../../../../../core/util/widgets/default_text.dart';
 import '../../../../../core/util/widgets/option_dialog.dart';
 import '../../../../../core/util/widgets/tafseer_dialog.dart';

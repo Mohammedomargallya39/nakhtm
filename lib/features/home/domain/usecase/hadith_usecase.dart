@@ -18,16 +18,13 @@ class HadithUseCase implements UseCase<List<HadithEntity>, HadithParams> {
     );
   }
 }
-
 class HadithParams extends Equatable {
   final String bookName;
   final int pageNum;
-
   const HadithParams({
     required this.bookName,
     required this.pageNum,
   });
-
   @override
   List<Object> get props => [
     bookName,

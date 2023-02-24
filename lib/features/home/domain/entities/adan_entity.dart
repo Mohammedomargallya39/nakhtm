@@ -8,7 +8,6 @@ class AdanEntity extends Equatable {
     required this.timings,
     required this.date,
   });
-
   @override
   List<Object?> get props => [
     timings,
@@ -16,16 +15,13 @@ class AdanEntity extends Equatable {
   ];
 }
 
-
 class Timings extends Equatable {
-
   String fajr;
   String sunrise;
   String dhuhr;
   String asr;
   String maghrib;
   String ishaa;
-
   Timings({
     required this.fajr,
     required this.sunrise,
@@ -34,8 +30,6 @@ class Timings extends Equatable {
     required this.maghrib,
     required this.ishaa
 });
-
-
   factory Timings.fromJson(Map<String, dynamic> json) {
     return Timings(
       fajr: json['Fajr'],
@@ -46,7 +40,6 @@ class Timings extends Equatable {
       ishaa: json['Isha'],
     );
   }
-
   @override
   List<Object?> get props =>
       [
@@ -57,7 +50,4 @@ class Timings extends Equatable {
         maghrib,
         ishaa,
       ];
-
-
-
 }

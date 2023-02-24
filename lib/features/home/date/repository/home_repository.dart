@@ -7,7 +7,6 @@ import '../../domain/entities/tafseer_entity.dart';
 import '../../domain/repository/home_base_repository.dart';
 import '../data_source/home_remote_date_source.dart';
 
-
 typedef CallAdan = Future<List<AdanEntity>> Function();
 typedef CallTafseer = Future<TafseerEntity> Function();
 typedef CallHadith = Future<List<HadithEntity>> Function();
@@ -57,7 +56,6 @@ class HomeRepoImplementation extends HomeBaseRepository {
     });
   }
 
-
   Future<Either<Failure, TafseerEntity>> fetchTafseer(
       CallTafseer mainMethod,
       ) async {
@@ -90,7 +88,6 @@ class HomeRepoImplementation extends HomeBaseRepository {
     });
   }
 
-
   Future<Either<Failure, List<HadithEntity>>> fetchHadith(
       CallHadith mainMethod,
       ) async {
@@ -121,7 +118,4 @@ class HomeRepoImplementation extends HomeBaseRepository {
       );
     });
   }
-
-
-
 }

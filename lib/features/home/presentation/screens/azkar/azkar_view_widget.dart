@@ -55,7 +55,6 @@ class AzkarViewWidget extends StatelessWidget {
                         itemBuilder: (context, index) => InkWell(
                           onTap: (){
                             pressedIndex = index;
-
                             if(azkarIndex == 0 )
                             {
                               homeCubit.changeRepetitionMorinigNum(index);
@@ -64,7 +63,6 @@ class AzkarViewWidget extends StatelessWidget {
                                 homeCubit.repetitionMorningNum.removeAt(index);
                               }
                             }
-
                             if(azkarIndex == 1 )
                             {
                               homeCubit.changeRepetitionEveningNum(index);
@@ -73,7 +71,6 @@ class AzkarViewWidget extends StatelessWidget {
                                 homeCubit.repetitionEveningNum.removeAt(index);
                               }
                             }
-
                             if(azkarIndex == 2 )
                             {
                               homeCubit.changeRepetitionMasgedNum(index);
@@ -82,7 +79,6 @@ class AzkarViewWidget extends StatelessWidget {
                                 homeCubit.repetitionMasgedNum.removeAt(index);
                               }
                             }
-
                             if(azkarIndex == 3 )
                             {
                               homeCubit.changeRepetitionSleepingNum(index);
@@ -91,7 +87,6 @@ class AzkarViewWidget extends StatelessWidget {
                                 homeCubit.repetitionSleepingNum.removeAt(index);
                               }
                             }
-
                             if(azkarIndex == 4 )
                             {
                               homeCubit.changeRepetitionElsalahNum(index);
@@ -100,11 +95,8 @@ class AzkarViewWidget extends StatelessWidget {
                                 homeCubit.repetitionElsalahNum.removeAt(index);
                               }
                             }
-
                             if(homeCubit.azkarPressedValue){
                             }
-
-
                           },
                           child: AzkarViewBuildItem(
                             repetitionNum: azkarIndex ==0 ? homeCubit.repetitionMorningNum[index] : azkarIndex == 1 ? homeCubit.repetitionEveningNum[index]: azkarIndex == 4 ? homeCubit.repetitionElsalahNum[index] : azkarIndex == 3 ? homeCubit.repetitionSleepingNum[index] : homeCubit.repetitionMasgedNum[index],

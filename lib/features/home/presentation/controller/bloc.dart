@@ -23,7 +23,6 @@ class HomeCubit extends Cubit<HomeState> {
   final AdanUseCase _adanUseCase;
   final TafseerUseCase _tafseerUseCase;
   final HadithUseCase _hadithUseCase;
-
   HomeCubit({
     required AdanUseCase adanUseCase,
     required TafseerUseCase tafseerUseCase,
@@ -32,9 +31,7 @@ class HomeCubit extends Cubit<HomeState> {
         _tafseerUseCase = tafseerUseCase,
         _hadithUseCase = hadithUseCase,
         super(Empty());
-
   static HomeCubit get(context) => BlocProvider.of(context);
-
   int initialTabIndex = 0;
   List<Widget> homeWidgets = [
     const HomeScreen(),
@@ -42,12 +39,10 @@ class HomeCubit extends Cubit<HomeState> {
     const AzkarScreen(),
     const SadakaScreen(),
   ];
-
   void changeNavBottomScreen(int index) {
     initialTabIndex = index;
     emit(ChangeBottomNavBarState());
   }
-
   List<String> randomHomeSlah = [
     '«إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ ۚ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا»،( سورة الأحزاب: الآية 56).',
     'اللهم صلّ على محمد وعلى آل محمد، كما صليت على إبراهيم وعلى آل إبراهيم، وبارك على محمد وعلى آل محمد، كما باركت على إبراهيم وعلى آل إبراهيم، إنك حميد مجيد',
@@ -60,7 +55,6 @@ class HomeCubit extends Cubit<HomeState> {
     '«اللهم صل على سيدنا محمد صلاة تنجينا بها من جميع الأهوال والآفات، وتقضي بها جميع الحاجات، وتطهرنا بها من جميع السيئات، وترفعنا بها عندك أعلى الدرجات، وتبلغنا بها أقصى الغايات من جميع الخيرات في الحياة وبعد الممات، وعلى آله وصحبه وسلم تسليمًا كثيرًا »',
     '«اللهم صل وسلم على سيدنا محمد وعلى آله، صلاة تكون لنا طريقًا لقربه، وتأكيدًا لحبه، وبابًا لجمعنا عليه، وهدية مقبولة بين يديه، وسلم وبارك كذلك أبدًا، وارض عن آله وصحبه السعداء، واكسنا حُلل الرضا».'
   ];
-
   List<String> azkarMorning = [
     '«اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِي العظيم».',
     '«قُلْ هُوَ ٱللَّهُ أَحَدٌ، ٱللَّهُ ٱلصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ».',
@@ -94,7 +88,6 @@ class HomeCubit extends Cubit<HomeState> {
     'سُبْحـانَ اللهِ وَبِحَمْـدِهِ.',
     'أسْتَغْفِرُ اللهَ وَأتُوبُ إلَيْهِ.',
   ];
-
   List<String> azkarEvening = [
     '«اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِي العظيم».',
     '«قُلْ هُوَ ٱللَّهُ أَحَدٌ، ٱللَّهُ ٱلصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ».',
@@ -128,7 +121,6 @@ class HomeCubit extends Cubit<HomeState> {
     'سُبْحـانَ اللهِ وَبِحَمْـدِهِ.',
     'أسْتَغْفِرُ اللهَ وَأتُوبُ إلَيْهِ.',
   ];
-
   List<String> azkarElsalah = [
     'أَسْـتَغْفِرُ الله، أَسْـتَغْفِرُ الله، أَسْـتَغْفِرُ الله.',
     'اللّهُـمَّ أَنْـتَ السَّلامُ ، وَمِـنْكَ السَّلام ، تَبارَكْتَ يا ذا الجَـلالِ وَالإِكْـرام .',
@@ -147,7 +139,6 @@ class HomeCubit extends Cubit<HomeState> {
     'اللَّهُمَّ أَجِرْنِي مِنْ النَّار. "بعد الصبح والمغرب"',
     'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ.',
   ];
-
   List<String> azkarSleeping = [
     'بِاسْمِكَ رَبِّـي وَضَعْـتُ جَنْـبي ، وَبِكَ أَرْفَعُـه، فَإِن أَمْسَـكْتَ نَفْسـي فارْحَـمْها ، وَإِنْ أَرْسَلْتَـها فاحْفَظْـها بِمـا تَحْفَـظُ بِه عِبـادَكَ الصّـالِحـين.',
     'اللّهُـمَّ إِنَّـكَ خَلَـقْتَ نَفْسـي وَأَنْـتَ تَوَفّـاهـا لَكَ ممَـاتـها وَمَحْـياها ، إِنْ أَحْيَيْـتَها فاحْفَظْـها ، وَإِنْ أَمَتَّـها فَاغْفِـرْ لَـها . اللّهُـمَّ إِنَّـي أَسْـأَلُـكَ العـافِـيَة.',
@@ -163,20 +154,16 @@ class HomeCubit extends Cubit<HomeState> {
     'آمَنَ الرَّسُولُ بِمَا أُنْزِلَ إِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ ۚ كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِنْ رُسُلِهِ ۚ وَقَالُوا سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ. لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤاخذنا إن نسينا أو أخطأنا ربنا ولا تحمل علينا إصرا كما حملته على الذين من قبلنا ربنا ولا تحملنا ما لا طاقة لنا به واعف عنا واغفر لنا وارحمنا أنت مولانا فانصرنا على القوم الكافرين.',
     'اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِي العظيم.',
   ];
-
   List<String> azkarMasged = [
     'دُعَاءُ الذَّهَابِ إلَى المَسْجِدِ: اللّهُـمَّ اجْعَـلْ في قَلْبـي نورا ، وَفي لِسـاني نورا، وَاجْعَـلْ في سَمْعي نورا، وَاجْعَـلْ في بَصَري نورا، وَاجْعَـلْ مِنْ خَلْفي نورا، وَمِنْ أَمامـي نورا، وَاجْعَـلْ مِنْ فَوْقـي نورا ، وَمِن تَحْتـي نورا .اللّهُـمَّ أَعْطِنـي نورا',
     'دُعَاءُ دُخُولِ المَسْجِدِ: يَبْدَأُ بِرِجْلِهِ اليُمْنَى، وَيَقُولُ : أَعوذُ باللهِ العَظيـم وَبِوَجْهِـهِ الكَرِيـم وَسُلْطـانِه القَديـم مِنَ الشّيْـطانِ الرَّجـيم، بِسْمِ اللَّهِ، وَالصَّلاةُ وَالسَّلامُ عَلَى رَسُولِ الله، اللّهُـمَّ افْتَـحْ لي أَبْوابَ رَحْمَتـِك.',
     'دُعَاءُ الخُرُوجِ مِنَ المَسْجِدِ : يَبْدَأُ بِرِجْلِهِ الْيُسْرَى، وَيَقُولُ: بِسْـمِ اللَّـهِ وَالصَّلاةُ وَالسَّلامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ إنِّي أَسْأَلُكَ مِنْ فَضْلِكَ، اللَّهُمَّ اعْصِمْنِي مِنَ الشَّيْطَانِ الرَّجِيم.',
   ];
-
   String? pickedRandom;
-
   void pickRandomHomeSlah() {
     pickedRandom = randomHomeSlah[Random().nextInt(randomHomeSlah.length)];
     Future.delayed(const Duration(seconds: 20), pickRandomHomeSlah);
   }
-
   Future<void> share() async {
     await FlutterShare.share(
         title: ' ',
@@ -185,42 +172,32 @@ class HomeCubit extends Cubit<HomeState> {
             'https://play.google.com/store/apps/details?id=com.mohammed.gallya.Nakhtm_Quran',
         chooserTitle: 'شارك بواسطة');
   }
-
   bool hideCardValue = false;
-
   void hideCard() {
     hideCardValue = !hideCardValue;
     emit(HideCardValueState());
   }
-
   bool ayahPressedValue = false;
-
   void ayahPressed(bool value) {
     ayahPressedValue = value;
     emit(AyahOnPressedValueState());
   }
-
   int currentTasbeehNumber = 0;
-
   void changeCurrentTasbeehNumber() {
     currentTasbeehNumber++;
     emit(ChangeCurrentTasbeehNumber());
   }
-
   int totalTasbeeh = 0;
-
   void saveTotalTasbeeh() async {
     totalTasbeeh = totalTasbeeh + currentTasbeehNumber;
     currentTasbeehNumber = 0;
     await sl<CacheHelper>().put('totalTasbeeh', totalTasbeeh);
     getTotalTasbeeh();
   }
-
   void getTotalTasbeeh() async {
     totalTasbeeh = await sl<CacheHelper>().get('totalTasbeeh');
     emit(GetTotalTasbeeh());
   }
-
   List<int> repetitionMorningNum = [
     1,
     3,
@@ -307,41 +284,32 @@ class HomeCubit extends Cubit<HomeState> {
   ];
   List<int> repetitionSleepingNum = [1, 1, 3, 1, 1, 1, 1, 33, 33, 34, 3, 1, 1];
   List<int> repetitionMasgedNum = [1, 1, 1];
-
   void changeRepetitionMasgedNum(int index) {
     repetitionMasgedNum[index]--;
     emit(ChangeRepetitionMasgedNumber());
   }
-
   void changeRepetitionSleepingNum(int index) {
     repetitionSleepingNum[index]--;
     emit(ChangeRepetitionSleepingNumber());
   }
-
   void changeRepetitionElsalahNum(int index) {
     repetitionElsalahNum[index]--;
     emit(ChangeRepetitionSalahNumber());
   }
-
   void changeRepetitionMorinigNum(int index) {
     repetitionMorningNum[index]--;
     emit(ChangeRepetitionMorningNumber());
   }
-
   void changeRepetitionEveningNum(int index) {
     repetitionEveningNum[index]--;
     emit(ChangeRepetitionEveningNumber());
   }
-
   bool azkarPressedValue = false;
-
   void azkarPressed() {
     ayahPressedValue = true;
     emit(AyahOnPressedValueState());
   }
-
   bool alarmIcon = false;
-
   void changAlarm() {
     alarmIcon = !alarmIcon;
     emit(AlarmChangeState());
@@ -350,7 +318,6 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   List<AdanEntity>? adanResult;
-
   void adan({
     required String year,
     required String month,
@@ -360,7 +327,6 @@ class HomeCubit extends Cubit<HomeState> {
     required String method,
   }) async {
     emit(AdanLoadingState());
-
     final adan = await _adanUseCase(AdanParams(
       year: year,
       month: month,
@@ -369,7 +335,6 @@ class HomeCubit extends Cubit<HomeState> {
       lng: lng,
       method: method,
     ));
-
     adan.fold((failure) {
       emit(AdanErrorState());
     }, (data) {
@@ -391,22 +356,18 @@ class HomeCubit extends Cubit<HomeState> {
           adanResult![DateTime.now().day - 1].timings.ishaa.substring(0, 5));
     });
   }
-
   TafseerEntity? tafseerResult;
-
   void tafseer({
     required int tafseerId,
     required int surahId,
     required int ayahId,
   }) async {
     emit(TafseerLoadingState());
-
     final tafseer = await _tafseerUseCase(TafseerParams(
       tafseerId: tafseerId,
       surahId: surahId,
       ayahId: ayahId,
     ));
-
     tafseer.fold((failure) {
       emit(TafseerErrorState());
     }, (data) {
@@ -414,23 +375,18 @@ class HomeCubit extends Cubit<HomeState> {
       tafseerResult = data;
     });
   }
-
   int pageNumber = 1;
-
   void changeNextPage() {
     pageNumber++;
     emit(NextPageState());
   }
-
   void changePrevPage() {
     if (pageNumber > 1) {
       pageNumber--;
     }
     emit(PrevPageState());
   }
-
   List<HadithEntity>? hadithResult;
-
   void hadith({
     required int pageNum,
     required String bookName,
@@ -455,7 +411,6 @@ class HomeCubit extends Cubit<HomeState> {
     surahName = await sl<CacheHelper>().get('surahName')?? '';
     emit(GetSavedDataSuccessState());
   }
-
   bool permission = false;
   double? lat;
   double? lng;
@@ -470,21 +425,14 @@ class HomeCubit extends Cubit<HomeState> {
       lat = position.latitude;
       lng = position.longitude;
     }
-
     sl<CacheHelper>().put('permission', permission);
     emit(GetLocationState());
   }
-
   bool changePlayingValue = false;
-
   void changePlaying({bool? value})
   {
     changePlayingValue= value ?? !changePlayingValue;
-
     emit(TurnOnSoundState());
   }
-
-
-
 
 }

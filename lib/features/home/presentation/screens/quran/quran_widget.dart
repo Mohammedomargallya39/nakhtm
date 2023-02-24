@@ -14,11 +14,8 @@ import '../../../../../core/util/widgets/default_text.dart';
 import '../../controller/bloc.dart';
 import '../../controller/state.dart';
 
-
 class QuranWidget extends StatelessWidget {
   const QuranWidget({Key? key}) : super(key: key);
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -224,7 +221,6 @@ class QuranWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-
               ],
             ),
           ),

@@ -7,9 +7,7 @@ import '../repository/home_base_repository.dart';
 
 class TafseerUseCase implements UseCase<TafseerEntity, TafseerParams> {
   final HomeBaseRepository repository;
-
   TafseerUseCase(this.repository);
-
   @override
   Future<Either<Failure,TafseerEntity>> call(TafseerParams params) async {
     return await repository.tafseer(
@@ -24,13 +22,11 @@ class TafseerParams extends Equatable {
   final int tafseerId;
   final int surahId;
   final int ayahId;
-
   const TafseerParams({
     required this.tafseerId,
     required this.surahId,
     required this.ayahId,
   });
-
   @override
   List<Object> get props => [
     tafseerId,

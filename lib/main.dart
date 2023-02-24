@@ -58,10 +58,6 @@ void main() async {
   {
     Future<void> scheduleDailyNotification() async {
 
-      // time = const Time(19,21,30);
-      // notTitle='test';
-
-
       var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
           'channel id 11',
           'channel name',
@@ -118,8 +114,6 @@ void main() async {
     }
     scheduleDailyNotification();
   }
-
-
 
   debugPrintFullText(salahTimes.toString());
   bool isRtl = false;

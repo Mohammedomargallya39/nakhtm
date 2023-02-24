@@ -21,7 +21,6 @@ class ElsalahTimeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context){
 
-
     List<String> elsalahImages = [
       Assets.images.svg.elfagr,
       Assets.images.svg.elfagr,
