@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="428" height="90" viewBox="0 0 428 90">
+  <g id="أذكار_النوم" data-name="أذكار النوم" transform="translate(126 19)">
+    <g id="Group_145" data-name="Group 145">
+      <path id="Path_773" data-name="Path 773" d="M0,0H428V90H0Z" transform="translate(-126 -19)" fill="#d709e5"/>
+      <path id="Path_783" data-name="Path 783" d="M-126,71,182.8,2.113,300.892,71Z" fill="#fff" opacity="0.1"/>
+      <g id="Moon_zzz" data-name="Moon zzz" transform="translate(-43.382 0.379)">
+        <g id="Group_7" data-name="Group 7" transform="translate(0 0.252)">
+          <g id="Group_6" data-name="Group 6">
+            <path id="Path_51" data-name="Path 51" d="M102.261,82.436a26.025,26.025,0,0,1-33.228,9.33c-.09-.045-.181-.09-.271-.133-.3-.15-.6-.305-.891-.461-.1-.051-.189-.1-.286-.156h0q-.551-.314-1.088-.647c-.079-.051-.158-.1-.232-.15l-.187-.122c-.088-.057-.175-.116-.26-.172-.26-.172-.515-.351-.761-.532a.548.548,0,0,0-.065-.048c-.082-.057-.161-.119-.235-.175s-.158-.116-.232-.175c-.365-.28-.721-.565-1.06-.859-.074-.057-.144-.119-.218-.187a26.235,26.235,0,0,1-8.708-16.262c0-.031-.006-.057-.008-.085a26.02,26.02,0,0,1,8.716-22.9.336.336,0,0,1,.031-.028,25.186,25.186,0,0,1,5.782-3.814,26.716,26.716,0,0,1,4.679-1.719c.184-.051.368-.1.551-.141-14.124,9.935-13.7,31.461,1.182,40.4.048.034.1.059.147.09.235.144.481.288.729.43C85.663,88.786,95.309,87.474,102.261,82.436Z" transform="translate(-54.318 -43)" fill="none" stroke="#fff" stroke-width="1.5"/>
+          </g>
+        </g>
+        <text id="z" transform="translate(18.745 32.963) rotate(-30)" fill="#fff" font-size="29" font-family="SegoeUI, Segoe UI" letter-spacing="0.023em"><tspan x="0" y="0">z</tspan></text>
+        <text id="z-2" data-name="z" transform="translate(33.137 26.618) rotate(-30)" fill="#fff" font-size="21" font-family="SegoeUI, Segoe UI" letter-spacing="0.023em"><tspan x="0" y="0">z</tspan></text>
+        <text id="z-3" data-name="z" transform="translate(43.642 18.328) rotate(-30)" fill="#fff" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="0.023em"><tspan x="0" y="0">z</tspan></text>
+      </g>
+    </g>
+    <text id="أذكار_النوم-2" data-name="أذكار النوم" transform="translate(152 34)" fill="#fff" font-size="25" font-family="AGOOGLE, A GOOGLE"><tspan x="0" y="0">أذكار النوم</tspan></text>
+  </g>
+</svg>

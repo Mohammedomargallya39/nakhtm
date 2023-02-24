@@ -1,0 +1,141 @@
+<svg id="أذكار_الصباح" data-name="أذكار الصباح" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="177" height="52" viewBox="0 0 177 52">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.033" y1="0.057" x2="0.956" y2="0.976" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#0bf"/>
+      <stop offset="1" stop-color="#03a0d9"/>
+    </linearGradient>
+    <radialGradient id="radial-gradient" cx="0.591" cy="0.293" r="0.709" gradientUnits="objectBoundingBox">
+      <stop offset="0.262" stop-color="#fff"/>
+      <stop offset="0.516" stop-color="#fcfcfc"/>
+      <stop offset="0.666" stop-color="#f4f4f4"/>
+      <stop offset="0.789" stop-color="#e6e6e6"/>
+      <stop offset="0.79" stop-color="#e6e6e6"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="0.592" cy="0.292" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-3" cx="0.592" cy="0.292" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-4" cx="0.592" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-5" cx="0.591" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-6" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-7" cx="0.591" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-8" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-9" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-10" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-11" cx="0.592" cy="0.292" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-12" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-13" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-14" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-15" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-16" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-17" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-18" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-20" cx="0.592" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-21" cx="0.591" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-22" cx="0.591" cy="0.292" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-23" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-24" cx="0.591" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-26" cx="0.592" cy="0.292" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-27" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-28" cx="0.592" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-29" cx="0.591" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-30" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-31" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-32" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-33" cx="0.592" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-34" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-35" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-36" cx="0.591" cy="0.292" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-37" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-39" cx="0.592" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-40" cx="0.591" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-41" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-43" cx="0.592" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-44" cx="0.591" cy="0.293" r="0.708" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-45" cx="0.591" cy="0.293" r="0.709" xlink:href="#radial-gradient"/>
+  </defs>
+  <g id="Group_135" data-name="Group 135">
+    <rect id="Rectangle_13" data-name="Rectangle 13" width="170" height="52" rx="10" fill="url(#linear-gradient)"/>
+    <circle id="Ellipse_96" data-name="Ellipse 96" cx="9" cy="9" r="9" transform="translate(159 34)" fill="#fff" opacity="0.15"/>
+    <circle id="Ellipse_97" data-name="Ellipse 97" cx="9" cy="9" r="9" transform="translate(98)" fill="#fff" opacity="0.15"/>
+    <g id="Sun" transform="translate(11.095 5.135)">
+      <g id="Group_10" data-name="Group 10" transform="translate(0 0)">
+        <g id="Group_9" data-name="Group 9" transform="translate(0)">
+          <path id="Path_52" data-name="Path 52" d="M95.311,510.96a12.62,12.62,0,1,1-12.62-12.62A12.624,12.624,0,0,1,95.311,510.96Z" transform="translate(-61.614 -490.85)" fill="none" stroke="#fff" stroke-width="2"/>
+          <g id="Group_8" data-name="Group 8">
+            <path id="Path_53" data-name="Path 53" d="M98.23,485.839l1.692-2.829,1.692,2.829Z" transform="translate(-78.845 -481.469)" fill="#fff"/>
+            <path id="Path_54" data-name="Path 54" d="M84.075,484.939l-.345-5.9,3.528,4.742Z" transform="translate(-69.972 -479.04)" fill="#fff"/>
+            <path id="Path_55" data-name="Path 55" d="M72.354,497.456,71.83,494.2l3.116,1.083Z" transform="translate(-62.691 -488.317)" fill="#fff"/>
+            <path id="Path_56" data-name="Path 56" d="M58.889,507.58l-4.059-4.3,5.751,1.366Z" transform="translate(-52.288 -493.873)" fill="#fff"/>
+            <path id="Path_57" data-name="Path 57" d="M57.961,522.854,55.47,520.7l3.081-1.176Z" transform="translate(-52.68 -503.81)" fill="#fff"/>
+            <path id="Path_58" data-name="Path 58" d="M54.152,536.934l-5.872-.683,5.282-2.651Z" transform="translate(-48.28 -512.426)" fill="#fff"/>
+            <path id="Path_59" data-name="Path 59" d="M64.449,550.29l-3.3-.05,1.607-2.88Z" transform="translate(-56.155 -520.846)" fill="#fff"/>
+            <path id="Path_60" data-name="Path 60" d="M72.076,561.3l-4.936,3.248,2.344-5.425Z" transform="translate(-59.821 -528.042)" fill="#fff"/>
+            <path id="Path_61" data-name="Path 61" d="M87.8,568.636l-2.561,2.08-.621-3.237Z" transform="translate(-70.517 -533.158)" fill="#fff"/>
+            <path id="Path_62" data-name="Path 62" d="M101.614,571.41l-1.692,5.662L98.23,571.41Z" transform="translate(-78.845 -535.563)" fill="#fff"/>
+            <path id="Path_63" data-name="Path 63" d="M115.542,567.47l-.621,3.24-2.561-2.08Z" transform="translate(-87.492 -533.152)" fill="#fff"/>
+            <path id="Path_64" data-name="Path 64" d="M127.912,559.12l2.344,5.425L125.32,561.3Z" transform="translate(-95.422 -528.042)" fill="#fff"/>
+            <path id="Path_65" data-name="Path 65" d="M137.222,547.36l1.607,2.88-3.3.05Z" transform="translate(-101.67 -520.846)" fill="#fff"/>
+            <path id="Path_66" data-name="Path 66" d="M142.36,533.6l5.282,2.651-5.872.683Z" transform="translate(-105.488 -512.426)" fill="#fff"/>
+            <path id="Path_67" data-name="Path 67" d="M141.77,519.52l3.081,1.176-2.492,2.158Z" transform="translate(-105.488 -503.81)" fill="#fff"/>
+            <path id="Path_68" data-name="Path 68" d="M135.53,504.646l5.751-1.366-4.059,4.3Z" transform="translate(-101.67 -493.873)" fill="#fff"/>
+            <path id="Path_69" data-name="Path 69" d="M125.32,495.283l3.116-1.083-.524,3.256Z" transform="translate(-95.422 -488.317)" fill="#fff"/>
+            <path id="Path_70" data-name="Path 70" d="M112.36,483.779l3.528-4.739-.345,5.9Z" transform="translate(-87.492 -479.04)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+      <g id="Cloud" transform="translate(11.616 0.532)">
+        <g id="Group_25" data-name="Group 25" transform="translate(28.533 -1)" opacity="0.62">
+          <path id="Path_96" data-name="Path 96" d="M194.125,86.758a1.548,1.548,0,1,1-1.548-1.548A1.546,1.546,0,0,1,194.125,86.758Z" transform="translate(-179.146 -80.048)" fill="url(#radial-gradient)"/>
+          <circle id="Ellipse_11" data-name="Ellipse 11" cx="2.641" cy="2.641" r="2.641" transform="translate(16.231 4.566)" fill="url(#radial-gradient-2)"/>
+          <circle id="Ellipse_12" data-name="Ellipse 12" cx="1.739" cy="1.739" r="1.739" transform="translate(5.811 4.325)" fill="url(#radial-gradient-3)"/>
+          <path id="Path_97" data-name="Path 97" d="M203.577,91.269A1.579,1.579,0,1,1,202,89.69,1.579,1.579,0,0,1,203.577,91.269Z" transform="translate(-185.635 -83.144)" fill="url(#radial-gradient-4)"/>
+          <circle id="Ellipse_13" data-name="Ellipse 13" cx="2.468" cy="2.468" r="2.468" transform="translate(8.424 4.149)" fill="url(#radial-gradient-5)"/>
+          <circle id="Ellipse_14" data-name="Ellipse 14" cx="3.336" cy="3.336" r="3.336" transform="translate(12.712 2.524)" fill="url(#radial-gradient-6)"/>
+          <circle id="Ellipse_15" data-name="Ellipse 15" cx="3.815" cy="3.815" r="3.815" transform="translate(15.004 4.998)" fill="url(#radial-gradient-7)"/>
+          <circle id="Ellipse_16" data-name="Ellipse 16" cx="1.508" cy="1.508" r="1.508" transform="translate(3.111 5.394)" fill="url(#radial-gradient-8)"/>
+          <circle id="Ellipse_17" data-name="Ellipse 17" cx="2.419" cy="2.419" r="2.419" transform="translate(6.963 6.524)" fill="url(#radial-gradient-9)"/>
+          <circle id="Ellipse_18" data-name="Ellipse 18" cx="3.42" cy="3.42" r="3.42" transform="translate(3.67 6.203)" fill="url(#radial-gradient-10)"/>
+          <circle id="Ellipse_19" data-name="Ellipse 19" cx="3.003" cy="3.003" r="3.003" transform="translate(0 5.996)" fill="url(#radial-gradient-11)"/>
+          <path id="Path_98" data-name="Path 98" d="M166.92,97.865a1.795,1.795,0,1,1-1.795-1.795A1.794,1.794,0,0,1,166.92,97.865Z" transform="translate(-160.003 -87.553)" fill="url(#radial-gradient-12)"/>
+          <circle id="Ellipse_20" data-name="Ellipse 20" cx="5.14" cy="5.14" r="5.14" transform="translate(6.463 4.702)" fill="url(#radial-gradient-13)"/>
+          <path id="Path_99" data-name="Path 99" d="M197.127,95.548a1.918,1.918,0,1,1-1.918-1.918A1.918,1.918,0,0,1,197.127,95.548Z" transform="translate(-180.708 -85.867)" fill="url(#radial-gradient-14)"/>
+          <circle id="Ellipse_21" data-name="Ellipse 21" cx="4.714" cy="4.714" r="4.714" transform="translate(5.502 0)" fill="url(#radial-gradient-15)"/>
+        </g>
+        <g id="Group_26" data-name="Group 26" transform="translate(25.665 35.956)" opacity="0.62">
+          <circle id="Ellipse_22" data-name="Ellipse 22" cx="2.36" cy="2.36" r="2.36" transform="translate(2.471 3)" fill="url(#radial-gradient-16)"/>
+          <circle id="Ellipse_23" data-name="Ellipse 23" cx="2.948" cy="2.948" r="2.948" transform="translate(3.631 2.247)" fill="url(#radial-gradient-17)"/>
+          <circle id="Ellipse_24" data-name="Ellipse 24" cx="1.342" cy="1.342" r="1.342" transform="translate(7.914 2.835)" fill="url(#radial-gradient-18)"/>
+          <circle id="Ellipse_25" data-name="Ellipse 25" cx="1.756" cy="1.756" r="1.756" transform="translate(4.92 1.772)" fill="url(#radial-gradient-10)"/>
+          <circle id="Ellipse_26" data-name="Ellipse 26" cx="2.441" cy="2.441" r="2.441" transform="translate(9.302 1.81)" fill="url(#radial-gradient-20)"/>
+          <circle id="Ellipse_27" data-name="Ellipse 27" cx="1.243" cy="1.243" r="1.243" transform="translate(7.027 1.792)" fill="url(#radial-gradient-21)"/>
+          <path id="Path_100" data-name="Path 100" d="M58.242,221.406a1.2,1.2,0,1,1-1.2-1.2A1.195,1.195,0,0,1,58.242,221.406Z" transform="translate(-48.952 -216.307)" fill="url(#radial-gradient-22)"/>
+          <circle id="Ellipse_28" data-name="Ellipse 28" cx="3.154" cy="3.154" r="3.154" transform="translate(6.88 1.927)" fill="url(#radial-gradient-23)"/>
+          <circle id="Ellipse_29" data-name="Ellipse 29" cx="2.293" cy="2.293" r="2.293" transform="translate(4.023)" fill="url(#radial-gradient-24)"/>
+          <circle id="Ellipse_30" data-name="Ellipse 30" cx="2.552" cy="2.552" r="2.552" transform="translate(2.748 1.293)" fill="url(#radial-gradient-8)"/>
+          <circle id="Ellipse_31" data-name="Ellipse 31" cx="2.602" cy="2.602" r="2.602" transform="translate(7.787 0.651)" fill="url(#radial-gradient-26)"/>
+          <circle id="Ellipse_32" data-name="Ellipse 32" cx="1.483" cy="1.483" r="1.483" transform="translate(2.182 2.859)" fill="url(#radial-gradient-27)"/>
+          <circle id="Ellipse_33" data-name="Ellipse 33" cx="1.236" cy="1.236" r="1.236" transform="translate(2.889 1.612)" fill="url(#radial-gradient-28)"/>
+          <circle id="Ellipse_34" data-name="Ellipse 34" cx="2.354" cy="2.354" r="2.354" transform="translate(0 1.534)" fill="url(#radial-gradient-29)"/>
+          <circle id="Ellipse_35" data-name="Ellipse 35" cx="2.099" cy="2.099" r="2.099" transform="translate(0.655 3.154)" fill="url(#radial-gradient-30)"/>
+        </g>
+        <g id="Group_27" data-name="Group 27" transform="translate(-19 34.714)" opacity="0.68">
+          <circle id="Ellipse_36" data-name="Ellipse 36" cx="3.536" cy="3.536" r="3.536" transform="translate(5.143)" fill="url(#radial-gradient-31)"/>
+          <path id="Path_101" data-name="Path 101" d="M273.8,224a1.013,1.013,0,1,1-1.013-1.013A1.013,1.013,0,0,1,273.8,224Z" transform="translate(-260.111 -219.097)" fill="url(#radial-gradient-32)"/>
+          <path id="Path_102" data-name="Path 102" d="M265.948,230.1a1.079,1.079,0,1,1-1.079-1.079A1.078,1.078,0,0,1,265.948,230.1Z" transform="translate(-253.777 -223.883)" fill="url(#radial-gradient-33)"/>
+          <circle id="Ellipse_37" data-name="Ellipse 37" cx="2.956" cy="2.956" r="2.956" transform="translate(8.132 1.04)" fill="url(#radial-gradient-34)"/>
+          <circle id="Ellipse_38" data-name="Ellipse 38" cx="2.401" cy="2.401" r="2.401" transform="translate(4.404 2.42)" fill="url(#radial-gradient-35)"/>
+          <path id="Path_103" data-name="Path 103" d="M231.95,219.885a1.285,1.285,0,1,1-1.285-1.285A1.285,1.285,0,0,1,231.95,219.885Z" transform="translate(-226.465 -215.613)" fill="url(#radial-gradient-36)"/>
+          <circle id="Ellipse_39" data-name="Ellipse 39" cx="3.736" cy="3.736" r="3.736" transform="translate(5.062 3.247)" fill="url(#radial-gradient-37)"/>
+          <circle id="Ellipse_40" data-name="Ellipse 40" cx="2.719" cy="2.719" r="2.719" transform="translate(0 2.894)" fill="url(#radial-gradient-31)"/>
+          <circle id="Ellipse_41" data-name="Ellipse 41" cx="2.711" cy="2.711" r="2.711" transform="translate(4.049 4.293)" fill="url(#radial-gradient-39)"/>
+          <circle id="Ellipse_42" data-name="Ellipse 42" cx="1.768" cy="1.768" r="1.768" transform="translate(4.404 1.659)" fill="url(#radial-gradient-40)"/>
+          <circle id="Ellipse_43" data-name="Ellipse 43" cx="2.725" cy="2.725" r="2.725" transform="translate(11.618 2.302)" fill="url(#radial-gradient-41)"/>
+          <circle id="Ellipse_44" data-name="Ellipse 44" cx="3.649" cy="3.649" r="3.649" transform="translate(1.677 2.445)" fill="url(#radial-gradient-10)"/>
+          <circle id="Ellipse_45" data-name="Ellipse 45" cx="2.265" cy="2.265" r="2.265" transform="translate(1.527 4.274)" fill="url(#radial-gradient-43)"/>
+          <circle id="Ellipse_46" data-name="Ellipse 46" cx="2.515" cy="2.515" r="2.515" transform="translate(11.096 3.688)" fill="url(#radial-gradient-44)"/>
+          <circle id="Ellipse_47" data-name="Ellipse 47" cx="0.965" cy="0.965" r="0.965" transform="translate(7.998 4.316)" fill="url(#radial-gradient-45)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <text id="أذكار_الصباح-2" data-name="أذكار الصباح" transform="translate(72 34)" fill="#fff" font-size="18" font-family="AGOOGLE, A GOOGLE" letter-spacing="0.02em"><tspan x="0" y="0">أذكار الصباح</tspan></text>
+</svg>

@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -34,22 +34,47 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  shared_preferences: ^2.0.5
-  conditional_builder_null_safety: ^0.0.4
-  hexcolor: ^2.0.3
-  dio: ^4.0.0
-  bloc: ^8.0.3
-  flutter_bloc: ^8.0.1
-  fluttertoast: ^8.0.8
-  animated_button: ^0.2.0
-  flutter_svg: ^1.0.3
-  adhan_dart: ^1.0.7
-  timezone: ^0.8.0
-  quran: ^1.1.2
-  animated_splash_screen: ^1.2.0
-  webview_flutter: ^3.0.1
-  scrollable_positioned_list: ^0.2.3
-  google_language_fonts: ^2.0.0
+  # Service locator
+  get_it: ^7.2.0
+  # Bloc for state management
+  flutter_bloc: ^8.1.1
+  bloc: ^8.1.0
+  # Value equality
+  equatable: ^2.0.5
+  # Local cache
+  shared_preferences: ^2.0.15
+  # Remote API
+  dio: ^4.0.6
+  # Handel faiures
+  dartz: ^0.10.1
+  #connectivity
+  connectivity_plus: ^2.3.9
+  # Load local SVG file
+  flutter_svg: ^1.1.5
+  # Format Time
+  intl: ^0.17.0
+  # waiting for data
+  shimmer: ^2.0.0
+  #nav bar
+  custom_navigation_bar: ^0.8.2
+  #share
+  flutter_share: ^2.0.0
+  #dotted border
+  dotted_border: ^2.0.0+3
+  #progress
+  liquid_progress_indicator: ^0.4.0
+  #my location
+  geolocator: ^9.0.2
+  # Icons
+  font_awesome_flutter: ^10.2.1
+  # quran
+  quran: ^1.2.0
+  # audio
+  audioplayers: ^3.0.1
+  # location
+  location: ^4.3.0
+  # local notifications
+  flutter_local_notifications: ^13.0.0
 
 
 
@@ -63,7 +88,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -78,7 +103,22 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
+    - assets/images/svg/
+    - assets/images/lotti/
+    - assets/images/png/
+    - assets/fonts/
+    - assets/sound/
+    - assets/translations/
+
+
+  fonts:
+    - family: arabic
+      fonts:
+        - asset: assets/fonts/othmani.ttf
+
+    - family: main
+      fonts:
+        - asset: assets/fonts/tajawal-Regular.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
