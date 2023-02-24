@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="354" height="74.249" viewBox="0 0 354 74.249">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.033" y1="0.057" x2="0.956" y2="0.976" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f600ff"/>
+      <stop offset="1" stop-color="#ba13cd"/>
+    </linearGradient>
+  </defs>
+  <g id="أذكار_النوم" data-name="أذكار النوم" transform="translate(2 -11.275)">
+    <path id="Path_600" data-name="Path 600" d="M10.085,0H343.915C349.485,0,354,3.078,354,6.875l-.268,60.515c0,3.8-4.247,6.86-9.817,6.86H10.085C4.515,74.249,0,71.171,0,67.374V6.875C0,3.078,4.515,0,10.085,0Z" transform="translate(-2 11.275)" fill="url(#linear-gradient)"/>
+    <g id="Moonzzz" transform="translate(22.618 29.545)">
+      <g id="Group_7" data-name="Group 7" transform="translate(0 0)">
+        <g id="Group_6" data-name="Group 6">
+          <path id="Path_51" data-name="Path 51" d="M89.51,71.947A19.1,19.1,0,0,1,65.12,78.8c-.066-.033-.133-.066-.2-.1-.222-.11-.44-.224-.654-.338-.071-.037-.139-.077-.21-.114h0q-.4-.23-.8-.475c-.058-.037-.116-.073-.17-.11l-.137-.089c-.064-.042-.129-.085-.191-.127-.191-.127-.378-.257-.558-.39a.4.4,0,0,0-.048-.035c-.06-.042-.118-.087-.172-.129s-.116-.085-.17-.129c-.268-.205-.529-.415-.778-.631-.054-.041-.106-.087-.16-.137A19.257,19.257,0,0,1,54.48,64.057c0-.023,0-.042-.006-.062a19.1,19.1,0,0,1,6.4-16.809.247.247,0,0,1,.023-.021,18.487,18.487,0,0,1,4.244-2.8A19.61,19.61,0,0,1,68.573,43.1c.135-.037.27-.071.4-.1-10.368,7.292-10.057,23.093.867,29.657.035.025.071.044.108.066.172.106.353.212.535.315A17.794,17.794,0,0,0,89.51,71.947Z" transform="translate(-54.318 -43)" fill="none" stroke="#fff" stroke-width="1.5"/>
+        </g>
+      </g>
+      <text id="z" transform="translate(14.882 25.955) rotate(-30)" fill="#fff" font-size="23" font-family="SegoeUI, Segoe UI" letter-spacing="0.023em"><tspan x="0" y="0">z</tspan></text>
+      <text id="z-2" data-name="z" transform="translate(24.382 19.455) rotate(-30)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI" letter-spacing="0.023em"><tspan x="0" y="0">z</tspan></text>
+      <text id="z-3" data-name="z" transform="translate(32.529 14.125) rotate(-30)" fill="#fff" font-size="11" font-family="SegoeUI, Segoe UI" letter-spacing="0.023em"><tspan x="0" y="0">z</tspan></text>
+    </g>
+    <text id="أذكار_النوم-2" data-name="أذكار النوم" transform="translate(232 55)" fill="#fff" stroke="#fff" stroke-width="1" font-size="20" font-family="AGOOGLE, A GOOGLE" letter-spacing="0.02em"><tspan x="0" y="0">أذكار النوم</tspan></text>
+  </g>
+</svg>

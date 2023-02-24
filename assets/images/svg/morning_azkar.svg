@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="354" height="74.249" viewBox="0 0 354 74.249">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.033" y1="0.057" x2="0.956" y2="0.976" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fa0"/>
+      <stop offset="1" stop-color="#ffbc00"/>
+    </linearGradient>
+  </defs>
+  <g id="أذكار_الصباح" data-name="أذكار الصباح" transform="translate(2 -11.275)">
+    <path id="Path_600" data-name="Path 600" d="M10.085,0H343.915C349.485,0,354,3.078,354,6.875l-.268,60.515c0,3.8-4.247,6.86-9.817,6.86H10.085C4.515,74.249,0,71.171,0,67.374V6.875C0,3.078,4.515,0,10.085,0Z" transform="translate(-2 11.275)" fill="url(#linear-gradient)"/>
+    <g id="Sun" transform="translate(-1.327 23.787)">
+      <g id="Group_10" data-name="Group 10" transform="translate(15.265 0.968)">
+        <g id="Group_9" data-name="Group 9" transform="translate(0)">
+          <path id="Path_52" data-name="Path 52" d="M98.826,512.718A14.378,14.378,0,1,1,84.448,498.34,14.382,14.382,0,0,1,98.826,512.718Z" transform="translate(-60.436 -489.807)" fill="none" stroke="#fff" stroke-width="2"/>
+          <g id="Group_8" data-name="Group 8">
+            <path id="Path_53" data-name="Path 53" d="M98.23,486.233l1.928-3.223,1.928,3.223Z" transform="translate(-76.146 -481.255)" fill="#fff"/>
+            <path id="Path_54" data-name="Path 54" d="M84.123,485.76l-.393-6.72,4.019,5.4Z" transform="translate(-68.056 -479.04)" fill="#fff"/>
+            <path id="Path_55" data-name="Path 55" d="M72.427,497.909l-.6-3.709,3.55,1.233Z" transform="translate(-61.418 -487.497)" fill="#fff"/>
+            <path id="Path_56" data-name="Path 56" d="M59.455,508.179l-4.625-4.9,6.552,1.556Z" transform="translate(-51.934 -492.563)" fill="#fff"/>
+            <path id="Path_57" data-name="Path 57" d="M58.308,523.318,55.47,520.86l3.511-1.34Z" transform="translate(-52.291 -501.623)" fill="#fff"/>
+            <path id="Path_58" data-name="Path 58" d="M54.969,537.4l-6.689-.778L54.3,533.6Z" transform="translate(-48.28 -509.477)" fill="#fff"/>
+            <path id="Path_59" data-name="Path 59" d="M64.908,550.7l-3.758-.057,1.83-3.281Z" transform="translate(-55.46 -517.154)" fill="#fff"/>
+            <path id="Path_60" data-name="Path 60" d="M72.764,561.6l-5.624,3.7,2.67-6.181Z" transform="translate(-58.801 -523.714)" fill="#fff"/>
+            <path id="Path_61" data-name="Path 61" d="M88.245,568.8l-2.918,2.37-.707-3.687Z" transform="translate(-68.553 -528.378)" fill="#fff"/>
+            <path id="Path_62" data-name="Path 62" d="M102.085,571.41l-1.928,6.451L98.23,571.41Z" transform="translate(-76.146 -530.57)" fill="#fff"/>
+            <path id="Path_63" data-name="Path 63" d="M115.985,567.47l-.707,3.692-2.918-2.37Z" transform="translate(-84.028 -528.372)" fill="#fff"/>
+            <path id="Path_64" data-name="Path 64" d="M128.273,559.12l2.67,6.181-5.624-3.7Z" transform="translate(-91.258 -523.714)" fill="#fff"/>
+            <path id="Path_65" data-name="Path 65" d="M137.458,547.36l1.83,3.281-3.758.057Z" transform="translate(-96.954 -517.154)" fill="#fff"/>
+            <path id="Path_66" data-name="Path 66" d="M142.442,533.6l6.017,3.02-6.689.778Z" transform="translate(-100.435 -509.477)" fill="#fff"/>
+            <path id="Path_67" data-name="Path 67" d="M141.77,519.52l3.511,1.34-2.839,2.458Z" transform="translate(-100.435 -501.623)" fill="#fff"/>
+            <path id="Path_68" data-name="Path 68" d="M135.53,504.836l6.552-1.556-4.625,4.9Z" transform="translate(-96.954 -492.563)" fill="#fff"/>
+            <path id="Path_69" data-name="Path 69" d="M125.32,495.434l3.55-1.233-.6,3.709Z" transform="translate(-91.258 -487.497)" fill="#fff"/>
+            <path id="Path_70" data-name="Path 70" d="M112.36,484.438l4.019-5.4-.393,6.72Z" transform="translate(-84.028 -479.04)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <text id="أذكار_الصباح-2" data-name="أذكار الصباح" transform="translate(222 55)" fill="#fff" stroke="#fff" stroke-width="1" font-size="20" font-family="AGOOGLE, A GOOGLE" letter-spacing="0.02em"><tspan x="0" y="0">أذكار الصباح</tspan></text>
+  </g>
+</svg>
