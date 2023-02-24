@@ -34,7 +34,6 @@ class HomeWidget extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   fontSize: 25.rSp,
                   fontFamily: 'arabic',
-
                 ),
                 verticalSpace(2.h,),
                 SvgPicture.asset(Assets.images.svg.icon),

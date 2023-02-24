@@ -232,16 +232,16 @@ String chooseTitle(TOAST toast, context) {
 
   switch (toast) {
     case TOAST.success:
-      title = appTranslation().success;
+      title = 'نجح';
       break;
     case TOAST.error:
-      title = appTranslation().error;
+      title = 'خطأ';
       break;
     case TOAST.info:
-      title = appTranslation().info;
+      title = 'معلومة';
       break;
     case TOAST.warning:
-      title = appTranslation().warning;
+      title = 'تحذير';
       break;
   }
 

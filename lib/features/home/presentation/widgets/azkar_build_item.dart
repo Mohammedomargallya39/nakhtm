@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nakhtm/core/util/resources/extensions_manager.dart';
-
 import '../../../../core/util/resources/colors_manager.dart';
 import '../../../../core/util/resources/constants_manager.dart';
 import '../../../../core/util/widgets/default_text.dart';
@@ -21,7 +20,6 @@ class AzkarBuildItem extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.rSp),
             color: itemBackground == null ? ColorsManager.buttonAhadeth : Colors.transparent,
-
         ),
         child: itemBackground != null ? SvgPicture.asset(itemBackground!) : Center(
           child: Padding(
@@ -38,6 +36,5 @@ class AzkarBuildItem extends StatelessWidget {
         )
         ),
       );
-
   }
 }

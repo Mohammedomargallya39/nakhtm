@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'hadeth_details_widget.dart';
 
 class HadethDetailScreen extends StatelessWidget {

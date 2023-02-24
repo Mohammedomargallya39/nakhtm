@@ -22,7 +22,6 @@ class AdanUseCase implements UseCase<List<AdanEntity>, AdanParams> {
     );
   }
 }
-
 class AdanParams extends Equatable {
   final String year;
   final String month;
@@ -30,7 +29,6 @@ class AdanParams extends Equatable {
   final String lat;
   final String lng;
   final String method;
-
   const AdanParams({
     required this.year,
     required this.month,
@@ -39,7 +37,6 @@ class AdanParams extends Equatable {
     required this.lng,
     required this.method,
   });
-
   @override
   List<Object> get props => [
     year,

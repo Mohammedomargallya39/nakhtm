@@ -65,45 +65,6 @@ class MainScreen extends StatelessWidget {
                     homeCubit.changeNavBottomScreen(index);
                 },
               )
-              // GNav(
-              //   gap: 2,
-              //   rippleColor: Colors.grey[300]!,
-              //   hoverColor: Colors.grey[300]!,
-              //   activeColor: const Color.fromARGB(255, 248, 96, 13),
-              //   iconSize: 30.rSp,
-              //   padding: EdgeInsets.symmetric( horizontal: 5.w),
-              //   duration: const Duration(milliseconds: 400),
-              //   tabBackgroundColor: Colors.grey[300]!,
-              //   color: Colors.black,
-              //   tabs: [
-              //     GButton(
-              //       icon: Icons.home,
-              //       text: 'الرئيسية',
-              //      // leading: SvgPicture.asset(Assets.images.svg.home),
-              //     ),
-              //     GButton(
-              //       icon: Icons.home,
-              //       text: 'المصحف',
-              //     //  leading: SvgPicture.asset(Assets.images.svg.book),
-              //     ),
-              //     GButton(
-              //       icon: Icons.home,
-              //       text: 'أذكار المسلم',
-              //      // leading: SvgPicture.asset(Assets.images.svg.book),
-              //     ),
-              //     GButton(
-              //       icon: Icons.home,
-              //       text: 'صدقة جارية',
-              //     //  leading: SvgPicture.asset(Assets.images.svg.donition),
-              //     ),
-              //
-              //   ],
-              //   selectedIndex: homeCubit.initialTabIndex,
-              //   onTabChange: (index)
-              //   {
-              //     homeCubit.changeNavBottomScreen(index);
-              //   },
-              // ),
             ),
             body: homeCubit.homeWidgets.elementAt(homeCubit.initialTabIndex),
           ),

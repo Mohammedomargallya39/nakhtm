@@ -20,7 +20,6 @@ class HadethDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeCubit homeCubit = HomeCubit.get(context);
-    AppBloc appBloc = AppBloc.get(context);
 
     homeCubit.hadith(pageNum: homeCubit.pageNumber, bookName: bookName);
 
@@ -76,7 +75,6 @@ class HadethDetailsWidget extends StatelessWidget {
                               {
                                 homeCubit.changePrevPage();
                                 homeCubit.hadith(pageNum: homeCubit.pageNumber, bookName: bookName);
-                                // homeCubit.scrollToTop();
                               },
                               icon: Icon(
                                 Icons.skip_previous,
@@ -84,9 +82,7 @@ class HadethDetailsWidget extends StatelessWidget {
                                 size: 40.rSp,
                               )),
                         ),
-
                         DefaultText(title: '${homeCubit.pageNumber}' , style: Style.medium , fontWeight: FontWeight.w600,fontSize: 18.rSp),
-
                         Expanded(
                           child: IconButton(
                               padding: EdgeInsets.zero,
@@ -102,7 +98,6 @@ class HadethDetailsWidget extends StatelessWidget {
                                 size: 40.rSp,
                               )),
                         ),
-
                       ],
                     ),
                   )

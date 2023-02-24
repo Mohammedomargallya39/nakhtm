@@ -8,7 +8,6 @@ import '../../../../../core/util/resources/constants_manager.dart';
 import '../../../../../core/util/widgets/default_text.dart';
 import '../../controller/bloc.dart';
 import 'package:location/location.dart';
-
 import '../../controller/state.dart';
 import '../../widgets/azkar_build_item.dart';
 import 'azkar_view_screen.dart';
@@ -60,15 +59,11 @@ class AzkarWidget extends StatelessWidget {
                       itemBuilder: (context, index) => InkWell(
                         onTap: () async{
                           if(index == 5){
-
                             Location location = Location();
                             PermissionStatus permissionStatus = await location.requestPermission();
-
-
                             if(permissionStatus == PermissionStatus.granted)
                             {
                               homeCubit.getLocation();
-
                               if(appBloc.isAppConnected && homeCubit.lat != null)
                               {
                                 homeCubit.adan(
@@ -94,11 +89,7 @@ class AzkarWidget extends StatelessWidget {
                                     text: 'برجاء فتح الانترنت لتحديث الأوقات'
                                 );
                               }
-
-
-
                             }
-
                           }else{
                             navigateTo(context, AzkarViewScreen(azkarIndex: index,));
                           }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'azkar_view_widget.dart';
 
 class AzkarViewScreen extends StatelessWidget {
