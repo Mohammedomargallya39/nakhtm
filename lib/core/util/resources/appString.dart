@@ -1,5 +1,5 @@
 class AppString {
-  static const appName = 'بسمك اللهم';
+  static const appName = 'باسمك اللهم';
   static const appDescription = 'اللهم صلي و سلم علي سيدنا محمد';
   static const home = 'الرئيسية';
   static const mushaf = 'المصحف';

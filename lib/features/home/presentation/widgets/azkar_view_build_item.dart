@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nakhtm/core/util/resources/extensions_manager.dart';
 import '../../../../core/util/resources/appString.dart';
+import '../../../../core/util/resources/assets.gen.dart';
 import '../../../../core/util/resources/colors_manager.dart';
 import '../../../../core/util/resources/constants_manager.dart';
 import '../../../../core/util/widgets/default_text.dart';
@@ -89,6 +90,12 @@ class AzkarViewBuildItem extends StatelessWidget {
           decoration: BoxDecoration(
             color: ColorsManager.white,
             borderRadius: BorderRadius.circular(10.rSp),
+            image: DecorationImage(
+                image: AssetImage(
+                  Assets.images.png.appBackground,
+                ),
+                fit: BoxFit.cover
+            ),
           ),
           child: Center(
             child: DefaultText(

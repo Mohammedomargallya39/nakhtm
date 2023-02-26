@@ -74,8 +74,11 @@ class $AssetsImagesPngGen {
   /// File path: assets/images/png/network_error.png
   String get network_error => 'assets/images/png/network_error.png';
 
+  /// File path: assets/images/png/app_background.png
+  String get appBackground => 'assets/images/png/app_background.png';
+
   /// List of all assets
-  List<String> get values => [surahCard,elmaghrb,network_error];
+  List<String> get values => [surahCard,elmaghrb,network_error,appBackground];
 }
 
 ///SVG
