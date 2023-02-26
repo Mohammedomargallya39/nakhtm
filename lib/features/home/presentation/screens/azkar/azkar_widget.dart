@@ -24,32 +24,42 @@ class AzkarWidget extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: designApp,
-          child: Column(
-            children: [
-              DefaultText(
-                title: AppString.azkar,
-                style: Style.medium,
-                fontWeight: FontWeight.w600,
-                fontSize: 25.rSp,
-              ),
-              verticalSpace(8.h),
-              Expanded(
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (context, index) => InkWell(
-                    onTap: () async{
-                      navigateTo(context, AzkarViewScreen(azkarIndex: index,));
-                    },
-                    child: AzkarBuildItem(
-                      itemBackground: itemBackground[index],
-                    ),
-                  ),
-                  itemCount:5,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  Assets.images.png.appBackground,
                 ),
-              )
-            ],
+                fit: BoxFit.cover
+            ),
+          ),
+          child: Padding(
+            padding: designApp,
+            child: Column(
+              children: [
+                DefaultText(
+                  title: AppString.azkar,
+                  style: Style.medium,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 25.rSp,
+                ),
+                verticalSpace(8.h),
+                Expanded(
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, index) => InkWell(
+                      onTap: () async{
+                        navigateTo(context, AzkarViewScreen(azkarIndex: index,));
+                      },
+                      child: AzkarBuildItem(
+                        itemBackground: itemBackground[index],
+                      ),
+                    ),
+                    itemCount:5,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

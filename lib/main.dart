@@ -164,7 +164,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) {
           return MaterialApp(
-            title: 'بسمك اللهم',
+            title: 'باسمك اللهم',
             debugShowCheckedModeBanner: false,
             themeMode: ThemeMode.light,
             theme: AppBloc.get(context).lightTheme,

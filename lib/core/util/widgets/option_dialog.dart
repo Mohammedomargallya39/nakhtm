@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nakhtm/core/util/resources/extensions_manager.dart';
+import '../resources/assets.gen.dart';
 import '../resources/constants_manager.dart';
 import 'myButton.dart';
 import 'default_text.dart';
@@ -59,109 +60,120 @@ class OptionsDialog extends Dialog {
       child: SizedBox(
         height: height,
         width: double.infinity,
-        child: Padding(
-          padding:  EdgeInsets.all(20.rSp),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              DefaultText(
-                  title: message, align: TextAlign.center, style: Style.medium, fontWeight: FontWeight.w600,),
-              verticalSpace(2.h),
-              Expanded(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: myButton(
-                        onPressed: firstButtonVoidCallback,
-                        text: firstButtonText,
-                        fontSize: 16.rSp,
-                      ),
-                    ),
-                    horizontalSpace(2.w),
-                    Expanded(
-                      child: myButton(
-                        onPressed: secondButtonVoidCallback,
-                        text: secondButtonText,
-                        fontSize: 16.rSp,
-                      ),
-                    ),
-                  ],
-                ),
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    Assets.images.png.appBackground,
+                  ),
+                  fit: BoxFit.cover
               ),
-              if(thirdButtonText != null && fourthButtonText != null)
-                verticalSpace(1.h),
-              if(thirdButtonText != null && fourthButtonText != null)
-              Expanded(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: myButton(
-                        onPressed: thirdButtonVoidCallback,
-                        text: thirdButtonText!,
-                        fontSize: 16.rSp,
-                      ),
-                    ),
-                    horizontalSpace(2.w),
-                    Expanded(
-                      child: myButton(
-                        onPressed: fourthButtonVoidCallback,
-                        text: fourthButtonText!,
-                        fontSize: 16.rSp,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              if(fifthButtonText != null && sixthButtonText != null)
-                verticalSpace(1.h),
-              if(fifthButtonText != null && sixthButtonText != null)
-                Expanded(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: myButton(
-                        onPressed: fifthButtonVoidCallback,
-                        text: fifthButtonText!,
-                        fontSize: 16.rSp,
-                      ),
-                    ),
-                    horizontalSpace(2.w),
-                    Expanded(
-                      child: myButton(
-                        onPressed: sixthButtonVoidCallback,
-                        text: sixthButtonText!,
-                        fontSize: 16.rSp,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              if(seventhButtonText != null && eighthButtonText != null)
-                verticalSpace(1.h),
-              if(seventhButtonText != null && eighthButtonText != null)
-                Expanded(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: myButton(
-                        onPressed: seventhButtonVoidCallback,
-                        text: seventhButtonText!,
-                        fontSize: 16.rSp,
-                      ),
-                    ),
-                    horizontalSpace(2.w),
-                    Expanded(
-                      child: myButton(
-                        onPressed: eighthButtonVoidCallback,
-                        text: eighthButtonText!,
-                        fontSize: 16.rSp,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+          ),
 
-            ],
+          child: Padding(
+            padding:  EdgeInsets.all(20.rSp),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                DefaultText(
+                    title: message, align: TextAlign.center, style: Style.medium, fontWeight: FontWeight.w600,),
+                verticalSpace(2.h),
+                Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: myButton(
+                          onPressed: firstButtonVoidCallback,
+                          text: firstButtonText,
+                          fontSize: 16.rSp,
+                        ),
+                      ),
+                      horizontalSpace(2.w),
+                      Expanded(
+                        child: myButton(
+                          onPressed: secondButtonVoidCallback,
+                          text: secondButtonText,
+                          fontSize: 16.rSp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if(thirdButtonText != null && fourthButtonText != null)
+                  verticalSpace(1.h),
+                if(thirdButtonText != null && fourthButtonText != null)
+                Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: myButton(
+                          onPressed: thirdButtonVoidCallback,
+                          text: thirdButtonText!,
+                          fontSize: 16.rSp,
+                        ),
+                      ),
+                      horizontalSpace(2.w),
+                      Expanded(
+                        child: myButton(
+                          onPressed: fourthButtonVoidCallback,
+                          text: fourthButtonText!,
+                          fontSize: 16.rSp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if(fifthButtonText != null && sixthButtonText != null)
+                  verticalSpace(1.h),
+                if(fifthButtonText != null && sixthButtonText != null)
+                  Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: myButton(
+                          onPressed: fifthButtonVoidCallback,
+                          text: fifthButtonText!,
+                          fontSize: 16.rSp,
+                        ),
+                      ),
+                      horizontalSpace(2.w),
+                      Expanded(
+                        child: myButton(
+                          onPressed: sixthButtonVoidCallback,
+                          text: sixthButtonText!,
+                          fontSize: 16.rSp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if(seventhButtonText != null && eighthButtonText != null)
+                  verticalSpace(1.h),
+                if(seventhButtonText != null && eighthButtonText != null)
+                  Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: myButton(
+                          onPressed: seventhButtonVoidCallback,
+                          text: seventhButtonText!,
+                          fontSize: 16.rSp,
+                        ),
+                      ),
+                      horizontalSpace(2.w),
+                      Expanded(
+                        child: myButton(
+                          onPressed: eighthButtonVoidCallback,
+                          text: eighthButtonText!,
+                          fontSize: 16.rSp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+              ],
+            ),
           ),
         ),
       ),

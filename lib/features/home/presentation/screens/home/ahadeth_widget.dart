@@ -34,25 +34,34 @@ class AhadethWidget extends StatelessWidget {
         defaultAppBar(
             context: context, appBarBackground: Assets.images.svg.appbar_hadeth
         ),
-        verticalSpace(8.h),
         Expanded(
-          child: Padding(
-            padding: designApp,
-            child: ListView.builder(
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: ()
-                    {
-                      navigateTo(context, HadethDetailScreen(
-                        title: ahadethBooks[index],
-                        bookName: bookName[index],
-                      ));
-                    },
-                    child: AzkarBuildItem
-                      (title: ahadethBooks[index],),
-                  );
-                },
-                itemCount: ahadethBooks.length,
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    Assets.images.png.appBackground,
+                  ),
+                  fit: BoxFit.cover
+              ),
+            ),
+            child: Padding(
+              padding: designApp,
+              child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: ()
+                      {
+                        navigateTo(context, HadethDetailScreen(
+                          title: ahadethBooks[index],
+                          bookName: bookName[index],
+                        ));
+                      },
+                      child: AzkarBuildItem
+                        (title: ahadethBooks[index],),
+                    );
+                  },
+                  itemCount: ahadethBooks.length,
+              ),
             ),
           ),
         ),

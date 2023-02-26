@@ -30,68 +30,78 @@ class TasbeehWidget extends StatelessWidget {
               homeCubit.saveTotalTasbeeh();
               return true;
             },
-            child: Padding(
-              padding: designApp,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 12.h,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.rSp),
-                        border: Border.all(color: ColorsManager.mainCard)),
-                    child: Center(
-                      child: DefaultText(
-                        title: '${homeCubit.currentTasbeehNumber}',
-                        style: Style.headLarge,
-                        color: ColorsManager.black,
-                        fontWeight: FontWeight.bold,
-                      ),
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                      Assets.images.png.appBackground,
                     ),
-                  ),
-                  verticalSpace(10.h),
-                  InkWell(
-                    onTap: () {
-                      homeCubit.saveTotalTasbeeh();
-                    },
-                    highlightColor: ColorsManager.transparent,
-                    splashColor: ColorsManager.transparent,
-                    child: Container(
-                      width: 8.w,
-                      height: 4.h,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: ColorsManager.mainCard),
-                    ),
-                  ),
-                  verticalSpace(1.h),
-                  InkWell(
-                    onTap: () {
-                      homeCubit.changeCurrentTasbeehNumber();
-                    },
-                    highlightColor: ColorsManager.transparent,
-                    splashColor: ColorsManager.transparent,
-                    child: Container(
+                    fit: BoxFit.cover
+                ),
+              ),
+              child: Padding(
+                padding: designApp,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
                       width: double.infinity,
-                      height: 30.h,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.asset(
-                          Assets.images.svg.tasbehCounterButton),
-                    ),
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20.rSp),
-                    child: Center(
+                      height: 12.h,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.rSp),
+                          border: Border.all(color: ColorsManager.mainCard)),
+                      child: Center(
                         child: DefaultText(
-                            title:
-                                '${AppString.totalTasbeeh} ${homeCubit.totalTasbeeh}',
-                            style: Style.headSmall)),
-                  )
-                ],
+                          title: '${homeCubit.currentTasbeehNumber}',
+                          style: Style.headLarge,
+                          color: ColorsManager.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    verticalSpace(10.h),
+                    InkWell(
+                      onTap: () {
+                        homeCubit.saveTotalTasbeeh();
+                      },
+                      highlightColor: ColorsManager.transparent,
+                      splashColor: ColorsManager.transparent,
+                      child: Container(
+                        width: 8.w,
+                        height: 4.h,
+                        decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: ColorsManager.mainCard),
+                      ),
+                    ),
+                    verticalSpace(1.h),
+                    InkWell(
+                      onTap: () {
+                        homeCubit.changeCurrentTasbeehNumber();
+                      },
+                      highlightColor: ColorsManager.transparent,
+                      splashColor: ColorsManager.transparent,
+                      child: Container(
+                        width: double.infinity,
+                        height: 30.h,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(
+                            Assets.images.svg.tasbehCounterButton),
+                      ),
+                    ),
+                    const Spacer(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.rSp),
+                      child: Center(
+                          child: DefaultText(
+                              title:
+                                  '${AppString.totalTasbeeh} ${homeCubit.totalTasbeeh}',
+                              style: Style.headSmall)),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

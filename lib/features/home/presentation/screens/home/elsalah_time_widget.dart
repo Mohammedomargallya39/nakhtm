@@ -66,56 +66,66 @@ class ElsalahTimeWidget extends StatelessWidget {
           appBar: defaultAppBar(
               context: context,
               appBarBackground: Assets.images.svg.elsalahTimeAppBar),
-          body: Padding(
-            padding: designApp,
-            child: Directionality(
-              textDirection: TextDirection.rtl,
-              child: BlocBuilder<AppBloc,AppState>(
-                builder: (context, state) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                        Row(
-                        children: [
-                          const DefaultText(
-                              title: AppString.elsalahAlarm, style: Style.small),
-                          const Spacer(),
-                          InkWell(
-                            onTap: () async{
-                              homeCubit.changAlarm();
-                              adanNotification =  await sl<CacheHelper>().get('adanNotification');
-                            },
-                            child: SvgPicture.asset(homeCubit.alarmIcon
-                                ? Assets.images.svg.alarmTrue
-                                : Assets.images.svg.alarmFalse),
-                          )
-                        ],
-                      ),
-                      verticalSpace(1.h),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.all(15.rSp),
-                            child: GridView.count(
-                              crossAxisCount: 2,
-                              physics: const BouncingScrollPhysics(),
-                              children: List.generate(
-                                  elsalahImages.length,
-                                      (index) => BuildElsalahItem(
-                                    elsalahImage: elsalahImages[index],
-                                    elsalah: elsalah[index],
-                                    indexImage: index,
-                                    timer: timers![index],
-                                  )),
+          body: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    Assets.images.png.appBackground,
+                  ),
+                  fit: BoxFit.cover
+              ),
+            ),
+            child: Padding(
+              padding: designApp,
+              child: Directionality(
+                textDirection: TextDirection.rtl,
+                child: BlocBuilder<AppBloc,AppState>(
+                  builder: (context, state) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                          Row(
+                          children: [
+                            const DefaultText(
+                                title: AppString.elsalahAlarm, style: Style.small),
+                            const Spacer(),
+                            InkWell(
+                              onTap: () async{
+                                homeCubit.changAlarm();
+                                adanNotification =  await sl<CacheHelper>().get('adanNotification');
+                              },
+                              child: SvgPicture.asset(homeCubit.alarmIcon
+                                  ? Assets.images.svg.alarmTrue
+                                  : Assets.images.svg.alarmFalse),
+                            )
+                          ],
+                        ),
+                        verticalSpace(1.h),
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.all(15.rSp),
+                              child: GridView.count(
+                                crossAxisCount: 2,
+                                physics: const BouncingScrollPhysics(),
+                                children: List.generate(
+                                    elsalahImages.length,
+                                        (index) => BuildElsalahItem(
+                                      elsalahImage: elsalahImages[index],
+                                      elsalah: elsalah[index],
+                                      indexImage: index,
+                                      timer: timers![index],
+                                    )),
+                              ),
                             ),
                           ),
+                        Align(
+                          alignment: AlignmentDirectional.center,
+                          child: SvgPicture.asset(Assets.images.svg.salahZekr),
                         ),
-                      Align(
-                        alignment: AlignmentDirectional.center,
-                        child: SvgPicture.asset(Assets.images.svg.salahZekr),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ),
