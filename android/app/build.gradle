@@ -61,9 +61,9 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'mohammed omar'
+            keyAlias 'upload'
             keyPassword 'kalkash2806'
-            storeFile file('C:\\Users\\moham\\StudioProjects\\nakhtm\\keystore.jks')
+            storeFile file('C:\\Users\\moham\\keys\\نختم\\keystore.jks')
             storePassword 'kalkash2806'
         }
     }
@@ -81,6 +81,9 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+
+
 }
 
 flutter {
@@ -90,7 +93,8 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.multidex:multidex:2.0.1'
-    //coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
-    //    implementation 'androidx.window:window:1.0.0'
-    //    implementation 'androidx.window:window-java:1.0.0'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.67'
+    implementation 'androidx.window:window:1.0.0'
+    implementation 'androidx.window:window-java:1.0.0'
 }

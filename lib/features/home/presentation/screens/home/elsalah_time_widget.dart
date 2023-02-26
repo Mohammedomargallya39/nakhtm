@@ -8,6 +8,7 @@ import '../../../../../core/util/cubit/cubit.dart';
 import '../../../../../core/util/cubit/state.dart';
 import '../../../../../core/util/resources/appString.dart';
 import '../../../../../core/util/resources/assets.gen.dart';
+import '../../../../../core/util/resources/colors_manager.dart';
 import '../../../../../core/util/resources/constants_manager.dart';
 import '../../../../../core/util/widgets/default_app_bar.dart';
 import '../../../../../core/util/widgets/default_text.dart';
@@ -19,11 +20,10 @@ class ElsalahTimeWidget extends StatelessWidget {
   const ElsalahTimeWidget({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
-
+  Widget build(BuildContext context) {
     List<String> elsalahImages = [
       Assets.images.svg.elfagr,
-      Assets.images.svg.elfagr,
+      Assets.images.svg.doha,
       Assets.images.svg.eldhohr,
       Assets.images.svg.elasr,
       Assets.images.png.elmaghrb,
@@ -40,25 +40,35 @@ class ElsalahTimeWidget extends StatelessWidget {
     ];
     List<String>? timers;
     HomeCubit homeCubit = HomeCubit.get(context);
-    if(homeCubit.adanResult != null){
-      timers=
-      [
-        homeCubit.adanResult![DateTime.now().day -1].timings.fajr.substring(0,5),
-        homeCubit.adanResult![DateTime.now().day -1].timings.sunrise.substring(0,5),
-        homeCubit.adanResult![DateTime.now().day -1].timings.dhuhr.substring(0,5),
-        homeCubit.adanResult![DateTime.now().day -1].timings.asr.substring(0,5),
-        homeCubit.adanResult![DateTime.now().day -1].timings.maghrib.substring(0,5),
-        homeCubit.adanResult![DateTime.now().day -1].timings.ishaa.substring(0,5),
+    if (homeCubit.adanResult != null) {
+      timers = [
+        homeCubit.adanResult![DateTime.now().day - 1].timings.fajr
+            .substring(0, 5),
+        homeCubit.adanResult![DateTime.now().day - 1].timings.sunrise
+            .substring(0, 5),
+        homeCubit.adanResult![DateTime.now().day - 1].timings.dhuhr
+            .substring(0, 5),
+        homeCubit.adanResult![DateTime.now().day - 1].timings.asr
+            .substring(0, 5),
+        homeCubit.adanResult![DateTime.now().day - 1].timings.maghrib
+            .substring(0, 5),
+        homeCubit.adanResult![DateTime.now().day - 1].timings.ishaa
+            .substring(0, 5),
       ];
-    }else if (homeCubit.adanResult == null){
+    } else if (homeCubit.adanResult == null) {
       timers = salahTimes;
-    }else if (homeCubit.adanResult == null && salahTimes == null){
-      timers = ['','','','','','',];
+    } else if (homeCubit.adanResult == null && salahTimes == null) {
+      timers = [
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+      ];
     }
 
-
     homeCubit.alarmIcon = adanNotification!;
-
 
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
@@ -72,27 +82,28 @@ class ElsalahTimeWidget extends StatelessWidget {
                   image: AssetImage(
                     Assets.images.png.appBackground,
                   ),
-                  fit: BoxFit.cover
-              ),
+                  fit: BoxFit.cover),
             ),
             child: Padding(
               padding: designApp,
               child: Directionality(
                 textDirection: TextDirection.rtl,
-                child: BlocBuilder<AppBloc,AppState>(
+                child: BlocBuilder<AppBloc, AppState>(
                   builder: (context, state) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                          Row(
+                        Row(
                           children: [
                             const DefaultText(
-                                title: AppString.elsalahAlarm, style: Style.small),
+                                title: AppString.elsalahAlarm,
+                                style: Style.small),
                             const Spacer(),
                             InkWell(
-                              onTap: () async{
+                              onTap: () async {
                                 homeCubit.changAlarm();
-                                adanNotification =  await sl<CacheHelper>().get('adanNotification');
+                                adanNotification = await sl<CacheHelper>()
+                                    .get('adanNotification');
                               },
                               child: SvgPicture.asset(homeCubit.alarmIcon
                                   ? Assets.images.svg.alarmTrue
@@ -101,26 +112,43 @@ class ElsalahTimeWidget extends StatelessWidget {
                           ],
                         ),
                         verticalSpace(1.h),
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsets.all(15.rSp),
-                              child: GridView.count(
-                                crossAxisCount: 2,
-                                physics: const BouncingScrollPhysics(),
-                                children: List.generate(
-                                    elsalahImages.length,
-                                        (index) => BuildElsalahItem(
-                                      elsalahImage: elsalahImages[index],
-                                      elsalah: elsalah[index],
-                                      indexImage: index,
-                                      timer: timers![index],
-                                    )),
-                              ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.all(15.rSp),
+                            child: GridView.count(
+                              crossAxisCount: 2,
+                              physics: const BouncingScrollPhysics(),
+                              children: List.generate(
+                                  elsalahImages.length,
+                                  (index) => BuildElsalahItem(
+                                        elsalahImage: elsalahImages[index],
+                                        elsalah: elsalah[index],
+                                        indexImage: index,
+                                        timer: timers![index],
+                                      )),
                             ),
                           ),
-                        Align(
-                          alignment: AlignmentDirectional.center,
-                          child: SvgPicture.asset(Assets.images.svg.salahZekr),
+                        ),
+                        Center(
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              SvgPicture.asset(Assets.images.svg.salahZekr),
+                              FittedBox(
+                                  fit: BoxFit.cover,
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: 25.rSp),
+                                    child: DefaultText(
+                                      title:
+                                          'إن الصلاة كانت على المؤمنين كتابا موقوتا',
+                                      style: Style.extraSmall,
+                                      fontSize: 16.rSp,
+                                      color: ColorsManager.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ))
+                            ],
+                          ),
                         ),
                       ],
                     );

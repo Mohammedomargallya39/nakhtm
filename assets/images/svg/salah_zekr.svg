@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="287" height="120" viewBox="0 0 287 120">
+<svg id="Group_137" data-name="Group 137" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="287" height="120" viewBox="0 0 287 120">
   <defs>
     <linearGradient id="linear-gradient" x1="0.538" x2="0.613" y2="1.545" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="red"/>
@@ -9,19 +9,14 @@
       <stop offset="1" stop-color="maroon"/>
     </linearGradient>
   </defs>
-  <g id="صلوات" transform="translate(-38 -556)">
-    <g id="Group_137" data-name="Group 137" transform="translate(38 556)">
-      <rect id="Rectangle_45" data-name="Rectangle 45" width="287" height="94" rx="10" transform="translate(0 26)" fill="url(#linear-gradient)"/>
-      <circle id="Ellipse_88" data-name="Ellipse 88" cx="7.5" cy="7.5" r="7.5" transform="translate(29 23)" fill="#fff" opacity="0.15"/>
-      <circle id="Ellipse_89" data-name="Ellipse 89" cx="7.5" cy="7.5" r="7.5" transform="translate(237 87)" fill="#fff" opacity="0.15"/>
-      <ellipse id="Ellipse_90" data-name="Ellipse 90" cx="7.5" cy="7" rx="7.5" ry="7" transform="translate(29 102)" fill="#fff" opacity="0.15"/>
-      <ellipse id="Ellipse_91" data-name="Ellipse 91" cx="7" cy="7.5" rx="7" ry="7.5" transform="translate(185 37)" fill="#fff" opacity="0.15"/>
-      <ellipse id="Ellipse_98" data-name="Ellipse 98" cx="22" cy="22.5" rx="22" ry="22.5" transform="translate(121)" fill="#fff"/>
-      <circle id="Ellipse_99" data-name="Ellipse 99" cx="18.5" cy="18.5" r="18.5" transform="translate(125 4)" fill="url(#linear-gradient-2)"/>
-      <g id="read-book-icon" transform="translate(131.333 12.29)">
-        <path id="Path_11" data-name="Path 11" d="M2.493,15.241,2.555,4.407H1.332V18.192A20.837,20.837,0,0,1,6.4,17.47a14.248,14.248,0,0,1,4.709.742A10.054,10.054,0,0,0,7.879,16.46a11.8,11.8,0,0,0-4.667-.5.667.667,0,0,1-.718-.608.554.554,0,0,1,0-.114ZM20.44,3.841a.8.8,0,0,1-.008-.1.577.577,0,0,1,.008-.1V1.446a10.178,10.178,0,0,0-4.509.548,6.215,6.215,0,0,0-3.136,2.454V16.943a15.908,15.908,0,0,1,3.468-1.8,9.974,9.974,0,0,1,4.178-.6V3.841Zm1.332-.765h1.8a.665.665,0,0,1,.665.665V19.06a.665.665,0,0,1-.665.665.647.647,0,0,1-.215-.036,20.646,20.646,0,0,0-5.521-.9A12.815,12.815,0,0,0,12.5,19.882a.67.67,0,0,1-.379.11.679.679,0,0,1-.379-.11A12.778,12.778,0,0,0,6.4,18.794a20.658,20.658,0,0,0-5.521.9.647.647,0,0,1-.215.036A.661.661,0,0,1,0,19.062V3.741a.665.665,0,0,1,.665-.665h1.9L2.572.855A.664.664,0,0,1,3.1.208h0a10.547,10.547,0,0,1,5.74.44,7.372,7.372,0,0,1,3.312,2.416A7.741,7.741,0,0,1,15.463.752,11.661,11.661,0,0,1,21.2.2a.664.664,0,0,1,.568.657h0V3.076ZM13.439,18.111a14.313,14.313,0,0,1,4.4-.643,20.741,20.741,0,0,1,5.066.722V4.407H21.772V15.3a.665.665,0,0,1-.665.665.657.657,0,0,1-.154-.018,8.515,8.515,0,0,0-4.243.452,14.867,14.867,0,0,0-3.271,1.712Zm-1.975-1.3V4.429A5.866,5.866,0,0,0,8.37,1.89,9.179,9.179,0,0,0,3.9,1.415L3.821,14.594a12.86,12.86,0,0,1,4.466.6,11.38,11.38,0,0,1,3.178,1.618Z" transform="translate(0 0.002)" fill="#fff"/>
-      </g>
-    </g>
-    <text id="إن_الصلاة_كانت_على_المؤمنين_كتابا_موقوتا" data-name="إن الصلاة كانت على المؤمنين كتابا موقوتا" transform="translate(181 636)" fill="#fff" font-size="14" font-family="AGOOGLE, A GOOGLE" letter-spacing="0.005em"><tspan x="-122.931" y="0">إن الصلاة كانت على المؤمنين كتابا موقوتا</tspan></text>
+  <rect id="Rectangle_45" data-name="Rectangle 45" width="287" height="94" rx="10" transform="translate(0 26)" fill="url(#linear-gradient)"/>
+  <circle id="Ellipse_88" data-name="Ellipse 88" cx="7.5" cy="7.5" r="7.5" transform="translate(29 23)" fill="#fff" opacity="0.15"/>
+  <circle id="Ellipse_89" data-name="Ellipse 89" cx="7.5" cy="7.5" r="7.5" transform="translate(237 87)" fill="#fff" opacity="0.15"/>
+  <ellipse id="Ellipse_90" data-name="Ellipse 90" cx="7.5" cy="7" rx="7.5" ry="7" transform="translate(29 102)" fill="#fff" opacity="0.15"/>
+  <ellipse id="Ellipse_91" data-name="Ellipse 91" cx="7" cy="7.5" rx="7" ry="7.5" transform="translate(185 37)" fill="#fff" opacity="0.15"/>
+  <ellipse id="Ellipse_98" data-name="Ellipse 98" cx="22" cy="22.5" rx="22" ry="22.5" transform="translate(121)" fill="#fff"/>
+  <circle id="Ellipse_99" data-name="Ellipse 99" cx="18.5" cy="18.5" r="18.5" transform="translate(125 4)" fill="url(#linear-gradient-2)"/>
+  <g id="read-book-icon" transform="translate(131.333 12.29)">
+    <path id="Path_11" data-name="Path 11" d="M2.493,15.241,2.555,4.407H1.332V18.192A20.837,20.837,0,0,1,6.4,17.47a14.248,14.248,0,0,1,4.709.742A10.054,10.054,0,0,0,7.879,16.46a11.8,11.8,0,0,0-4.667-.5.667.667,0,0,1-.718-.608.554.554,0,0,1,0-.114ZM20.44,3.841a.8.8,0,0,1-.008-.1.577.577,0,0,1,.008-.1V1.446a10.178,10.178,0,0,0-4.509.548,6.215,6.215,0,0,0-3.136,2.454V16.943a15.908,15.908,0,0,1,3.468-1.8,9.974,9.974,0,0,1,4.178-.6V3.841Zm1.332-.765h1.8a.665.665,0,0,1,.665.665V19.06a.665.665,0,0,1-.665.665.647.647,0,0,1-.215-.036,20.646,20.646,0,0,0-5.521-.9A12.815,12.815,0,0,0,12.5,19.882a.67.67,0,0,1-.379.11.679.679,0,0,1-.379-.11A12.778,12.778,0,0,0,6.4,18.794a20.658,20.658,0,0,0-5.521.9.647.647,0,0,1-.215.036A.661.661,0,0,1,0,19.062V3.741a.665.665,0,0,1,.665-.665h1.9L2.572.855A.664.664,0,0,1,3.1.208h0a10.547,10.547,0,0,1,5.74.44,7.372,7.372,0,0,1,3.312,2.416A7.741,7.741,0,0,1,15.463.752,11.661,11.661,0,0,1,21.2.2a.664.664,0,0,1,.568.657h0V3.076ZM13.439,18.111a14.313,14.313,0,0,1,4.4-.643,20.741,20.741,0,0,1,5.066.722V4.407H21.772V15.3a.665.665,0,0,1-.665.665.657.657,0,0,1-.154-.018,8.515,8.515,0,0,0-4.243.452,14.867,14.867,0,0,0-3.271,1.712Zm-1.975-1.3V4.429A5.866,5.866,0,0,0,8.37,1.89,9.179,9.179,0,0,0,3.9,1.415L3.821,14.594a12.86,12.86,0,0,1,4.466.6,11.38,11.38,0,0,1,3.178,1.618Z" transform="translate(0 0.002)" fill="#fff"/>
   </g>
 </svg>

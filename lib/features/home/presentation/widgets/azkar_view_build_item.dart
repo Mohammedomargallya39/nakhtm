@@ -6,7 +6,6 @@ import '../../../../core/util/resources/assets.gen.dart';
 import '../../../../core/util/resources/colors_manager.dart';
 import '../../../../core/util/resources/constants_manager.dart';
 import '../../../../core/util/widgets/default_text.dart';
-import '../controller/bloc.dart';
 
 class AzkarViewBuildItem extends StatelessWidget {
   AzkarViewBuildItem({Key? key,required this.azkarColor,required this.azkar,required this.repetitionNum}) : super(key: key);
@@ -17,14 +16,13 @@ class AzkarViewBuildItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeCubit homeCubit = HomeCubit.get(context);
     return  Stack(
       alignment: AlignmentDirectional.topCenter,
       children: [
         Container(
           padding: EdgeInsets.symmetric(horizontal: 30.rSp,vertical: 5.rSp),
           width: double.infinity,
-          height: 25.h,
+          height: 35.h,
           decoration: BoxDecoration(
             color: azkarColor,
             borderRadius: BorderRadius.circular(10.rSp),
@@ -39,7 +37,7 @@ class AzkarViewBuildItem extends StatelessWidget {
                     designToastDialog(
                         context: context,
                         toast: TOAST.info,
-                        text: 'Text copied',
+                        text: 'تم النسخ',
                     );
                   },
                   child: Row(
@@ -86,7 +84,7 @@ class AzkarViewBuildItem extends StatelessWidget {
         ),
         Container(
           width: double.infinity,
-          height: 20.h,
+          height: 30.h,
           decoration: BoxDecoration(
             color: ColorsManager.white,
             borderRadius: BorderRadius.circular(10.rSp),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nakhtm/core/util/resources/extensions_manager.dart';
 import '../../../../../core/util/resources/appString.dart';
 import '../../../../../core/util/resources/assets.gen.dart';
 import '../../../../../core/util/resources/constants_manager.dart';
