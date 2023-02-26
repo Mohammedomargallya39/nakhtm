@@ -4,6 +4,7 @@ import '../../../../../core/util/resources/assets.gen.dart';
 import '../../../../../core/util/resources/colors_manager.dart';
 import '../../../../../core/util/resources/constants_manager.dart';
 import '../../../../../core/util/widgets/default_app_bar.dart';
+import '../../../../../core/util/widgets/default_text.dart';
 import '../../controller/bloc.dart';
 import '../../controller/state.dart';
 import '../../widgets/azkar_view_build_item.dart';
@@ -16,7 +17,6 @@ class AzkarViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int? pressedIndex;
-
     List<String> appBarBackground = [
       Assets.images.svg.morningAzkarAppBar,
       Assets.images.svg.eveningAzkarAppBar,
@@ -34,7 +34,13 @@ class AzkarViewWidget extends StatelessWidget {
 
     HomeCubit homeCubit = HomeCubit.get(context);
 
-    return BlocBuilder<HomeCubit, HomeState>(
+    if(!homeCubit.ended){
+      homeCubit.initializeLists();
+      homeCubit.initializeRepetition();
+    }
+
+
+      return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return Scaffold(
           appBar: defaultAppBar(
@@ -62,55 +68,77 @@ class AzkarViewWidget extends StatelessWidget {
                           if(azkarIndex == 0 )
                           {
                             homeCubit.changeRepetitionMorinigNum(index);
-                            if(homeCubit.repetitionMorningNum[index] == 0  && homeCubit.azkarMorning.isNotEmpty){
-                              homeCubit.azkarMorning.removeAt(index);
-                              homeCubit.repetitionMorningNum.removeAt(index);
+                            if(homeCubit.repetitionMorningNum![index] == 0  && homeCubit.azkarMorning!.isNotEmpty){
+                              homeCubit.azkarMorning!.removeAt(index);
+                              homeCubit.repetitionMorningNum!.removeAt(index);
+                            }else{
+                              homeCubit.ended = true;
                             }
                           }
                           if(azkarIndex == 1 )
                           {
                             homeCubit.changeRepetitionEveningNum(index);
-                            if(homeCubit.repetitionEveningNum[index] == 0  && homeCubit.azkarEvening.isNotEmpty){
-                              homeCubit.azkarEvening.removeAt(index);
-                              homeCubit.repetitionEveningNum.removeAt(index);
+                            if(homeCubit.repetitionEveningNum![index] == 0  && homeCubit.azkarEvening!.isNotEmpty){
+                              homeCubit.azkarEvening!.removeAt(index);
+                              homeCubit.repetitionEveningNum!.removeAt(index);
+                            }else{
+                              homeCubit.ended = true;
+
                             }
                           }
                           if(azkarIndex == 2 )
                           {
                             homeCubit.changeRepetitionMasgedNum(index);
-                            if(homeCubit.repetitionMasgedNum[index] == 0 && homeCubit.azkarMasged.isNotEmpty){
-                              homeCubit.azkarMasged.removeAt(index);
-                              homeCubit.repetitionMasgedNum.removeAt(index);
+                            if(homeCubit.repetitionMasgedNum![index] == 0 && homeCubit.azkarMasged!.isNotEmpty){
+                              homeCubit.azkarMasged!.removeAt(index);
+                              homeCubit.repetitionMasgedNum!.removeAt(index);
+                            }
+                            else{
+                              homeCubit.ended = true;
+
                             }
                           }
                           if(azkarIndex == 3 )
                           {
                             homeCubit.changeRepetitionSleepingNum(index);
-                            if(homeCubit.repetitionSleepingNum[index] == 0  && homeCubit.azkarSleeping.isNotEmpty){
-                              homeCubit.azkarSleeping.removeAt(index);
-                              homeCubit.repetitionSleepingNum.removeAt(index);
+                            if(homeCubit.repetitionSleepingNum![index] == 0  && homeCubit.azkarSleeping!.isNotEmpty){
+                              homeCubit.azkarSleeping!.removeAt(index);
+                              homeCubit.repetitionSleepingNum!.removeAt(index);
+                            }else{
+                              homeCubit.ended = true;
+
                             }
                           }
                           if(azkarIndex == 4 )
                           {
                             homeCubit.changeRepetitionElsalahNum(index);
-                            if(homeCubit.repetitionElsalahNum[index] == 0  && homeCubit.azkarElsalah.isNotEmpty){
-                              homeCubit.azkarElsalah.removeAt(index);
-                              homeCubit.repetitionElsalahNum.removeAt(index);
+                            if(homeCubit.repetitionElsalahNum![index] == 0  && homeCubit.azkarElsalah!.isNotEmpty){
+                              homeCubit.azkarElsalah!.removeAt(index);
+                              homeCubit.repetitionElsalahNum!.removeAt(index);
+                            }else{
+                              homeCubit.ended = true;
                             }
                           }
-                          if(homeCubit.azkarPressedValue){
-                          }
+
                         },
                         child: AzkarViewBuildItem(
-                          repetitionNum: azkarIndex ==0 ? homeCubit.repetitionMorningNum[index] : azkarIndex == 1 ? homeCubit.repetitionEveningNum[index]: azkarIndex == 4 ? homeCubit.repetitionElsalahNum[index] : azkarIndex == 3 ? homeCubit.repetitionSleepingNum[index] : homeCubit.repetitionMasgedNum[index],
-                          azkar: azkarIndex ==0 ? homeCubit.azkarMorning[index] :  azkarIndex == 1 ? homeCubit.azkarEvening[index]:  azkarIndex == 4 ? homeCubit.azkarElsalah[index] : azkarIndex == 3 ? homeCubit.azkarSleeping[index]: homeCubit.azkarMasged[index],
+                          repetitionNum: azkarIndex ==0 ? homeCubit.repetitionMorningNum![index] : azkarIndex == 1 ? homeCubit.repetitionEveningNum![index]: azkarIndex == 4 ? homeCubit.repetitionElsalahNum![index] : azkarIndex == 3 ? homeCubit.repetitionSleepingNum![index] : homeCubit.repetitionMasgedNum![index],
+                          azkar: azkarIndex ==0 ? homeCubit.azkarMorning![index] :  azkarIndex == 1 ? homeCubit.azkarEvening![index]:  azkarIndex == 4 ? homeCubit.azkarElsalah![index] : azkarIndex == 3 ? homeCubit.azkarSleeping![index]: homeCubit.azkarMasged![index],
                           azkarColor:azkarColor[azkarIndex],
                         ),
                       ),
-                      itemCount:azkarIndex ==0 ? homeCubit.azkarMorning.length : azkarIndex == 1 ? homeCubit.azkarEvening.length : azkarIndex == 4 ? homeCubit.azkarElsalah.length : azkarIndex == 3 ? homeCubit.azkarSleeping.length : homeCubit.azkarMasged.length,
+                      itemCount:azkarIndex ==0 ? homeCubit.azkarMorning!.length : azkarIndex == 1 ? homeCubit.azkarEvening!.length : azkarIndex == 4 ? homeCubit.azkarElsalah!.length : azkarIndex == 3 ? homeCubit.azkarSleeping!.length : homeCubit.azkarMasged!.length,
                     ),
-                  )
+                  ),
+                  if(homeCubit.ended)
+                  OutlinedButton(onPressed: (){
+                    homeCubit.initializeRepetition();
+                    homeCubit.initializeLists();
+                    homeCubit.ended = false;
+                  }, child: const DefaultText(
+                    title: 'هل تريد اعادة قراءة الاذكار؟',
+                    style: Style.extraSmall,
+                  ))
                 ],
               ),
             ),

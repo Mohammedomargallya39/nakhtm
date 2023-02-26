@@ -175,8 +175,11 @@ class $AssetsImagesSvgGen {
   /// File path: assets/images/svg/eleshaa.svg
   String get eleshaa => 'assets/images/svg/eleshaa.svg';
 
-  /// File path: assets/images/svg/elfagr.svg
-  String get elfagr => 'assets/images/svg/elfagr.svg';
+  /// File path: assets/images/svg/fagr.svg
+  String get elfagr => 'assets/images/svg/fagr.svg';
+
+  /// File path: assets/images/svg/doha.svg
+  String get doha => 'assets/images/svg/doha.svg';
 
   /// File path: assets/images/svg/elsalah_time_appbar_background.svg
   String get elsalahTimeAppBar => 'assets/images/svg/elsalah_time_appbar_background.svg';

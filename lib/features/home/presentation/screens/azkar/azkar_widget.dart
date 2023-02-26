@@ -14,6 +14,7 @@ class AzkarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+
     List<String> itemBackground = [
       Assets.images.svg.morningAzkar,
       Assets.images.svg.eveningAzkar,

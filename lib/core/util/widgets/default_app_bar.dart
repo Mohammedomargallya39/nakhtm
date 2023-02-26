@@ -9,8 +9,9 @@ import 'default_text.dart';
 PreferredSizeWidget defaultAppBar({
   required BuildContext context,
   required String appBarBackground,
-  String ? title,
-}){
+  String? title,
+  VoidCallback? onTap,
+}) {
   return AppBar(
     automaticallyImplyLeading: false,
     title: Stack(
@@ -18,13 +19,11 @@ PreferredSizeWidget defaultAppBar({
       children: [
         SizedBox(
           width: double.infinity,
-          child: Stack(
-            alignment: AlignmentDirectional.centerEnd,
-            children: [
-              SvgPicture.asset(
-                appBarBackground,
-              ),
-              if(title != null)
+          child: Stack(alignment: AlignmentDirectional.centerEnd, children: [
+            SvgPicture.asset(
+              appBarBackground,
+            ),
+            if (title != null)
               Padding(
                 padding: EdgeInsets.only(right: 10.w),
                 child: DefaultText(
@@ -35,20 +34,17 @@ PreferredSizeWidget defaultAppBar({
                   fontWeight: FontWeight.w600,
                 ),
               ),
-            ]
-          ),
+          ]),
         ),
-        Padding(
-          padding: EdgeInsets.only(left: 5.w,right: 5.w),
-          child: InkWell(
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: SvgPicture.asset(
+        IconButton(
+            onPressed: onTap ??
+                () {
+                  Navigator.pop(context);
+                },
+            icon: SvgPicture.asset(
               Assets.images.svg.backIcon,
-            ),
-          ),
-        ),
+              color: ColorsManager.white,
+            )),
       ],
     ),
     toolbarHeight: 10.h,
