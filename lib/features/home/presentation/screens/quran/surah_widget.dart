@@ -70,10 +70,6 @@ class _SurahWidgetState extends State<SurahWidget> {
               homeCubit.ayahPressedValue = false;
               homeCubit.changePlayingValue = false;
               player.stop();
-              ayahNum =await sl<CacheHelper>().get('ayahNum');
-              surahName =await sl<CacheHelper>().get('surahName');
-              surahNum =await sl<CacheHelper>().get('surahNum');
-              pageNum =await sl<CacheHelper>().get('pageNum');
               return true;
             },
             child: Directionality(
@@ -111,10 +107,6 @@ class _SurahWidgetState extends State<SurahWidget> {
                                   homeCubit.ayahPressedValue = false;
                                   homeCubit.changePlayingValue = false;
                                   player.stop();
-                                  ayahNum =await sl<CacheHelper>().get('ayahNum');
-                                  surahName =await sl<CacheHelper>().get('surahName');
-                                  surahNum =await sl<CacheHelper>().get('surahNum');
-                                  pageNum =await sl<CacheHelper>().get('pageNum');
                                 },
                                 icon: const Icon(Icons.arrow_forward_ios))
                           ],
@@ -287,7 +279,6 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                     secondButtonText: 'إالغاء',
                                                     firstButtonVoidCallback:
                                                         () {
-                                                      homeCubit.getSavedData();
                                                       designToastDialog(
                                                           context: context,
                                                           toast: TOAST.info,
@@ -297,7 +288,8 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                       sl<CacheHelper>().put('surahNum', widget.surahNumber);
                                                       sl<CacheHelper>().put('surahName', quran.getSurahNameArabic(widget.surahNumber));
                                                       sl<CacheHelper>().put('pageNum', quran.getPageNumber(widget.surahNumber, index + 1));
-                                                    },
+                                                      homeCubit.getSavedData();
+                                                        },
                                                     secondButtonVoidCallback:
                                                         () {
                                                       Navigator.pop(context);
@@ -353,6 +345,8 @@ class _SurahWidgetState extends State<SurahWidget> {
                                             ),
                                           ),
                                         ),
+                                        if(homeCubit.ayahPressedValue && index == quran.getVerseCount(widget.surahNumber)-1)
+                                          verticalSpace(10.h)
                                       ],
                                     );
                                   },

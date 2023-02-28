@@ -406,7 +406,8 @@ class HomeCubit extends Cubit<HomeState> {
     emit(PrevPageState());
   }
   List<HadithEntity>? hadithResult;
-  void hadith({
+  List<String>? hadithArabic;
+  void getHadith({
     required int pageNum,
     required String bookName,
   }) async {
@@ -421,6 +422,9 @@ class HomeCubit extends Cubit<HomeState> {
     }, (data) {
       emit(HadithSuccessState());
       hadithResult = data;
+      hadithArabic = hadithResult!.map((e) => e.hadithArabic.replaceAll('‏', '')).toList();
+      debugPrintFullText(hadithArabic.toString());
+
     });
   }
 
