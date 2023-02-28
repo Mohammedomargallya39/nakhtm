@@ -21,7 +21,7 @@ class HadethDetailsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeCubit homeCubit = HomeCubit.get(context);
 
-    homeCubit.hadith(pageNum: homeCubit.pageNumber, bookName: bookName);
+    homeCubit.getHadith(pageNum: homeCubit.pageNumber, bookName: bookName);
 
     return SafeArea(
       child: BlocBuilder<AppBloc,AppState>(
@@ -46,7 +46,7 @@ class HadethDetailsWidget extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      if(homeCubit.hadithResult != null)
+                      if(homeCubit.hadithArabic != null)
                         Expanded(
                             flex: 11,
                             child: Padding(
@@ -55,7 +55,7 @@ class HadethDetailsWidget extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   return InkWell(
                                     onTap: () async{
-                                      Clipboard.setData(ClipboardData(text: homeCubit.hadithResult![index].hadithArabic));
+                                      Clipboard.setData(ClipboardData(text: homeCubit.hadithArabic![index]));
                                       designToastDialog(
                                         context: context,
                                         toast: TOAST.info,
@@ -63,15 +63,15 @@ class HadethDetailsWidget extends StatelessWidget {
                                       );
                                     },
                                     child: AzkarBuildItem(
-                                      title: homeCubit.hadithResult![index].hadithArabic,
+                                      title: homeCubit.hadithArabic![index],
                                     ),
                                   );
                                 },
-                                itemCount: homeCubit.hadithResult!.length,
+                                itemCount: homeCubit.hadithArabic!.length,
                               ),
                             )
                         ),
-                      if(homeCubit.hadithResult == null)
+                      if(homeCubit.hadithArabic == null)
                       Expanded(
                         flex: 11,
                         child: Center(
@@ -83,7 +83,7 @@ class HadethDetailsWidget extends StatelessWidget {
                             ),
                           ),
                       ),
-                      if(homeCubit.hadithResult == null)
+                      if(homeCubit.hadithArabic == null)
                       const Spacer(),
                       Padding(
                         padding: EdgeInsetsDirectional.only(bottom: 2.h),
@@ -95,7 +95,7 @@ class HadethDetailsWidget extends StatelessWidget {
                                   onPressed: ()
                                   {
                                     homeCubit.changePrevPage();
-                                    homeCubit.hadith(pageNum: homeCubit.pageNumber, bookName: bookName);
+                                    homeCubit.getHadith(pageNum: homeCubit.pageNumber, bookName: bookName);
                                   },
                                   icon: Icon(
                                     Icons.arrow_back_ios,
@@ -110,7 +110,7 @@ class HadethDetailsWidget extends StatelessWidget {
                                   onPressed: ()
                                   {
                                     homeCubit.changeNextPage();
-                                    homeCubit.hadith(pageNum: homeCubit.pageNumber, bookName: bookName);
+                                    homeCubit.getHadith(pageNum: homeCubit.pageNumber, bookName: bookName);
                                     // homeCubit.scrollToTop();
                                   },
                                   icon: Icon(

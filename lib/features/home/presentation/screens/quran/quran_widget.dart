@@ -114,51 +114,57 @@ class QuranWidget extends StatelessWidget {
                                   physics: const BouncingScrollPhysics(),
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
-                                    return InkWell(
-                                      onTap: ()
-                                      {
-                                        navigateTo(context, SurahScreen(surahNum: index+1,));
-                                      },
-                                      child: Padding(
-                                        padding: EdgeInsets.symmetric(vertical: 20.rSp, horizontal: 40.rSp),
-                                        child: Column(
-                                          children: [
-                                            Row(
+                                    return Column(
+                                      children: [
+                                        InkWell(
+                                          onTap: ()
+                                          {
+                                            navigateTo(context, SurahScreen(surahNum: index+1,));
+                                          },
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(vertical: 20.rSp, horizontal: 40.rSp),
+                                            child: Column(
                                               children: [
-                                                DefaultText(
-                                                  title: quran.getSurahNameArabic(index+1),
-                                                  style: Style.large,
-                                                  fontSize: 20.rSp,
-                                                  fontWeight: FontWeight.w600,
-                                                  fontFamily: 'arabic',
-                                                ),
-                                                const Spacer(),
-                                                CircleAvatar(
-                                                  maxRadius: 15.rSp,
-                                                  backgroundColor: ColorsManager.mainCard,
-                                                  child: Padding(
-                                                    padding: EdgeInsets.only(top: 0.8.h),
-                                                    child: DefaultText(
-                                                      align: TextAlign.center,
-                                                      title: '${index+1}',
-                                                      style: Style.medium,
-                                                      color: ColorsManager.white,
+                                                Row(
+                                                  children: [
+                                                    DefaultText(
+                                                      title: quran.getSurahNameArabic(index+1),
+                                                      style: Style.large,
+                                                      fontSize: 20.rSp,
                                                       fontWeight: FontWeight.w600,
-                                                      fontSize: 16.rSp,
+                                                      fontFamily: 'arabic',
                                                     ),
-                                                  ),
+                                                    const Spacer(),
+                                                    CircleAvatar(
+                                                      maxRadius: 15.rSp,
+                                                      backgroundColor: ColorsManager.mainCard,
+                                                      child: Padding(
+                                                        padding: EdgeInsets.only(top: 0.8.h),
+                                                        child: DefaultText(
+                                                          align: TextAlign.center,
+                                                          title: '${index+1}',
+                                                          style: Style.medium,
+                                                          color: ColorsManager.white,
+                                                          fontWeight: FontWeight.w600,
+                                                          fontSize: 16.rSp,
+                                                        ),
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                                verticalSpace(3.h),
+                                                Container(
+                                                  height: 0.1.h,
+                                                  width: double.infinity,
+                                                  color: ColorsManager.darkGrey,
                                                 )
                                               ],
                                             ),
-                                            verticalSpace(3.h),
-                                            Container(
-                                              height: 0.1.h,
-                                              width: double.infinity,
-                                              color: ColorsManager.darkGrey,
-                                            )
-                                          ],
+                                          ),
                                         ),
-                                      ),
+                                        if(homeCubit.hideCardValue == false && surahNum != 0 && index == 113)
+                                          verticalSpace(10.h)
+                                      ],
                                     );
                                   },
                                   itemCount: 114
