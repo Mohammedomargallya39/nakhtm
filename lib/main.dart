@@ -61,19 +61,20 @@ void main() async {
     Future<void> scheduleDailyNotification() async {
 
       var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
-          'channel id 11',
+          'channel id 17',
           'channel name',
           importance: Importance.max,
           priority: Priority.high,
           colorized: true,
           enableVibration: true,
-          sound: UriAndroidNotificationSound('assets/sound/adan.mp3'),
+          sound: RawResourceAndroidNotificationSound('adan'),
           playSound: true
       );
       var iOSPlatformChannelSpecifics = const DarwinNotificationDetails(presentSound: true);
       var platformChannelSpecifics = NotificationDetails(
           android: androidPlatformChannelSpecifics,
           iOS: iOSPlatformChannelSpecifics);
+
       await flutterLocalNotificationsPlugin.showDailyAtTime(
         1,
         'الآذان',
