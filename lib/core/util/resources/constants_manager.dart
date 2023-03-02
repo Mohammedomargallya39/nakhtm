@@ -277,3 +277,5 @@ List<String>? salahTimes;
 bool showGuideValue = true;
 
 bool? adanNotification = false;
+
+int appVersionCode = 5;
