@@ -35,6 +35,8 @@ void main() async {
   ];
   adanNotification =  await sl<CacheHelper>().get('adanNotification') ?? false;
 
+  showGuideValue = await sl<CacheHelper>().get('guideValue') ?? true;
+
   List<String> adan= [
     'حان الآن موعد آذان الفجر',
     'حان الآن موعد آذان الظهر',

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nakhtm/core/util/cubit/cubit.dart';
 import 'package:nakhtm/core/util/cubit/state.dart';
@@ -39,7 +40,7 @@ class _SurahWidgetState extends State<SurahWidget> {
   @override
   void initState() {
     super.initState();
-    if (ayahNum != 0 && surahNum == widget.surahNumber) {
+    if (ayahNum != 0 && surahNum == widget.surahNumber && quran.getVerseCount(widget.surahNumber) > 8) {
       WidgetsBinding.instance.addPostFrameCallback((_) => scrollToItem());
     }
   }
@@ -276,7 +277,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                 return OptionsDialog(
                                                     message: 'إختر',
                                                     firstButtonText: 'حفظ',
-                                                    secondButtonText: 'إالغاء',
+                                                    secondButtonText: 'نسخ',
                                                     firstButtonVoidCallback:
                                                         () {
                                                       designToastDialog(
@@ -291,8 +292,13 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                       homeCubit.getSavedData();
                                                         },
                                                     secondButtonVoidCallback:
-                                                        () {
-                                                      Navigator.pop(context);
+                                                        () async{
+                                                          Clipboard.setData(ClipboardData(text: quran.getVerse(widget.surahNumber, index + 1)));
+                                                          designToastDialog(
+                                                            context: context,
+                                                            toast: TOAST.info,
+                                                            text: 'تم النسخ',
+                                                          );
                                                     });
                                               },
                                             );

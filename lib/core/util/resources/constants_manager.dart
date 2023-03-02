@@ -274,5 +274,6 @@ String? surahName = 'لم تقرأ بعد';
 
 List<String>? salahTimes;
 
+bool showGuideValue = true;
 
 bool? adanNotification = false;

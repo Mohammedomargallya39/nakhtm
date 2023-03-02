@@ -356,23 +356,26 @@ class HomeCubit extends Cubit<HomeState> {
     ));
     adan.fold((failure) {
       emit(AdanErrorState());
-    }, (data) {
-      emit(AdanSuccessState());
+    }, (data) async{
       adanResult = data;
-      sl<CacheHelper>().put('fajr',
-          adanResult![DateTime.now().day - 1].timings.fajr.substring(0, 5));
-      sl<CacheHelper>().put(
-        'sunrise',
-        adanResult![DateTime.now().day - 1].timings.sunrise.substring(0, 5),
-      );
-      sl<CacheHelper>().put('dhuhr',
-          adanResult![DateTime.now().day - 1].timings.dhuhr.substring(0, 5));
-      sl<CacheHelper>().put('asr',
-          adanResult![DateTime.now().day - 1].timings.asr.substring(0, 5));
-      sl<CacheHelper>().put('maghrib',
-          adanResult![DateTime.now().day - 1].timings.maghrib.substring(0, 5));
-      sl<CacheHelper>().put('ishaa',
-          adanResult![DateTime.now().day - 1].timings.ishaa.substring(0, 5));
+      sl<CacheHelper>().put('fajr', adanResult![DateTime.now().day - 1].timings.fajr.substring(0, 5));
+      sl<CacheHelper>().put('sunrise', adanResult![DateTime.now().day - 1].timings.sunrise.substring(0, 5),);
+      sl<CacheHelper>().put('dhuhr', adanResult![DateTime.now().day - 1].timings.dhuhr.substring(0, 5));
+      sl<CacheHelper>().put('asr', adanResult![DateTime.now().day - 1].timings.asr.substring(0, 5));
+      sl<CacheHelper>().put('maghrib', adanResult![DateTime.now().day - 1].timings.maghrib.substring(0, 5));
+      sl<CacheHelper>().put('ishaa', adanResult![DateTime.now().day - 1].timings.ishaa.substring(0, 5));
+      emit(AdanSuccessState());
+
+      salahTimes = [
+        await sl<CacheHelper>().get('fajr') ?? 'Open Network',
+        await sl<CacheHelper>().get('sunrise') ?? 'Open Network',
+        await sl<CacheHelper>().get('dhuhr') ?? 'Open Network',
+        await sl<CacheHelper>().get('asr') ?? 'Open Network',
+        await sl<CacheHelper>().get('maghrib') ?? 'Open Network',
+        await sl<CacheHelper>().get('ishaa') ?? 'Open Network',
+      ];
+      emit(GetSavedDataSuccessState());
+
     });
   }
   TafseerEntity? tafseerResult;
@@ -435,6 +438,11 @@ class HomeCubit extends Cubit<HomeState> {
     surahName = await sl<CacheHelper>().get('surahName')?? '';
     emit(GetSavedDataSuccessState());
   }
+
+  void getSavedDataTimes()async{
+
+  }
+
   bool permission = false;
   double? lat;
   double? lng;
@@ -442,8 +450,10 @@ class HomeCubit extends Cubit<HomeState> {
   async{
     permission = !permission;
     if(permission == true) {
-      await Geolocator.requestPermission();
+      //await Geolocator.requestPermission();
+      emit(LoadingGetLocationState());
       Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+
       currentLat = position.latitude;
       currentLng = position.longitude;
       lat = position.latitude;
@@ -457,6 +467,13 @@ class HomeCubit extends Cubit<HomeState> {
   {
     changePlayingValue= value ?? !changePlayingValue;
     emit(TurnOnSoundState());
+  }
+
+  void showGuide(bool value)
+  {
+    showGuideValue = value;
+    emit(ShowGuideState());
+    sl<CacheHelper>().put('guideValue', showGuideValue);
   }
 
 }

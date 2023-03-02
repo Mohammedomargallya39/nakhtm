@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nakhtm/core/util/resources/extensions_manager.dart';
 import 'package:nakhtm/features/home/presentation/screens/quran/surah_screen.dart';
+import 'package:nakhtm/features/home/presentation/widgets/guide_dialog_widget.dart';
 import 'package:quran/quran.dart' as quran;
 import '../../../../../core/util/resources/appString.dart';
 import '../../../../../core/util/resources/assets.gen.dart';
@@ -10,6 +11,7 @@ import '../../../../../core/util/resources/colors_manager.dart';
 import '../../../../../core/util/resources/constants_manager.dart';
 import '../../../../../core/util/widgets/default_action_button.dart';
 import '../../../../../core/util/widgets/default_text.dart';
+import '../../../../../core/util/widgets/tafseer_dialog.dart';
 import '../../controller/bloc.dart';
 import '../../controller/state.dart';
 
@@ -120,6 +122,24 @@ class QuranWidget extends StatelessWidget {
                                           onTap: ()
                                           {
                                             navigateTo(context, SurahScreen(surahNum: index+1,));
+                                            if(showGuideValue)
+                                            {
+                                              showDialog(context: context,
+                                                barrierDismissible: false,
+                                                builder: (context) {
+                                                  return GuideDialog(
+                                                    onTap: ()
+                                                    {
+                                                      homeCubit.showGuide(false);
+                                                      Navigator.pop(context);
+                                                    },
+                                                    firstGuide:'- لسماع الآيه أنقر علي اللآية' ,
+                                                    secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي اللآية',
+                                                    thirdGuide: '- لحفظ آخر ما قرأت و نسخ اللآية أنقر مرتين متتاليتين علي الآية',
+                                                  );
+                                                },
+                                              );
+                                            }
                                           },
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(vertical: 20.rSp, horizontal: 40.rSp),

@@ -54,13 +54,7 @@ class HomeWidget extends StatelessWidget {
                   verticalSpace(2.h,),
                   Row(
                     children: [
-                      BlocConsumer<HomeCubit,HomeState>(
-                        listener: (context, state) {
-                          if(appBloc.isAppConnected && state is AdanSuccessState && salahTimes![0] == 'Open Network')
-                          {
-                            navigateTo(context, const ElsalahTimeScreen());
-                          }
-                        },
+                      BlocBuilder<HomeCubit,HomeState>(
                         builder: (context, state) {
                           return BlocBuilder<AppBloc,AppState>(
                             builder: (context, state) {
@@ -73,34 +67,9 @@ class HomeWidget extends StatelessWidget {
                                       if(permissionStatus == PermissionStatus.granted)
                                       {
                                         homeCubit.getLocation();
-                                        if(appBloc.isAppConnected && homeCubit.lat != null)
-                                        {
-                                          homeCubit.adan(
-                                              year: DateTime.now().year.toString(),
-                                              month: DateTime.now().month.toString(),
-                                              day: DateTime.now().day.toString(),
-                                              lat: currentLat.toString() ?? '0',
-                                              lng: currentLng.toString() ?? '0',
-                                              method: '5'
-                                          );
-                                        }
-                                        if(appBloc.isAppConnected == true && salahTimes![0] != 'Open Network')
-                                        {
-                                          navigateTo(context, const ElsalahTimeScreen());
-                                        }
-
-                                        if(appBloc.isAppConnected == false && salahTimes![0] == 'Open Network')
-                                        {
-                                          designToastDialog(
-                                              context: context,
-                                              toast: TOAST.warning,
-                                              text: 'برجاء فتح الانترنت لأول مره'
-                                          );
-                                        }
-
+                                        navigateTo(context, const ElsalahTimeScreen());
                                         if(appBloc.isAppConnected == false)
                                         {
-                                          navigateTo(context, const ElsalahTimeScreen());
                                           designToastDialog(
                                               context: context,
                                               toast: TOAST.warning,

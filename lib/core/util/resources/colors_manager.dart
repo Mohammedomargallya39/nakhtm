@@ -8,6 +8,8 @@ class ColorsManager {
   static const Color redPrimary = Color(0xfffd0000);
   static const Color orangePrimary = Color(0xffFFC10E);
   static const Color transparent = Colors.transparent;
+  static const Color azkarColor = Color.fromARGB(255, 255, 245, 220);
+
 
   /// light theme
   static const Color textPrimaryBlue = Color(0xff051027);
