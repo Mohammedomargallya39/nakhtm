@@ -19,20 +19,22 @@ PreferredSizeWidget defaultAppBar({
       children: [
         SizedBox(
           width: double.infinity,
-          child: Stack(alignment: AlignmentDirectional.centerEnd, children: [
+
+          child: Stack(
+              alignment: AlignmentDirectional.centerEnd,
+              fit: StackFit.passthrough,
+              children: [
             SvgPicture.asset(
               appBarBackground,
+              fit: BoxFit.cover,
             ),
             if (title != null)
-              Padding(
-                padding: EdgeInsets.only(right: 10.w),
-                child: DefaultText(
-                  title: title,
-                  style: Style.medium,
-                  color: ColorsManager.white,
-                  fontSize: 18.rSp,
-                  fontWeight: FontWeight.w600,
-                ),
+              DefaultText(
+                title: title,
+                style: Style.medium,
+                color: ColorsManager.white,
+                fontSize: 18.rSp,
+                fontWeight: FontWeight.w600,
               ),
           ]),
         ),
