@@ -204,7 +204,7 @@ class HomeCubit extends Cubit<HomeState> {
       3,
       1,
       1,
-      100,
+      10,
       100,
       100
     ];
@@ -237,7 +237,7 @@ class HomeCubit extends Cubit<HomeState> {
       3,
       1,
       1,
-      100,
+      10,
       100,
       100
     ];

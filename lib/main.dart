@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +13,7 @@ import 'core/util/resources/bloc_observer_manager.dart';
 import 'core/util/resources/constants_manager.dart';
 import 'features/home/presentation/controller/bloc.dart';
 import 'features/splash/presentation/screens/splash_screen.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,7 +66,7 @@ void main() async {
     Future<void> scheduleDailyNotification() async {
 
       var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
-          'channel id 17',
+          'channel id 25',
           'channel name',
           importance: Importance.max,
           priority: Priority.high,
