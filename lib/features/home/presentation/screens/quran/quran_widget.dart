@@ -11,7 +11,6 @@ import '../../../../../core/util/resources/colors_manager.dart';
 import '../../../../../core/util/resources/constants_manager.dart';
 import '../../../../../core/util/widgets/default_action_button.dart';
 import '../../../../../core/util/widgets/default_text.dart';
-import '../../../../../core/util/widgets/tafseer_dialog.dart';
 import '../../controller/bloc.dart';
 import '../../controller/state.dart';
 
@@ -133,9 +132,9 @@ class QuranWidget extends StatelessWidget {
                                                       homeCubit.showGuide(false);
                                                       Navigator.pop(context);
                                                     },
-                                                    firstGuide:'- لسماع الآيه أنقر علي اللآية' ,
-                                                    secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي اللآية',
-                                                    thirdGuide: '- لحفظ آخر ما قرأت و نسخ اللآية أنقر مرتين متتاليتين علي الآية',
+                                                    firstGuide:'- لسماع الآيه أنقر علي الآية' ,
+                                                    secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي الآية',
+                                                    thirdGuide: '- لحفظ آخر ما قرأت و نسخ الآية أنقر مرتين متتاليتين علي الآية',
                                                   );
                                                 },
                                               );

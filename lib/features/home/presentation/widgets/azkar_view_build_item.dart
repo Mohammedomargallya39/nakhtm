@@ -23,7 +23,7 @@ class AzkarViewBuildItem extends StatelessWidget {
           margin: EdgeInsets.symmetric(vertical: 10.rSp),
           padding: EdgeInsets.symmetric(horizontal: 30.rSp,vertical: 5.rSp),
           width: double.infinity,
-          height: 35.h,
+          height: 40.h,
           decoration: BoxDecoration(
             color: azkarColor,
             borderRadius: BorderRadius.circular(10.rSp),
@@ -90,7 +90,7 @@ class AzkarViewBuildItem extends StatelessWidget {
         ),
         Container(
           width: double.infinity,
-          height: 30.h,
+          height: 35.h,
           decoration: BoxDecoration(
             color: ColorsManager.azkarColor,
             borderRadius: BorderRadius.circular(10.rSp),

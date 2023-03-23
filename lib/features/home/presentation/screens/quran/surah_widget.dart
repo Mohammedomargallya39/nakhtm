@@ -18,6 +18,7 @@ import '../../../../../core/util/widgets/option_dialog.dart';
 import '../../../../../core/util/widgets/tafseer_dialog.dart';
 import '../../controller/bloc.dart';
 import '../../controller/state.dart';
+import '../../widgets/guide_dialog_widget.dart';
 
 class SurahWidget extends StatefulWidget {
   SurahWidget({Key? key, required this.surahNumber}) : super(key: key);
@@ -90,8 +91,24 @@ class _SurahWidgetState extends State<SurahWidget> {
                       children: [
                         Row(
                           children: [
+                            IconButton(
+                                onPressed: () {
+                                  showDialog(context: context,
+                                    builder: (context) {
+                                      return GuideDialog(
+                                        onTap: ()
+                                        {
+                                          Navigator.pop(context);
+                                        },
+                                        firstGuide:'- لسماع الآيه أنقر علي الآية' ,
+                                        secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي الآية',
+                                        thirdGuide: '- لحفظ آخر ما قرأت أو نسخ الآية أنقر مرتين متتاليتين علي الآية',
+                                      );
+                                    },
+                                  );
+                                },
+                                icon: const Icon(Icons.help_outline_outlined)),
                             Expanded(
-                              flex: 2,
                               child: DefaultText(
                                 align: TextAlign.end,
                                 title: quran
@@ -112,6 +129,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                                 icon: const Icon(Icons.arrow_forward_ios))
                           ],
                         ),
+                        verticalSpace(2.h),
                         Expanded(
                           child: Column(
                             children: [
@@ -131,12 +149,9 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                 alignment:
                                                     AlignmentDirectional.center,
                                                 children: [
-                                                  Image.asset(Assets
-                                                      .images.png.surahCard),
+                                                  Image.asset(Assets.images.png.surahCard),
                                                   Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
+                                                    crossAxisAlignment: CrossAxisAlignment.center,
                                                     children: [
                                                       DefaultText(
                                                         align: TextAlign.end,
