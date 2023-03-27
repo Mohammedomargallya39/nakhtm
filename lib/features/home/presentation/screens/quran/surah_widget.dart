@@ -48,11 +48,15 @@ class _SurahWidgetState extends State<SurahWidget> {
 
   @override
   Widget build(BuildContext context) {
+
     HomeCubit homeCubit = HomeCubit.get(context);
     AppBloc appBloc = AppBloc.get(context);
     int? pressedIndex;
     final player = AudioPlayer();
-
+    if(fontSize != 0)
+    {
+      homeCubit.fontSizeValue = fontSize!;
+    }
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         if (state is TafseerSuccessState) {
@@ -91,65 +95,67 @@ class _SurahWidgetState extends State<SurahWidget> {
                       children: [
                         Row(
                           children: [
-                            Expanded(
-                              child: IconButton(
-                                  onPressed: () {
-                                    showDialog(context: context,
-                                      builder: (context) {
-                                        return GuideDialog(
-                                          onTap: ()
-                                          {
-                                            Navigator.pop(context);
-                                          },
-                                          firstGuide:'- لسماع الآيه أنقر علي الآية' ,
-                                          secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي الآية',
-                                          thirdGuide: '- لحفظ آخر ما قرأت أو نسخ الآية أنقر مرتين متتاليتين علي الآية',
-                                        );
-                                      },
-                                    );
-                                  },
-                                  icon: const Icon(Icons.help_outline_outlined)),
-                            ),
-                            horizontalSpace(10.w),
-                            Expanded(
-                              flex: 2,
-                              child: DropdownButton(
-                                  value: homeCubit.selectedValue,
-                                  items: homeCubit.sizes.map((String option)
-                                  {
-                                    return DropdownMenuItem<String>(
-                                      value: option,
-                                      child: Text(option),
-                                    );
-                                  }).toList(),
-                                  onChanged: (dynamic value)
-                                  {
-                                    homeCubit.changeFontSize(value);
-                                  }
+                            IconButton(
+                                onPressed: () {
+                                  showDialog(context: context,
+                                    builder: (context) {
+                                      return GuideDialog(
+                                        onTap: ()
+                                        {
+                                          Navigator.pop(context);
+                                        },
+                                        firstGuide:'- لسماع الآيه أنقر علي الآية' ,
+                                        secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي الآية',
+                                        thirdGuide: '- لحفظ آخر ما قرأت أو نسخ الآية أنقر مرتين متتاليتين علي الآية',
+                                      );
+                                    },
+                                  );
+                                },
+                                icon: const Icon(Icons.info_outline_rounded)),
+                            if(homeCubit.fontSizeValue < 40.rSp)
+                            horizontalSpace(2.w),
+                            if(homeCubit.fontSizeValue < 40.rSp)
+                            InkWell(
+                              onTap: ()
+                              {
+                                homeCubit.zoomIn();
+                              },
+                              child: const Icon(
+                                  Icons.zoom_in_outlined
                               ),
                             ),
-                            // Expanded(
-                            //   child: DefaultText(
-                            //     align: TextAlign.end,
-                            //     title: quran
-                            //         .getSurahNameArabic(widget.surahNumber),
-                            //     style: Style.medium,
-                            //     fontSize: 30.rSp,
-                            //     fontFamily: 'arabic',
-                            //   ),
-                            // ),
-                            // const Spacer(),
-                            // horizontalSpace(5.w),
+                            if(homeCubit.fontSizeValue > 20.rSp)
+                            horizontalSpace(2.w),
+                            if(homeCubit.fontSizeValue > 20.rSp)
+                             InkWell(
+                               onTap: ()
+                               {
+                                 homeCubit.zoomOut();
+                               },
+                              child: const Icon(
+                                  Icons.zoom_out_outlined
+                              ),
+                            ),
+
                             Expanded(
-                              child: IconButton(
-                                  onPressed: () async{
-                                    Navigator.pop(context);
-                                    homeCubit.ayahPressedValue = false;
-                                    homeCubit.changePlayingValue = false;
-                                    player.stop();
-                                  },
-                                  icon: const Icon(Icons.arrow_forward_ios)),
-                            )
+                              child: DefaultText(
+                                align: TextAlign.end,
+                                title: quran
+                                    .getSurahNameArabic(widget.surahNumber),
+                                style: Style.medium,
+                                fontSize: 30.rSp,
+                                fontFamily: 'arabic',
+                              ),
+                            ),
+                            const Spacer(),
+                            IconButton(
+                                onPressed: () async{
+                                  Navigator.pop(context);
+                                  homeCubit.ayahPressedValue = false;
+                                  homeCubit.changePlayingValue = false;
+                                  player.stop();
+                                },
+                                icon: const Icon(Icons.arrow_forward_ios))
                           ],
                         ),
                         verticalSpace(2.h),
@@ -321,7 +327,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                   title:
                                                       '${quran.getVerse(widget.surahNumber, index + 1)} ${quran.getVerseEndSymbol(index + 1)}${quran.isSajdahVerse(widget.surahNumber, index + 1) ? quran.sajdah : ''}',
                                                   style: Style.large,
-                                                  fontSize: homeCubit.selectedValue == 'حجم الخط' ? 20.rSp : double.parse(homeCubit.selectedValue!).rSp,
+                                                  fontSize: homeCubit.fontSizeValue,
                                                   fontWeight: FontWeight.w600,
                                                   align: TextAlign.center,
                                                   color: (homeCubit.ayahPressedValue == true && pressedIndex == index) || (ayahNum! - 1 == index && widget.surahNumber == surahNum)
@@ -380,6 +386,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                             onPressed: () async {
                               if(appBloc.isAppConnected)
                               {
+                                debugPrintFullText(quran.getAudioURLByVerse(widget.surahNumber, pressedIndex! + 1));
                                 await player.setSourceUrl(quran.getAudioURLByVerse(widget.surahNumber, pressedIndex! + 1));
                                 player.setVolume(1);
                                 homeCubit.changePlayingValue == false

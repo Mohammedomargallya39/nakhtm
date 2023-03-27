@@ -34,14 +34,12 @@ class MainScreen extends StatelessWidget {
                     )
                   ]
               ),
-             margin: homeCubit.hideCardValue == true ? EdgeInsetsDirectional.only(bottom:20.rSp,start: 20.rSp,end: 20.rSp) : EdgeInsetsDirectional.only(bottom:0.rSp,start: 0.rSp,end: 0.rSp),
               child: CustomNavigationBar(
                 iconSize: 30.0.rSp,
                 selectedColor: ColorsManager.black,
                 strokeColor: ColorsManager.mainColor,
                 unSelectedColor: ColorsManager.lightGrey,
                 backgroundColor: ColorsManager.white,
-                borderRadius: homeCubit.hideCardValue == true ? Radius.circular(20.rSp) : Radius.circular(0.rSp),
                 items: [
                   CustomNavigationBarItem(
                     icon: SvgPicture.asset(Assets.images.svg.home),
