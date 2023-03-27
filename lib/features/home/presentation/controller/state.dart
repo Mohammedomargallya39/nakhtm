@@ -40,3 +40,4 @@ class GetLocationState extends HomeState{}
 class LoadingGetLocationState extends HomeState{}
 class RestAzkarListState extends HomeState{}
 class ShowGuideState extends HomeState{}
+class ChangeFontSizeState extends HomeState{}

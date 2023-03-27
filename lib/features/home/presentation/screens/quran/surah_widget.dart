@@ -91,42 +91,65 @@ class _SurahWidgetState extends State<SurahWidget> {
                       children: [
                         Row(
                           children: [
-                            IconButton(
-                                onPressed: () {
-                                  showDialog(context: context,
-                                    builder: (context) {
-                                      return GuideDialog(
-                                        onTap: ()
-                                        {
-                                          Navigator.pop(context);
-                                        },
-                                        firstGuide:'- لسماع الآيه أنقر علي الآية' ,
-                                        secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي الآية',
-                                        thirdGuide: '- لحفظ آخر ما قرأت أو نسخ الآية أنقر مرتين متتاليتين علي الآية',
-                                      );
-                                    },
-                                  );
-                                },
-                                icon: const Icon(Icons.help_outline_outlined)),
                             Expanded(
-                              child: DefaultText(
-                                align: TextAlign.end,
-                                title: quran
-                                    .getSurahNameArabic(widget.surahNumber),
-                                style: Style.medium,
-                                fontSize: 30.rSp,
-                                fontFamily: 'arabic',
+                              child: IconButton(
+                                  onPressed: () {
+                                    showDialog(context: context,
+                                      builder: (context) {
+                                        return GuideDialog(
+                                          onTap: ()
+                                          {
+                                            Navigator.pop(context);
+                                          },
+                                          firstGuide:'- لسماع الآيه أنقر علي الآية' ,
+                                          secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي الآية',
+                                          thirdGuide: '- لحفظ آخر ما قرأت أو نسخ الآية أنقر مرتين متتاليتين علي الآية',
+                                        );
+                                      },
+                                    );
+                                  },
+                                  icon: const Icon(Icons.help_outline_outlined)),
+                            ),
+                            horizontalSpace(10.w),
+                            Expanded(
+                              flex: 2,
+                              child: DropdownButton(
+                                  value: homeCubit.selectedValue,
+                                  items: homeCubit.sizes.map((String option)
+                                  {
+                                    return DropdownMenuItem<String>(
+                                      value: option,
+                                      child: Text(option),
+                                    );
+                                  }).toList(),
+                                  onChanged: (dynamic value)
+                                  {
+                                    homeCubit.changeFontSize(value);
+                                  }
                               ),
                             ),
-                            const Spacer(),
-                            IconButton(
-                                onPressed: () async{
-                                  Navigator.pop(context);
-                                  homeCubit.ayahPressedValue = false;
-                                  homeCubit.changePlayingValue = false;
-                                  player.stop();
-                                },
-                                icon: const Icon(Icons.arrow_forward_ios))
+                            // Expanded(
+                            //   child: DefaultText(
+                            //     align: TextAlign.end,
+                            //     title: quran
+                            //         .getSurahNameArabic(widget.surahNumber),
+                            //     style: Style.medium,
+                            //     fontSize: 30.rSp,
+                            //     fontFamily: 'arabic',
+                            //   ),
+                            // ),
+                            // const Spacer(),
+                            // horizontalSpace(5.w),
+                            Expanded(
+                              child: IconButton(
+                                  onPressed: () async{
+                                    Navigator.pop(context);
+                                    homeCubit.ayahPressedValue = false;
+                                    homeCubit.changePlayingValue = false;
+                                    player.stop();
+                                  },
+                                  icon: const Icon(Icons.arrow_forward_ios)),
+                            )
                           ],
                         ),
                         verticalSpace(2.h),
@@ -207,79 +230,30 @@ class _SurahWidgetState extends State<SurahWidget> {
                                               builder: (context) {
                                                 return OptionsDialog(
                                                   message: 'إختر',
-                                                  firstButtonText:
-                                                      'التفسير الميسر',
-                                                  secondButtonText:
-                                                      'تفسير الجلالين',
-                                                  thirdButtonText:
-                                                      'تفسير السعدي',
-                                                  fourthButtonText:
-                                                      'تفسير ابن كثير',
-                                                  fifthButtonText:
-                                                      'تفسير الطنطاوي',
-                                                  sixthButtonText:
-                                                      'تفسير البغوي',
-                                                  seventhButtonText:
-                                                      'تفسير القرطبي',
-                                                  eighthButtonText:
-                                                      'تفسير الطبري',
+                                                  firstButtonText: 'التفسير الميسر',
+                                                  secondButtonText: 'تفسير الجلالين',
+                                                  thirdButtonText: 'تفسير السعدي',
+                                                  fourthButtonText: 'تفسير ابن كثير',
+                                                  fifthButtonText: 'تفسير الطنطاوي',
+                                                  sixthButtonText: 'تفسير البغوي',
+                                                  seventhButtonText: 'تفسير القرطبي',
+                                                  eighthButtonText: 'تفسير الطبري',
                                                   height: 40.h,
-                                                  firstButtonVoidCallback: () {
-                                                    homeCubit.tafseer(
-                                                        tafseerId: 1,
-                                                        surahId:
-                                                            widget.surahNumber,
-                                                        ayahId: index + 1);
+                                                  firstButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 1, surahId: widget.surahNumber, ayahId: index + 1);
                                                   },
-                                                  secondButtonVoidCallback: () {
-                                                    homeCubit.tafseer(
-                                                        tafseerId: 2,
-                                                        surahId:
-                                                            widget.surahNumber,
-                                                        ayahId: index + 1);
+                                                  secondButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 2, surahId: widget.surahNumber, ayahId: index + 1);
                                                   },
-                                                  thirdButtonVoidCallback: () {
-                                                    homeCubit.tafseer(
-                                                        tafseerId: 3,
-                                                        surahId:
-                                                            widget.surahNumber,
-                                                        ayahId: index + 1);
+                                                  thirdButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 3, surahId: widget.surahNumber, ayahId: index + 1);
                                                   },
-                                                  fourthButtonVoidCallback: () {
-                                                    homeCubit.tafseer(
-                                                        tafseerId: 4,
-                                                        surahId:
-                                                            widget.surahNumber,
-                                                        ayahId: index + 1);
+                                                  fourthButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 4, surahId: widget.surahNumber, ayahId: index + 1);
                                                   },
-                                                  fifthButtonVoidCallback: () {
-                                                    homeCubit.tafseer(
-                                                        tafseerId: 5,
-                                                        surahId:
-                                                            widget.surahNumber,
-                                                        ayahId: index + 1);
+                                                  fifthButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 5, surahId: widget.surahNumber, ayahId: index + 1);
                                                   },
-                                                  sixthButtonVoidCallback: () {
-                                                    homeCubit.tafseer(
-                                                        tafseerId: 6,
-                                                        surahId:
-                                                            widget.surahNumber,
-                                                        ayahId: index + 1);
+                                                  sixthButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 6, surahId: widget.surahNumber, ayahId: index + 1);
                                                   },
-                                                  seventhButtonVoidCallback:
-                                                      () {
-                                                    homeCubit.tafseer(
-                                                        tafseerId: 7,
-                                                        surahId:
-                                                            widget.surahNumber,
-                                                        ayahId: index + 1);
+                                                  seventhButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 7, surahId: widget.surahNumber, ayahId: index + 1);
                                                   },
-                                                  eighthButtonVoidCallback: () {
-                                                    homeCubit.tafseer(
-                                                        tafseerId: 8,
-                                                        surahId:
-                                                            widget.surahNumber,
-                                                        ayahId: index + 1);
+                                                  eighthButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 8, surahId: widget.surahNumber, ayahId: index + 1);
                                                   },
                                                 );
                                               },
@@ -347,17 +321,10 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                   title:
                                                       '${quran.getVerse(widget.surahNumber, index + 1)} ${quran.getVerseEndSymbol(index + 1)}${quran.isSajdahVerse(widget.surahNumber, index + 1) ? quran.sajdah : ''}',
                                                   style: Style.large,
-                                                  fontSize: 20.rSp,
+                                                  fontSize: homeCubit.selectedValue == 'حجم الخط' ? 20.rSp : double.parse(homeCubit.selectedValue!).rSp,
                                                   fontWeight: FontWeight.w600,
                                                   align: TextAlign.center,
-                                                  color: (homeCubit.ayahPressedValue ==
-                                                                  true &&
-                                                              pressedIndex ==
-                                                                  index) ||
-                                                          (ayahNum! - 1 ==
-                                                                  index &&
-                                                              widget.surahNumber ==
-                                                                  surahNum)
+                                                  color: (homeCubit.ayahPressedValue == true && pressedIndex == index) || (ayahNum! - 1 == index && widget.surahNumber == surahNum)
                                                       ? ColorsManager.white
                                                       : ColorsManager.black,
                                                   fontFamily: 'arabic',
@@ -444,6 +411,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                   ),
                 )
               : null,
+          //null,
         );
       },
     );

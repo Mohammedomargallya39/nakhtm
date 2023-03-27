@@ -476,4 +476,20 @@ class HomeCubit extends Cubit<HomeState> {
     sl<CacheHelper>().put('guideValue', showGuideValue);
   }
 
+  String? selectedValue = 'حجم الخط';
+  List<String> sizes = [
+    'حجم الخط',
+    '20',
+    '22',
+    '24',
+    '26',
+    '28',
+    '30',
+  ];
+  void changeFontSize (String value)
+  {
+    selectedValue = value;
+    emit(ChangeFontSizeState());
+  }
+
 }
