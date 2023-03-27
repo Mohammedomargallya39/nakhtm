@@ -16,102 +16,105 @@ class AzkarViewBuildItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
-      alignment: AlignmentDirectional.topCenter,
-      children: [
-        Container(
-          margin: EdgeInsets.symmetric(vertical: 10.rSp),
-          padding: EdgeInsets.symmetric(horizontal: 30.rSp,vertical: 5.rSp),
-          width: double.infinity,
-          height: 40.h,
-          decoration: BoxDecoration(
-            color: azkarColor,
-            borderRadius: BorderRadius.circular(10.rSp),
+    return  Container(
+      margin: EdgeInsets.symmetric(vertical: 10.rSp),
+      width: double.infinity,
+
+      decoration: BoxDecoration(
+        color: azkarColor,
+        borderRadius: BorderRadius.circular(10.rSp),
+      ),
+      child: Column(
+        children: [
+
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 5.rSp,vertical: 15.rSp),
+            decoration: BoxDecoration(
+              color: ColorsManager.azkarColor,
+              borderRadius: BorderRadius.circular(10.rSp),
+              image: DecorationImage(
+                  image: AssetImage(
+                    Assets.images.png.appBackground,
+                  ),
+                  fit: BoxFit.cover
+              ),
+            ),
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5.rSp),
+                child: DefaultText(
+                  align: TextAlign.center,
+                  title: azkar,
+                  style: Style.small,
+                ),
+              ),
+            ),
           ),
-          child: Align(
-            alignment: AlignmentDirectional.bottomCenter,
-            child: Row(
-              children: [
-                InkWell(
-                  onTap: () async{
-                    Clipboard.setData(ClipboardData(text: azkar));
-                    designToastDialog(
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 0.8.h),
+            child: Align(
+              alignment: AlignmentDirectional.bottomCenter,
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: () async{
+                      Clipboard.setData(ClipboardData(text: azkar));
+                      designToastDialog(
                         context: context,
                         toast: TOAST.info,
                         text: 'تم النسخ',
-                    );
-                  },
-                  child: Row(
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                            backgroundColor: ColorsManager.white,
+                            radius: 14.rSp,
+                            child: Icon(
+                              Icons.copy,
+                              color: ColorsManager.darkGrey,
+                              size: 14.rSp,
+                            )),
+                        horizontalSpace(4.w),
+                        const DefaultText(
+                          title: AppString.copy,
+                          style: Style.small,
+                          color: ColorsManager.white,
+                        )
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  Row(
                     children: [
                       CircleAvatar(
                           backgroundColor: ColorsManager.white,
                           radius: 14.rSp,
-                          child: Icon(
-                            Icons.copy,
-                            color: ColorsManager.darkGrey,
-                            size: 14.rSp,
+                          child: Center(
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 3.rSp),
+                              child: DefaultText(
+                                title: '$repetitionNum',
+                                style: Style.small,
+                                fontSize: 14.rSp,
+                              ),
+                            ),
                           )),
                       horizontalSpace(4.w),
                       const DefaultText(
-                        title: AppString.copy,
+                        title: AppString.repeat,
                         style: Style.small,
                         color: ColorsManager.white,
                       )
                     ],
                   ),
-                ),
-                const Spacer(),
-                Row(
-                  children: [
-                    CircleAvatar(
-                        backgroundColor: ColorsManager.white,
-                        radius: 14.rSp,
-                        child: Center(
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 3.rSp),
-                            child: DefaultText(
-                              title: '$repetitionNum',
-                              style: Style.small,
-                              fontSize: 14.rSp,
-                            ),
-                          ),
-                        )),
-                    horizontalSpace(4.w),
-                    const DefaultText(
-                      title: AppString.repeat,
-                      style: Style.small,
-                      color: ColorsManager.white,
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-        Container(
-          width: double.infinity,
-          height: 35.h,
-          decoration: BoxDecoration(
-            color: ColorsManager.azkarColor,
-            borderRadius: BorderRadius.circular(10.rSp),
-            image: DecorationImage(
-                image: AssetImage(
-                  Assets.images.png.appBackground,
-                ),
-                fit: BoxFit.cover
-            ),
-          ),
-          child: Center(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.rSp),
-              child: DefaultText(
-                title: azkar,
-                style: Style.small,
+                ],
               ),
             ),
           ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }

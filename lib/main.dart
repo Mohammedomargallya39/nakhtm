@@ -42,6 +42,8 @@ void main() async {
 
   showGuideValue = await sl<CacheHelper>().get('guideValue') ?? true;
 
+  fontSize = await sl<CacheHelper>().get('fontSize') ?? 0;
+
   List<String> adan= [
     'حان الآن موعد آذان الفجر\n إن كنت ستصوم فإتمد علي آذان أقرب مسجد إليك',
     'حان الآن موعد آذان الظهر',

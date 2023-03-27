@@ -20,6 +20,7 @@ class QuranWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeCubit homeCubit = HomeCubit.get(context);
+
     return BlocBuilder<HomeCubit,HomeState>(
       builder: (context, state) {
         return SafeArea(
@@ -214,15 +215,6 @@ class QuranWidget extends StatelessWidget {
                                   padding: EdgeInsets.only(left: 10.w,right: 5.w),
                                   child: Row(
                                     children: [
-                                      defaultActionButton(
-                                        onPressed: ()
-                                        {
-                                          homeCubit.hideCard();
-                                        },
-                                        icon: Icons.cancel_outlined,
-                                        backgroundColor: Colors.transparent,
-                                      ),
-                                      horizontalSpace(2.w),
                                       DefaultText(
                                         title: surahName!,
                                         style: Style.medium,

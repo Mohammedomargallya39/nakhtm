@@ -127,6 +127,7 @@ class AzkarViewWidget extends StatelessWidget {
                           azkarColor:azkarColor[azkarIndex],
                         ),
                       ),
+                      physics: const BouncingScrollPhysics(),
                       itemCount:azkarIndex ==0 ? homeCubit.azkarMorning!.length : azkarIndex == 1 ? homeCubit.azkarEvening!.length : azkarIndex == 4 ? homeCubit.azkarElsalah!.length : azkarIndex == 3 ? homeCubit.azkarSleeping!.length : homeCubit.azkarMasged!.length,
                     ),
                   ),

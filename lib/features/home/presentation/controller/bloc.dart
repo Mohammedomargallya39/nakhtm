@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:nakhtm/core/util/resources/extensions_manager.dart';
 import 'package:nakhtm/features/home/presentation/controller/state.dart';
 import '../../../../core/di/injection.dart';
 import '../../../../core/network/local/cache_helper.dart';
@@ -476,20 +477,19 @@ class HomeCubit extends Cubit<HomeState> {
     sl<CacheHelper>().put('guideValue', showGuideValue);
   }
 
-  String? selectedValue = 'حجم الخط';
-  List<String> sizes = [
-    'حجم الخط',
-    '20',
-    '22',
-    '24',
-    '26',
-    '28',
-    '30',
-  ];
-  void changeFontSize (String value)
+  double fontSizeValue = 20.rSp;
+  void zoomIn ()
   {
-    selectedValue = value;
-    emit(ChangeFontSizeState());
+    fontSizeValue +=2;
+    sl<CacheHelper>().put('fontSize', fontSizeValue);
+    emit(AddFontSizeState());
+  }
+
+  void zoomOut ()
+  {
+    fontSizeValue -=2;
+    sl<CacheHelper>().put('fontSize', fontSizeValue);
+    emit(AddFontSizeState());
   }
 
 }
