@@ -85,7 +85,7 @@ class OptionsDialog extends Dialog {
                         child: myButton(
                           onPressed: firstButtonVoidCallback,
                           text: firstButtonText,
-                          fontSize: 16.rSp,
+                          fontSize: 20.rSp,
                         ),
                       ),
                       horizontalSpace(2.w),
