@@ -42,3 +42,7 @@ class RestAzkarListState extends HomeState{}
 class ShowGuideState extends HomeState{}
 class AddFontSizeState extends HomeState{}
 class MinusFontSizeState extends HomeState{}
+class DisposeAudioState extends HomeState{}
+class ChangeSliderValueState extends HomeState{}
+class AudioInitializedState extends HomeState{}
+class CloseStreamState extends HomeState{}
