@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:nakhtm/core/util/resources/extensions_manager.dart';
 import 'package:nakhtm/features/home/presentation/controller/state.dart';
 import '../../../../core/di/injection.dart';
@@ -44,6 +46,68 @@ class HomeCubit extends Cubit<HomeState> {
     initialTabIndex = index;
     emit(ChangeBottomNavBarState());
   }
+
+  List<String> shikhNames = [
+  'عبدالباري الثبيتي',
+  'عبدالباسط عبدالصمد',
+  'أحمد الهواشي',
+  'أحمد العجمي',
+  'أحمد محمد سلامة',
+  'مشاري راشد العفاسي',
+  'علي عبدالرحمن الحصفي',
+  'علي حجاج السويسي',
+  'عبد المجيب بن كيران',
+  'فارس عباد',
+  'هاني الرفاعي',
+  'إبراهيم الدوسري',
+  'خالد القحطاني',
+  'خالد بركات',
+  'خالد الجليل',
+  'محمود الرفاعي',
+  'محمود علي البنا',
+  'محمود الشيمي',
+  'محمود سعد درويش',
+  'محمود سيد الطيب',
+  'محمد الجابري الحياني',
+  'محمد القنطاوي',
+  'محمد معبود',
+  'محمد أنور الشحات',
+  'محمد أيوب',
+  'محمد صديق المنشاوي',
+  'ناصر القطامي',
+  'ياسر الدوسري',
+  ];
+
+  List<String> shikhId = [
+    'ar.abdulbariaththubaity',
+    'ar.abdulbasitmujawwad',
+    'ar.ahmadalhawashy',
+    'ar.ahmedalajmi',
+    'ar.ahmedmohamedsalama',
+    'ar.alafasy',
+    'ar.aliabdurrahmanalhuthaify',
+    'ar.alihajjajsouissi',
+    'ar.benkirane',
+    'ar.faresabbad',
+    'ar.haniarrifai',
+    'ar.ibrahimaldossari',
+    'ar.khaledalqahtani',
+    'ar.khaledbarakat',
+    'ar.khalidaljalil',
+    'ar.mahmoodalrifai',
+    'ar.mahmoudalialbanna',
+    'ar.mahmoudelsheimy',
+    'ar.mahmoudsaaddarouich',
+    'ar.mahmoudsayedeltayeb',
+    'ar.mohamedaljaberyalheyani',
+    'ar.mohamedelkantaoui',
+    'ar.mohamedmaabad',
+    'ar.muhammadanwarshahat',
+    'ar.muhammadayyub',
+    'ar.muhammadsiddiqalminshawimujawwad',
+    'ar.nasseralqatami',
+    'ar.yasseraldossari',
+  ];
   List<String> randomHomeSlah = [
     '«إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ ۚ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا»،( سورة الأحزاب: الآية 56).',
     'اللهم صلّ على محمد وعلى آل محمد، كما صليت على إبراهيم وعلى آل إبراهيم، وبارك على محمد وعلى آل محمد، كما باركت على إبراهيم وعلى آل إبراهيم، إنك حميد مجيد',
@@ -278,8 +342,8 @@ class HomeCubit extends Cubit<HomeState> {
         chooserTitle: 'شارك بواسطة');
   }
   bool hideCardValue = false;
-  void hideCard() {
-    hideCardValue = !hideCardValue;
+  void hideCard(bool value) {
+    hideCardValue = value;
     emit(HideCardValueState());
   }
   bool ayahPressedValue = false;
@@ -287,6 +351,7 @@ class HomeCubit extends Cubit<HomeState> {
     ayahPressedValue = value?? !ayahPressedValue;
     emit(AyahOnPressedValueState());
   }
+
   int currentTasbeehNumber = 0;
   void changeCurrentTasbeehNumber() {
     currentTasbeehNumber++;
@@ -469,6 +534,46 @@ class HomeCubit extends Cubit<HomeState> {
     changePlayingValue= value ?? !changePlayingValue;
     emit(TurnOnSoundState());
   }
+  late AudioPlayer player;
+  int durationSeconds = 0;
+  String duration = '00:00:00';
+  late Stream<Duration> positionStream;
+  late StreamController<Duration> streamController;
+  void initializeAudio(String link)async{
+    player = AudioPlayer();
+    await player.setAudioSource(AudioSource.uri(Uri.parse(link))).then((value){
+      durationSeconds = player.duration!.inSeconds;
+      duration = formatDuration(durationSeconds);
+      positionStream = Stream.periodic(
+          const Duration(seconds: 1), (_) => player.position);
+      streamController.addStream(positionStream);
+      emit(AudioInitializedState());
+    });
+
+  }
+
+  bool isStreamInitialized = false;
+
+  void initializeStream()async{
+    streamController = StreamController<Duration>();
+    isStreamInitialized = true;
+    emit(CloseStreamState());
+  }
+
+  void disposeAudio() async{
+    await player.dispose();
+    emit(DisposeAudioState());
+  }
+  String playingValue = 'start';
+  Duration? position;
+
+  void pauseAndPlay({required String value, Duration? audioPosition})
+  {
+    playingValue= value;
+    position = audioPosition ?? const Duration(hours: 0,minutes: 0,seconds: 0,milliseconds: 0,microseconds: 0);
+    emit(TurnOnSoundState());
+  }
+
 
   void showGuide(bool value)
   {
@@ -490,6 +595,25 @@ class HomeCubit extends Cubit<HomeState> {
     fontSizeValue -=2;
     sl<CacheHelper>().put('fontSize', fontSizeValue);
     emit(AddFontSizeState());
+  }
+
+
+  Future<void> closeStream()async{
+    await streamController.close();
+    isStreamInitialized = false;
+    emit(CloseStreamState());
+  }
+
+  String formatDuration(int seconds) {
+    int hours = seconds ~/ 3600;
+    int minutes = (seconds % 3600) ~/ 60;
+    int remainingSeconds = seconds % 60;
+
+    String hoursStr = hours > 0 ? '${hours.toString().padLeft(2, '0')}:': '';
+    String minutesStr = '${minutes.toString().padLeft(2, '0')}:';
+    String secondsStr = remainingSeconds.toString().padLeft(2, '0');
+
+    return '$hoursStr$minutesStr$secondsStr';
   }
 
 }

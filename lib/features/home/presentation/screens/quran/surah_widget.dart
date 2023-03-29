@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nakhtm/core/util/cubit/cubit.dart';
 import 'package:nakhtm/core/util/cubit/state.dart';
 import 'package:nakhtm/core/util/resources/extensions_manager.dart';
+import 'package:nakhtm/features/home/presentation/widgets/surah_audio_item_builder.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import '../../../../../core/di/injection.dart';
 import '../../../../../core/network/local/cache_helper.dart';
@@ -41,20 +42,20 @@ class _SurahWidgetState extends State<SurahWidget> {
   @override
   void initState() {
     super.initState();
-    if (ayahNum != 0 && surahNum == widget.surahNumber && quran.getVerseCount(widget.surahNumber) > 8) {
+    if (ayahNum != 0 &&
+        surahNum == widget.surahNumber &&
+        quran.getVerseCount(widget.surahNumber) > 8) {
       WidgetsBinding.instance.addPostFrameCallback((_) => scrollToItem());
     }
   }
 
   @override
   Widget build(BuildContext context) {
-
     HomeCubit homeCubit = HomeCubit.get(context);
     AppBloc appBloc = AppBloc.get(context);
     int? pressedIndex;
     final player = AudioPlayer();
-    if(fontSize != 0)
-    {
+    if (fontSize != 0) {
       homeCubit.fontSizeValue = fontSize!;
     }
     return BlocConsumer<HomeCubit, HomeState>(
@@ -75,6 +76,8 @@ class _SurahWidgetState extends State<SurahWidget> {
             onWillPop: () async {
               homeCubit.ayahPressedValue = false;
               homeCubit.changePlayingValue = false;
+              homeCubit.hideCard(false);
+              homeCubit.disposeAudio();
               player.stop();
               return true;
             },
@@ -97,46 +100,76 @@ class _SurahWidgetState extends State<SurahWidget> {
                           children: [
                             IconButton(
                                 onPressed: () {
-                                  showDialog(context: context,
+                                  showDialog(
+                                    context: context,
                                     builder: (context) {
                                       return GuideDialog(
-                                        onTap: ()
-                                        {
+                                        onTap: () {
                                           Navigator.pop(context);
                                         },
-                                        firstGuide:'- لسماع الآيه أنقر علي الآية' ,
-                                        secondGuide: '- لقراءة تفسير الآية أنقر مطولا علي الآية',
-                                        thirdGuide: '- لحفظ آخر ما قرأت أو نسخ الآية أنقر مرتين متتاليتين علي الآية',
+                                        firstGuide:
+                                            '- لسماع الآيه أنقر علي الآية',
+                                        secondGuide:
+                                            '- لقراءة تفسير الآية أنقر مطولا علي الآية',
+                                        thirdGuide:
+                                            '- لحفظ آخر ما قرأت أو نسخ الآية أنقر مرتين متتاليتين علي الآية',
                                       );
                                     },
                                   );
                                 },
                                 icon: const Icon(Icons.info_outline_rounded)),
-                            if(homeCubit.fontSizeValue < 40.rSp)
-                            horizontalSpace(2.w),
-                            if(homeCubit.fontSizeValue < 40.rSp)
-                            InkWell(
-                              onTap: ()
-                              {
-                                homeCubit.zoomIn();
-                              },
-                              child: const Icon(
-                                  Icons.zoom_in_outlined
-                              ),
-                            ),
-                            if(homeCubit.fontSizeValue > 20.rSp)
-                            horizontalSpace(2.w),
-                            if(homeCubit.fontSizeValue > 20.rSp)
-                             InkWell(
-                               onTap: ()
-                               {
-                                 homeCubit.zoomOut();
-                               },
-                              child: const Icon(
-                                  Icons.zoom_out_outlined
-                              ),
-                            ),
-
+                            IconButton(
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Dialog(
+                                        child: ListView.builder(
+                                          itemBuilder: (context, index) {
+                                            return Directionality(
+                                              textDirection: TextDirection.rtl,
+                                              child: InkWell(
+                                                  onTap: () {
+                                                    if (appBloc
+                                                        .isAppConnected) {
+                                                      homeCubit
+                                                          .initializeStream();
+                                                      homeCubit.initializeAudio(
+                                                          quran.getAudioURLBySurah(
+                                                              homeCubit.shikhId[
+                                                                  index],
+                                                              widget
+                                                                  .surahNumber));
+                                                      homeCubit.hideCard(true);
+                                                      Navigator.pop(context);
+                                                    } else {
+                                                      designToastDialog(
+                                                        context: context,
+                                                        toast: TOAST.error,
+                                                        text:
+                                                            'من فضلك قم بتشغيل الإنترنت',
+                                                      );
+                                                    }
+                                                  },
+                                                  child: SurahAudioItemBuilder(
+                                                      shikhName: homeCubit
+                                                          .shikhNames[index])),
+                                            );
+                                          },
+                                          physics:
+                                              const BouncingScrollPhysics(),
+                                          itemCount:
+                                              homeCubit.shikhNames.length,
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  homeCubit.ayahPressed(value: false);
+                                },
+                                icon: const Icon(
+                                  Icons.play_circle,
+                                  color: ColorsManager.mainCard,
+                                )),
                             Expanded(
                               child: DefaultText(
                                 align: TextAlign.end,
@@ -149,10 +182,12 @@ class _SurahWidgetState extends State<SurahWidget> {
                             ),
                             const Spacer(),
                             IconButton(
-                                onPressed: () async{
+                                onPressed: () async {
                                   Navigator.pop(context);
                                   homeCubit.ayahPressedValue = false;
                                   homeCubit.changePlayingValue = false;
+                                  homeCubit.hideCard(false);
+                                  homeCubit.disposeAudio();
                                   player.stop();
                                 },
                                 icon: const Icon(Icons.arrow_forward_ios))
@@ -175,13 +210,110 @@ class _SurahWidgetState extends State<SurahWidget> {
                                             padding: EdgeInsets.symmetric(
                                                 horizontal: 5.w),
                                             child: Stack(
-                                                alignment:
-                                                    AlignmentDirectional.center,
+                                                alignment: AlignmentDirectional
+                                                    .topCenter,
                                                 children: [
-                                                  Image.asset(Assets.images.png.surahCard),
+                                                  Image.asset(Assets
+                                                      .images.png.surahCard),
                                                   Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
                                                     children: [
+                                                      verticalSpace(2.h),
+                                                      Padding(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal:
+                                                                    15.rSp),
+                                                        child: Row(
+                                                          children: [
+                                                            if (homeCubit
+                                                                    .fontSizeValue <
+                                                                40.rSp)
+                                                              Expanded(
+                                                                child: InkWell(
+                                                                  onTap: () {
+                                                                    homeCubit
+                                                                        .zoomIn();
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    padding: EdgeInsets
+                                                                        .all(10
+                                                                            .rSp),
+                                                                    decoration: BoxDecoration(
+                                                                        color: ColorsManager
+                                                                            .lightGrey
+                                                                            .withOpacity(
+                                                                                0.3),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(5.rSp)),
+                                                                    child:
+                                                                        const DefaultText(
+                                                                      align: TextAlign
+                                                                          .center,
+                                                                      title:
+                                                                          'تكبير الخط',
+                                                                      style: Style
+                                                                          .small,
+                                                                      color: ColorsManager
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            if (homeCubit
+                                                                        .fontSizeValue >
+                                                                    20.rSp &&
+                                                                homeCubit
+                                                                        .fontSizeValue <
+                                                                    40.rSp)
+                                                              horizontalSpace(
+                                                                  5.w),
+                                                            if (homeCubit
+                                                                    .fontSizeValue >
+                                                                20.rSp)
+                                                              Expanded(
+                                                                child: InkWell(
+                                                                  onTap: () {
+                                                                    homeCubit
+                                                                        .zoomOut();
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    padding: EdgeInsets
+                                                                        .all(10
+                                                                            .rSp),
+                                                                    decoration: BoxDecoration(
+                                                                        color: ColorsManager
+                                                                            .lightGrey
+                                                                            .withOpacity(
+                                                                                0.3),
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(5.rSp)),
+                                                                    child:
+                                                                        const DefaultText(
+                                                                      align: TextAlign
+                                                                          .center,
+                                                                      title:
+                                                                          'تصغير الخط',
+                                                                      style: Style
+                                                                          .small,
+                                                                      color: ColorsManager
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      verticalSpace(2.h),
                                                       DefaultText(
                                                         align: TextAlign.end,
                                                         title: quran
@@ -220,11 +352,19 @@ class _SurahWidgetState extends State<SurahWidget> {
                                         if (index == 0) verticalSpace(1.h),
                                         InkWell(
                                           onTap: () {
+                                            if (homeCubit.isStreamInitialized) {
+                                              homeCubit.closeStream();
+                                              homeCubit.disposeAudio();
+                                              homeCubit.hideCard(false);
+                                              debugPrintFullText(
+                                                  '++++++++++++++++++++++++');
+                                            }
                                             if (pressedIndex == index) {
                                               homeCubit.ayahPressed();
                                             } else {
                                               pressedIndex = index;
-                                              homeCubit.ayahPressed(value: true);
+                                              homeCubit.ayahPressed(
+                                                  value: true);
                                               homeCubit.changePlaying(
                                                   value: false);
                                               player.stop();
@@ -236,30 +376,79 @@ class _SurahWidgetState extends State<SurahWidget> {
                                               builder: (context) {
                                                 return OptionsDialog(
                                                   message: 'إختر',
-                                                  firstButtonText: 'التفسير الميسر',
-                                                  secondButtonText: 'تفسير الجلالين',
-                                                  thirdButtonText: 'تفسير السعدي',
-                                                  fourthButtonText: 'تفسير ابن كثير',
-                                                  fifthButtonText: 'تفسير الطنطاوي',
-                                                  sixthButtonText: 'تفسير البغوي',
-                                                  seventhButtonText: 'تفسير القرطبي',
-                                                  eighthButtonText: 'تفسير الطبري',
+                                                  firstButtonText:
+                                                      'التفسير الميسر',
+                                                  secondButtonText:
+                                                      'تفسير الجلالين',
+                                                  thirdButtonText:
+                                                      'تفسير السعدي',
+                                                  fourthButtonText:
+                                                      'تفسير ابن كثير',
+                                                  fifthButtonText:
+                                                      'تفسير الطنطاوي',
+                                                  sixthButtonText:
+                                                      'تفسير البغوي',
+                                                  seventhButtonText:
+                                                      'تفسير القرطبي',
+                                                  eighthButtonText:
+                                                      'تفسير الطبري',
                                                   height: 40.h,
-                                                  firstButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 1, surahId: widget.surahNumber, ayahId: index + 1);
+                                                  firstButtonVoidCallback: () {
+                                                    homeCubit.tafseer(
+                                                        tafseerId: 1,
+                                                        surahId:
+                                                            widget.surahNumber,
+                                                        ayahId: index + 1);
                                                   },
-                                                  secondButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 2, surahId: widget.surahNumber, ayahId: index + 1);
+                                                  secondButtonVoidCallback: () {
+                                                    homeCubit.tafseer(
+                                                        tafseerId: 2,
+                                                        surahId:
+                                                            widget.surahNumber,
+                                                        ayahId: index + 1);
                                                   },
-                                                  thirdButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 3, surahId: widget.surahNumber, ayahId: index + 1);
+                                                  thirdButtonVoidCallback: () {
+                                                    homeCubit.tafseer(
+                                                        tafseerId: 3,
+                                                        surahId:
+                                                            widget.surahNumber,
+                                                        ayahId: index + 1);
                                                   },
-                                                  fourthButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 4, surahId: widget.surahNumber, ayahId: index + 1);
+                                                  fourthButtonVoidCallback: () {
+                                                    homeCubit.tafseer(
+                                                        tafseerId: 4,
+                                                        surahId:
+                                                            widget.surahNumber,
+                                                        ayahId: index + 1);
                                                   },
-                                                  fifthButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 5, surahId: widget.surahNumber, ayahId: index + 1);
+                                                  fifthButtonVoidCallback: () {
+                                                    homeCubit.tafseer(
+                                                        tafseerId: 5,
+                                                        surahId:
+                                                            widget.surahNumber,
+                                                        ayahId: index + 1);
                                                   },
-                                                  sixthButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 6, surahId: widget.surahNumber, ayahId: index + 1);
+                                                  sixthButtonVoidCallback: () {
+                                                    homeCubit.tafseer(
+                                                        tafseerId: 6,
+                                                        surahId:
+                                                            widget.surahNumber,
+                                                        ayahId: index + 1);
                                                   },
-                                                  seventhButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 7, surahId: widget.surahNumber, ayahId: index + 1);
+                                                  seventhButtonVoidCallback:
+                                                      () {
+                                                    homeCubit.tafseer(
+                                                        tafseerId: 7,
+                                                        surahId:
+                                                            widget.surahNumber,
+                                                        ayahId: index + 1);
                                                   },
-                                                  eighthButtonVoidCallback: () {homeCubit.tafseer(tafseerId: 8, surahId: widget.surahNumber, ayahId: index + 1);
+                                                  eighthButtonVoidCallback: () {
+                                                    homeCubit.tafseer(
+                                                        tafseerId: 8,
+                                                        surahId:
+                                                            widget.surahNumber,
+                                                        ayahId: index + 1);
                                                   },
                                                 );
                                               },
@@ -280,20 +469,36 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                           toast: TOAST.info,
                                                           text:
                                                               'تم حفظ أخر ما قرأت بنجاح.');
-                                                      sl<CacheHelper>().put('ayahNum', index + 1);
-                                                      sl<CacheHelper>().put('surahNum', widget.surahNumber);
-                                                      sl<CacheHelper>().put('surahName', quran.getSurahNameArabic(widget.surahNumber));
-                                                      sl<CacheHelper>().put('pageNum', quran.getPageNumber(widget.surahNumber, index + 1));
+                                                      sl<CacheHelper>().put(
+                                                          'ayahNum', index + 1);
+                                                      sl<CacheHelper>().put(
+                                                          'surahNum',
+                                                          widget.surahNumber);
+                                                      sl<CacheHelper>().put(
+                                                          'surahName',
+                                                          quran.getSurahNameArabic(
+                                                              widget
+                                                                  .surahNumber));
+                                                      sl<CacheHelper>().put(
+                                                          'pageNum',
+                                                          quran.getPageNumber(
+                                                              widget
+                                                                  .surahNumber,
+                                                              index + 1));
                                                       homeCubit.getSavedData();
-                                                        },
+                                                    },
                                                     secondButtonVoidCallback:
-                                                        () async{
-                                                          Clipboard.setData(ClipboardData(text: quran.getVerse(widget.surahNumber, index + 1)));
-                                                          designToastDialog(
-                                                            context: context,
-                                                            toast: TOAST.info,
-                                                            text: 'تم النسخ',
-                                                          );
+                                                        () async {
+                                                      Clipboard.setData(ClipboardData(
+                                                          text: quran.getVerse(
+                                                              widget
+                                                                  .surahNumber,
+                                                              index + 1)));
+                                                      designToastDialog(
+                                                        context: context,
+                                                        toast: TOAST.info,
+                                                        text: 'تم النسخ',
+                                                      );
                                                     });
                                               },
                                             );
@@ -302,7 +507,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                                             padding: EdgeInsets.symmetric(
                                                 vertical: 1.h),
                                             child: Container(
-                                              width:double.infinity,
+                                              width: double.infinity,
                                               decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -327,10 +532,18 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                   title:
                                                       '${quran.getVerse(widget.surahNumber, index + 1)} ${quran.getVerseEndSymbol(index + 1)}${quran.isSajdahVerse(widget.surahNumber, index + 1) ? quran.sajdah : ''}',
                                                   style: Style.large,
-                                                  fontSize: homeCubit.fontSizeValue,
+                                                  fontSize:
+                                                      homeCubit.fontSizeValue,
                                                   fontWeight: FontWeight.w600,
                                                   align: TextAlign.center,
-                                                  color: (homeCubit.ayahPressedValue == true && pressedIndex == index) || (ayahNum! - 1 == index && widget.surahNumber == surahNum)
+                                                  color: (homeCubit.ayahPressedValue ==
+                                                                  true &&
+                                                              pressedIndex ==
+                                                                  index) ||
+                                                          (ayahNum! - 1 ==
+                                                                  index &&
+                                                              widget.surahNumber ==
+                                                                  surahNum)
                                                       ? ColorsManager.white
                                                       : ColorsManager.black,
                                                   fontFamily: 'arabic',
@@ -339,8 +552,18 @@ class _SurahWidgetState extends State<SurahWidget> {
                                             ),
                                           ),
                                         ),
-                                        if(homeCubit.ayahPressedValue && index == quran.getVerseCount(widget.surahNumber)-1)
-                                          verticalSpace(10.h)
+                                        if (homeCubit.ayahPressedValue &&
+                                            index ==
+                                                quran.getVerseCount(
+                                                        widget.surahNumber) -
+                                                    1)
+                                          verticalSpace(10.h),
+                                        if (homeCubit.hideCardValue &&
+                                            index ==
+                                                quran.getVerseCount(
+                                                        widget.surahNumber) -
+                                                    1)
+                                          verticalSpace(25.h)
                                       ],
                                     );
                                   },
@@ -378,46 +601,219 @@ class _SurahWidgetState extends State<SurahWidget> {
                     ],
                   ),
                   child: Padding(
-                    padding: EdgeInsets.only(bottom: 2.h),
-                    child: BlocBuilder<AppBloc,AppState>(
-                      builder: (context, state) {
-                        return  IconButton(
-                            padding: EdgeInsets.only(bottom: 5.h),
-                            onPressed: () async {
-                              if(appBloc.isAppConnected)
-                              {
-                                debugPrintFullText(quran.getAudioURLByVerse(widget.surahNumber, pressedIndex! + 1));
-                                await player.setSourceUrl(quran.getAudioURLByVerse(widget.surahNumber, pressedIndex! + 1));
-                                player.setVolume(1);
-                                homeCubit.changePlayingValue == false
-                                    ? await player.play(UrlSource(
-                                    quran.getAudioURLByVerse(widget.surahNumber, pressedIndex! + 1))
-                                ): await player.pause();
+                      padding: EdgeInsets.only(bottom: 2.h),
+                      child: IconButton(
+                          padding: EdgeInsets.only(bottom: 5.h),
+                          onPressed: () async {
+                            if (appBloc.isAppConnected) {
+                              debugPrintFullText(quran.getAudioURLByVerse(
+                                  'ar.alafasy',
+                                  widget.surahNumber,
+                                  pressedIndex! + 1));
+                              await player.setSourceUrl(
+                                  quran.getAudioURLByVerse('ar.alafasy',
+                                      widget.surahNumber, pressedIndex! + 1));
+                              player.setVolume(1);
+                              homeCubit.changePlayingValue == false
+                                  ? await player.play(UrlSource(
+                                      quran.getAudioURLByVerse(
+                                          'ar.alafasy',
+                                          widget.surahNumber,
+                                          pressedIndex! + 1)))
+                                  : await player.pause();
 
-                                player.onPlayerComplete.listen((event) {
-                                  homeCubit.changePlaying(value: false);
-                                  debugPrintFullText(homeCubit.changePlayingValue.toString());
-                                });
-                                homeCubit.changePlaying();
-                              }else
-                              {
-                                designToastDialog(context: context,
-                                    toast: TOAST.warning,
-                                    text: 'من فضلك قم بتشغيل الإنترنت'
-                                );
-                              }
-                            },
-                            icon: Icon(homeCubit.changePlayingValue == false
+                              player.onPlayerComplete.listen((event) {
+                                homeCubit.changePlaying(value: false);
+                                debugPrintFullText(
+                                    homeCubit.changePlayingValue.toString());
+                              });
+                              homeCubit.changePlaying();
+                            } else {
+                              designToastDialog(
+                                  context: context,
+                                  toast: TOAST.warning,
+                                  text: 'من فضلك قم بتشغيل الإنترنت');
+                            }
+                          },
+                          icon: Icon(
+                            homeCubit.changePlayingValue == false
                                 ? Icons.play_circle
                                 : Icons.pause_circle,
-                              color: ColorsManager.mainCard,
-                              size: 70.rSp,
-                            ));
-                      },
-                    ),
-                  ),
+                            color: ColorsManager.mainCard,
+                            size: 70.rSp,
+                          ))),
                 )
-              : null,
+              : homeCubit.hideCardValue
+                  ? Container(
+                      width: double.infinity,
+                      height: 25.h,
+                      decoration: BoxDecoration(
+                        color: ColorsManager.white,
+                        image: DecorationImage(
+                            image: AssetImage(
+                              Assets.images.png.appBackground,
+                            ),
+                            fit: BoxFit.cover),
+                        boxShadow: [
+                          BoxShadow(
+                              color: ColorsManager.darkGrey.withOpacity(0.5),
+                              blurRadius: 20.rSp),
+                        ],
+                      ),
+                      child: StreamBuilder<Duration>(
+                        stream: homeCubit.streamController.stream,
+                        builder: (context, snapshot) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Align(
+                                  alignment: AlignmentDirectional.centerEnd,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.only(
+                                        end: 3.w, top: 1.h),
+                                    child: InkWell(
+                                      onTap: (){
+                                        homeCubit.hideCard(false);
+                                        homeCubit.disposeAudio();
+                                        homeCubit.changePlaying(value: false);
+                                        debugPrintFullText(
+                                            '${homeCubit.streamController.isClosed}');
+                                      },
+                                      child: const Icon(Icons.close),
+                                    ),
+                                  )),
+                              Column(
+                                children: [
+                                  Slider(
+                                    value:
+                                        snapshot.data?.inSeconds.toDouble() ??
+                                            0,
+                                    onChanged: (value) {
+                                      homeCubit.changePlaying(value: true);
+                                      homeCubit.player.seek(
+                                          Duration(seconds: value.toInt()));
+                                    },
+                                    activeColor: ColorsManager.mainCard,
+                                    inactiveColor:
+                                        ColorsManager.mainCard.withOpacity(0.2),
+                                    min: 0.0,
+                                    max: homeCubit.durationSeconds.toDouble(),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20.rSp),
+                                    child: Row(
+                                      children: [
+                                        DefaultText(
+                                          style: Style.small,
+                                          title: homeCubit.formatDuration(
+                                              snapshot.data?.inSeconds ?? 0),
+                                        ),
+                                        const Spacer(),
+                                        DefaultText(
+                                          style: Style.small,
+                                          title: homeCubit.formatDuration(
+                                              homeCubit.player.duration
+                                                      ?.inSeconds ??
+                                                  0),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.symmetric(horizontal: 20.rSp),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      flex: 2,
+                                      child: IconButton(
+                                          onPressed: () {
+                                            if (homeCubit
+                                                    .player.position.inSeconds >
+                                                11) {
+                                              homeCubit.changePlaying(value: true);
+                                              homeCubit.player.seek(
+                                                homeCubit.player.position -
+                                                    const Duration(seconds: 10),
+                                              );
+                                            }
+                                          },
+                                          icon: const Icon(
+                                            Icons.replay_10,
+                                            color: ColorsManager.mainCard,
+                                          )),
+                                    ),
+                                    Expanded(
+                                      child: IconButton(
+                                          padding: EdgeInsets.only(bottom: 5.h),
+                                          onPressed: () async {
+                                            if (appBloc.isAppConnected) {
+                                              homeCubit.player.setVolume(1);
+                                              debugPrintFullText(
+                                                  homeCubit.playingValue);
+                                              homeCubit.changePlaying();
+                                              if (homeCubit
+                                                  .changePlayingValue) {
+                                                await homeCubit.player.play().then((value){
+                                                  if(homeCubit.player.playerState.processingState.name == 'completed'){
+                                                    homeCubit.changePlaying(value: false);
+                                                    homeCubit.hideCard(false);
+                                                    homeCubit.disposeAudio();
+                                                  }
+                                                });
+
+                                              } else {
+                                                await homeCubit.player.pause();
+                                              }
+                                            } else {
+                                              designToastDialog(
+                                                  context: context,
+                                                  toast: TOAST.warning,
+                                                  text:
+                                                      'من فضلك قم بتشغيل الإنترنت');
+                                            }
+                                          },
+                                          icon: Icon(
+                                            homeCubit.changePlayingValue ==
+                                                    false
+                                                ? Icons.play_circle
+                                                : Icons.pause_circle,
+                                            color: ColorsManager.mainCard,
+                                            size: 70.rSp,
+                                          )),
+                                    ),
+                                    Expanded(
+                                      flex: 2,
+                                      child: IconButton(
+                                          onPressed: () {
+                                            if (homeCubit
+                                                    .player.position.inSeconds <
+                                                homeCubit.player.duration!
+                                                    .inSeconds - 11) {
+                                              homeCubit.changePlaying(value: true);
+                                              homeCubit.player.seek(
+                                                  homeCubit.player.position + const Duration(seconds: 10),
+                                              );
+                                            }
+                                          },
+                                          icon: const Icon(
+                                            Icons.forward_10_outlined,
+                                            color: ColorsManager.mainCard,
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    )
+                  : null,
           //null,
         );
       },

@@ -9,7 +9,6 @@ import '../../../../../core/util/resources/appString.dart';
 import '../../../../../core/util/resources/assets.gen.dart';
 import '../../../../../core/util/resources/colors_manager.dart';
 import '../../../../../core/util/resources/constants_manager.dart';
-import '../../../../../core/util/widgets/default_action_button.dart';
 import '../../../../../core/util/widgets/default_text.dart';
 import '../../controller/bloc.dart';
 import '../../controller/state.dart';
@@ -20,7 +19,6 @@ class QuranWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeCubit homeCubit = HomeCubit.get(context);
-
     return BlocBuilder<HomeCubit,HomeState>(
       builder: (context, state) {
         return SafeArea(
