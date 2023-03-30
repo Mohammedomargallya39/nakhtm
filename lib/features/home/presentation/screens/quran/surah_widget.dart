@@ -130,16 +130,16 @@ class _SurahWidgetState extends State<SurahWidget> {
                                               textDirection: TextDirection.rtl,
                                               child: InkWell(
                                                   onTap: () {
-                                                    if (appBloc
-                                                        .isAppConnected) {
-                                                      homeCubit
-                                                          .initializeStream();
-                                                      homeCubit.initializeAudio(
-                                                          quran.getAudioURLBySurah(
-                                                              homeCubit.shikhId[
-                                                                  index],
-                                                              widget
-                                                                  .surahNumber));
+                                                    if (appBloc.isAppConnected) {
+
+                                                      if(homeCubit.isAudioInit)
+                                                      {
+                                                        homeCubit.disposeAudio();
+                                                        homeCubit.changePlaying(value: false);
+                                                      }
+
+                                                      homeCubit.initializeStream();
+                                                      homeCubit.initializeAudio(quran.getAudioURLBySurah(homeCubit.shikhId[index], widget.surahNumber));
                                                       homeCubit.hideCard(true);
                                                       Navigator.pop(context);
                                                     } else {
