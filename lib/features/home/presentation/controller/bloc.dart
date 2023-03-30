@@ -539,8 +539,10 @@ class HomeCubit extends Cubit<HomeState> {
   String duration = '00:00:00';
   late Stream<Duration> positionStream;
   late StreamController<Duration> streamController;
+   bool isAudioInit = false;
   void initializeAudio(String link)async{
     player = AudioPlayer();
+    isAudioInit = true;
     await player.setAudioSource(AudioSource.uri(Uri.parse(link))).then((value){
       durationSeconds = player.duration!.inSeconds;
       duration = formatDuration(durationSeconds);
@@ -561,6 +563,7 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   void disposeAudio() async{
+    isAudioInit = false;
     await player.dispose();
     emit(DisposeAudioState());
   }
