@@ -8,7 +8,7 @@ class QuranScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SchedulerBinding.instance.addPostFrameCallback((_) {});
-    return const Scaffold(
+    return Scaffold(
       body: QuranWidget(),
     );
   }

@@ -469,22 +469,10 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                           toast: TOAST.info,
                                                           text:
                                                               'تم حفظ أخر ما قرأت بنجاح.');
-                                                      sl<CacheHelper>().put(
-                                                          'ayahNum', index + 1);
-                                                      sl<CacheHelper>().put(
-                                                          'surahNum',
-                                                          widget.surahNumber);
-                                                      sl<CacheHelper>().put(
-                                                          'surahName',
-                                                          quran.getSurahNameArabic(
-                                                              widget
-                                                                  .surahNumber));
-                                                      sl<CacheHelper>().put(
-                                                          'pageNum',
-                                                          quran.getPageNumber(
-                                                              widget
-                                                                  .surahNumber,
-                                                              index + 1));
+                                                      sl<CacheHelper>().put('ayahNum', index + 1);
+                                                      sl<CacheHelper>().put('surahNum', widget.surahNumber);
+                                                      sl<CacheHelper>().put('surahName', quran.getSurahNameArabic(widget.surahNumber));
+                                                      sl<CacheHelper>().put('pageNum', quran.getPageNumber(widget.surahNumber, index + 1));
                                                       homeCubit.getSavedData();
                                                     },
                                                     secondButtonVoidCallback:
