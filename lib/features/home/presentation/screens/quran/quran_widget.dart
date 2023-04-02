@@ -5,6 +5,7 @@ import 'package:nakhtm/core/util/resources/extensions_manager.dart';
 import 'package:nakhtm/features/home/presentation/screens/quran/surah_screen.dart';
 import 'package:nakhtm/features/home/presentation/widgets/guide_dialog_widget.dart';
 import 'package:quran/quran.dart' as quran;
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import '../../../../../core/util/resources/appString.dart';
 import '../../../../../core/util/resources/assets.gen.dart';
 import '../../../../../core/util/resources/colors_manager.dart';
@@ -13,8 +14,33 @@ import '../../../../../core/util/widgets/default_text.dart';
 import '../../controller/bloc.dart';
 import '../../controller/state.dart';
 
-class QuranWidget extends StatelessWidget {
-  const QuranWidget({Key? key}) : super(key: key);
+class QuranWidget extends StatefulWidget {
+  QuranWidget({Key? key}) : super(key: key);
+
+  final itemScrollController = ItemScrollController();
+
+  @override
+  State<QuranWidget> createState() => _QuranWidgetState();
+}
+
+class _QuranWidgetState extends State<QuranWidget> {
+
+
+  Future scrollToItem() async {
+    widget.itemScrollController.scrollTo(
+        index: surahNum! - 1,
+        duration: const Duration(milliseconds: 1000),
+        curve: Curves.bounceIn);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (surahNum != 0) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => scrollToItem());
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +136,8 @@ class QuranWidget extends StatelessWidget {
                                 ),
                                 color: ColorsManager.lightGrey
                               ),
-                              child: ListView.builder(
+                              child: ScrollablePositionedList.builder(
+                                  itemScrollController: widget.itemScrollController,
                                   physics: const BouncingScrollPhysics(),
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
@@ -151,6 +178,7 @@ class QuranWidget extends StatelessWidget {
                                                       fontSize: 20.rSp,
                                                       fontWeight: FontWeight.w600,
                                                       fontFamily: 'arabic',
+                                                      color: index == surahNum! - 1 ? ColorsManager.mainCard : ColorsManager.black,
                                                     ),
                                                     const Spacer(),
                                                     CircleAvatar(
