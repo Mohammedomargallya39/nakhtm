@@ -230,31 +230,30 @@ class _QuranWidgetState extends State<QuranWidget> {
                         Stack(
                             alignment: AlignmentDirectional.topCenter,
                             children: [
-                              Container(
-                                height: 10.h,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                    gradient: const LinearGradient(colors: [ColorsManager.lightMainCard,ColorsManager.mainCard ]),
-                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(25.rSp),topRight: Radius.circular(25.rSp))
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 10.w,right: 5.w),
-                                  child: Row(
-                                    children: [
-                                      DefaultText(
-                                        title: surahName!,
-                                        style: Style.medium,
-                                        fontSize: 30.rSp,
-                                        color: ColorsManager.white,
-                                        fontFamily: 'arabic',
-                                      ),
-                                      const Spacer(),
-                                      InkWell(
-                                        onTap: ()
-                                        {
-                                            navigateTo(context, SurahScreen(surahNum: surahNum!));
-                                        },
-                                        child: DefaultText(
+                              InkWell(
+                                onTap: (){
+                                  navigateTo(context, SurahScreen(surahNum: surahNum!));
+                                },
+                                child: Container(
+                                  height: 10.h,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      gradient: const LinearGradient(colors: [ColorsManager.lightMainCard,ColorsManager.mainCard ]),
+                                      borderRadius: BorderRadius.only(topLeft: Radius.circular(25.rSp),topRight: Radius.circular(25.rSp))
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: 10.w,right: 5.w),
+                                    child: Row(
+                                      children: [
+                                        DefaultText(
+                                          title: surahName!,
+                                          style: Style.medium,
+                                          fontSize: 30.rSp,
+                                          color: ColorsManager.white,
+                                          fontFamily: 'arabic',
+                                        ),
+                                        const Spacer(),
+                                        DefaultText(
                                           title: 'إضغط للإستكمال',
                                           fontSize: 15.rSp,
                                           style: Style.extraSmall,
@@ -262,8 +261,8 @@ class _QuranWidgetState extends State<QuranWidget> {
                                           fontWeight: FontWeight.w600,
                                           fontFamily: 'arabic',
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nakhtm/core/util/cubit/cubit.dart';
-import 'package:nakhtm/core/util/cubit/state.dart';
 import 'package:nakhtm/core/util/resources/extensions_manager.dart';
 import 'package:nakhtm/features/home/presentation/widgets/surah_audio_item_builder.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -517,23 +516,12 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                     horizontal: 2.w,
                                                     vertical: 1.h),
                                                 child: DefaultText(
-                                                  title:
-                                                      '${quran.getVerse(widget.surahNumber, index + 1)} ${quran.getVerseEndSymbol(index + 1)}${quran.isSajdahVerse(widget.surahNumber, index + 1) ? quran.sajdah : ''}',
+                                                  title: '${quran.getVerse(widget.surahNumber, index + 1)} ${quran.getVerseEndSymbol(index + 1)}${quran.isSajdahVerse(widget.surahNumber, index + 1) ? quran.sajdah : ''}',
                                                   style: Style.large,
-                                                  fontSize:
-                                                      homeCubit.fontSizeValue,
+                                                  fontSize: homeCubit.fontSizeValue,
                                                   fontWeight: FontWeight.w600,
                                                   align: TextAlign.center,
-                                                  color: (homeCubit.ayahPressedValue ==
-                                                                  true &&
-                                                              pressedIndex ==
-                                                                  index) ||
-                                                          (ayahNum! - 1 ==
-                                                                  index &&
-                                                              widget.surahNumber ==
-                                                                  surahNum)
-                                                      ? ColorsManager.white
-                                                      : ColorsManager.black,
+                                                  color: (homeCubit.ayahPressedValue == true && pressedIndex == index) || (ayahNum! - 1 == index && widget.surahNumber == surahNum) ? ColorsManager.white : ColorsManager.black,
                                                   fontFamily: 'arabic',
                                                 ),
                                               ),
@@ -594,20 +582,13 @@ class _SurahWidgetState extends State<SurahWidget> {
                           padding: EdgeInsets.only(bottom: 5.h),
                           onPressed: () async {
                             if (appBloc.isAppConnected) {
-                              debugPrintFullText(quran.getAudioURLByVerse(
-                                  'ar.alafasy',
-                                  widget.surahNumber,
-                                  pressedIndex! + 1));
+                              debugPrintFullText(quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1));
                               await player.setSourceUrl(
-                                  quran.getAudioURLByVerse('ar.alafasy',
-                                      widget.surahNumber, pressedIndex! + 1));
+                                  quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1));
                               player.setVolume(1);
                               homeCubit.changePlayingValue == false
                                   ? await player.play(UrlSource(
-                                      quran.getAudioURLByVerse(
-                                          'ar.alafasy',
-                                          widget.surahNumber,
-                                          pressedIndex! + 1)))
+                                      quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1)))
                                   : await player.pause();
 
                               player.onPlayerComplete.listen((event) {
