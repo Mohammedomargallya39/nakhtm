@@ -53,7 +53,6 @@ void main() async {
   ];
 
 
-  permission = await sl<CacheHelper>().get('permission') ?? false;
 
   if (permission == true) {
     Position position = await Geolocator.getCurrentPosition(

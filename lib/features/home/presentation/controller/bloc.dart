@@ -26,6 +26,7 @@ class HomeCubit extends Cubit<HomeState> {
   final AdanUseCase _adanUseCase;
   final TafseerUseCase _tafseerUseCase;
   final HadithUseCase _hadithUseCase;
+
   HomeCubit({
     required AdanUseCase adanUseCase,
     required TafseerUseCase tafseerUseCase,
@@ -514,17 +515,19 @@ class HomeCubit extends Cubit<HomeState> {
   double? lng;
   void getLocation()
   async{
-    permission = !permission;
-    if(permission == true) {
-      //await Geolocator.requestPermission();
-      emit(LoadingGetLocationState());
-      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    await Geolocator.requestPermission().then((value) async{
+      permission = await Geolocator.isLocationServiceEnabled();
+      if(permission == true) {
+        emit(LoadingGetLocationState());
+        Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
 
-      currentLat = position.latitude;
-      currentLng = position.longitude;
-      lat = position.latitude;
-      lng = position.longitude;
-    }
+        currentLat = position.latitude;
+        currentLng = position.longitude;
+        lat = position.latitude;
+        lng = position.longitude;
+      }
+    });
+
     sl<CacheHelper>().put('permission', permission);
     emit(GetLocationState());
   }
