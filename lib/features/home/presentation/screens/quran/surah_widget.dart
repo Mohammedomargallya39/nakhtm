@@ -53,6 +53,7 @@ class _SurahWidgetState extends State<SurahWidget> {
     HomeCubit homeCubit = HomeCubit.get(context);
     AppBloc appBloc = AppBloc.get(context);
     int? pressedIndex;
+    final player = AudioPlayer();
     if (fontSize != 0) {
       homeCubit.fontSizeValue = fontSize!;
     }
@@ -76,7 +77,7 @@ class _SurahWidgetState extends State<SurahWidget> {
               homeCubit.changePlayingValue = false;
               homeCubit.hideCard(false);
               homeCubit.disposeAudio();
-              appBloc.player.stop();
+              player.stop();
               return true;
             },
             child: Directionality(
@@ -186,7 +187,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                                   homeCubit.changePlayingValue = false;
                                   homeCubit.hideCard(false);
                                   homeCubit.disposeAudio();
-                                  appBloc.player.stop();
+                                  player.stop();
                                 },
                                 icon: const Icon(Icons.arrow_forward_ios))
                           ],
@@ -365,7 +366,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                   value: true);
                                               homeCubit.changePlaying(
                                                   value: false);
-                                              appBloc.player.stop();
+                                              player.stop();
                                             }
                                           },
                                           onLongPress: () {
@@ -582,15 +583,15 @@ class _SurahWidgetState extends State<SurahWidget> {
                           onPressed: () async {
                             if (appBloc.isAppConnected) {
                               debugPrintFullText(quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1));
-                              await appBloc.player.setSourceUrl(
+                              await player.setSourceUrl(
                                   quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1));
-                              appBloc.player.setVolume(1);
+                              player.setVolume(1);
                               homeCubit.changePlayingValue == false
-                                  ? await appBloc.player.play(UrlSource(
+                                  ? await player.play(UrlSource(
                                       quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1)))
-                                  : await appBloc.player.pause();
+                                  : await player.pause();
 
-                              appBloc.player.onPlayerComplete.listen((event) {
+                              player.onPlayerComplete.listen((event) {
                                 homeCubit.changePlaying(value: false);
                                 debugPrintFullText(
                                     homeCubit.changePlayingValue.toString());
