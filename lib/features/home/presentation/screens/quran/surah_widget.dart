@@ -522,7 +522,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                   fontWeight: FontWeight.w600,
                                                   align: TextAlign.center,
                                                   color: (homeCubit.ayahPressedValue == true && pressedIndex == index) || (ayahNum! - 1 == index && widget.surahNumber == surahNum) ? ColorsManager.white : ColorsManager.black,
-                                                  fontFamily: 'arabic',
+                                                  fontFamily: 'quran',
                                                 ),
                                               ),
                                             ),
