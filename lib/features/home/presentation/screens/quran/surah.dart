@@ -235,20 +235,13 @@ class _SurahWidgetState extends State<SurahWidget> {
                           padding: EdgeInsets.only(bottom: 5.h),
                           onPressed: () async {
                             if (appBloc.isAppConnected) {
-                              debugPrintFullText(quran.getAudioURLByVerse(
-                                  'ar.alafasy',
-                                  widget.surahNumber,
-                                  pressedIndex! + 1));
+                              debugPrintFullText(quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1));
                               await player.setSourceUrl(
-                                  quran.getAudioURLByVerse('ar.alafasy',
-                                      widget.surahNumber, pressedIndex+ 1));
+                                  quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex+ 1));
                               player.setVolume(1);
                               homeCubit.changePlayingValue == false
                                   ? await player.play(UrlSource(
-                                      quran.getAudioURLByVerse(
-                                          'ar.alafasy',
-                                          widget.surahNumber,
-                                          pressedIndex+ 1)))
+                                      quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex+ 1)))
                                   : await player.pause();
 
                               player.onPlayerComplete.listen((event) {

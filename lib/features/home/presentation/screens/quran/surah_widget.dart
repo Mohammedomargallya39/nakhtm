@@ -23,7 +23,7 @@ import '../../widgets/guide_dialog_widget.dart';
 class SurahWidget extends StatefulWidget {
   SurahWidget({Key? key, required this.surahNumber}) : super(key: key);
 
-  int surahNumber;
+  final int surahNumber;
   final itemScrollController = ItemScrollController();
 
   @override
@@ -368,7 +368,20 @@ class _SurahWidgetState extends State<SurahWidget> {
                                                   value: false);
                                               player.stop();
                                             }
+
+                                            if(homeCubit.isAudioInit)
+                                            {
+                                              homeCubit.disposeAudio();
+                                              homeCubit.changePlaying(value: false);
+                                            }
+
+                                            homeCubit.initializeStream();
+                                            homeCubit.initializeAudio(quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1));
+                                            homeCubit.hideCard(true);
+
+
                                           },
+
                                           onLongPress: () {
                                             showDialog(
                                               context: context,
@@ -560,9 +573,9 @@ class _SurahWidgetState extends State<SurahWidget> {
           ),
           bottomSheet: homeCubit.ayahPressedValue
               ? Container(
-                  padding: EdgeInsets.symmetric(horizontal: 80.rSp),
+                  //padding: EdgeInsets.symmetric(horizontal: 80.rSp),
                   width: double.infinity,
-                  height: 10.h,
+                  height: 25.h,
                   decoration: BoxDecoration(
                     color: ColorsManager.white,
                     image: DecorationImage(
@@ -576,41 +589,189 @@ class _SurahWidgetState extends State<SurahWidget> {
                           blurRadius: 15.rSp),
                     ],
                   ),
-                  child: Padding(
-                      padding: EdgeInsets.only(bottom: 2.h),
-                      child: IconButton(
-                          padding: EdgeInsets.only(bottom: 5.h),
-                          onPressed: () async {
-                            if (appBloc.isAppConnected) {
-                              debugPrintFullText(quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1));
-                              await player.setSourceUrl(
-                                  quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1));
-                              player.setVolume(1);
-                              homeCubit.changePlayingValue == false
-                                  ? await player.play(UrlSource(
-                                      quran.getAudioURLByVerse('ar.alafasy', widget.surahNumber, pressedIndex! + 1)))
-                                  : await player.pause();
-
-                              player.onPlayerComplete.listen((event) {
-                                homeCubit.changePlaying(value: false);
-                                debugPrintFullText(
-                                    homeCubit.changePlayingValue.toString());
-                              });
-                              homeCubit.changePlaying();
-                            } else {
-                              designToastDialog(
-                                  context: context,
-                                  toast: TOAST.warning,
-                                  text: 'من فضلك قم بتشغيل الإنترنت');
-                            }
+                  child: StreamBuilder<Duration>(
+              stream: homeCubit.streamController.stream,
+              builder: (context, snapshot) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.only(
+                              end: 3.w, top: 1.h),
+                          child: InkWell(
+                            onTap: (){
+                              homeCubit.hideCard(false);
+                              homeCubit.disposeAudio();
+                              homeCubit.changePlaying(value: false);
+                              debugPrintFullText(
+                                  '${homeCubit.streamController.isClosed}');
+                            },
+                            child: const Icon(Icons.close),
+                          ),
+                        )),
+                    Column(
+                      children: [
+                        Slider(
+                          value:
+                          snapshot.data?.inSeconds.toDouble() ??
+                              0,
+                          onChanged: (value) {
+                            homeCubit.changePlaying(value: true);
+                            homeCubit.player.seek(
+                                Duration(seconds: value.toInt()));
                           },
-                          icon: Icon(
-                            homeCubit.changePlayingValue == false
-                                ? Icons.play_circle
-                                : Icons.pause_circle,
-                            color: ColorsManager.mainCard,
-                            size: 70.rSp,
-                          ))),
+                          activeColor: ColorsManager.mainCard,
+                          inactiveColor:
+                          ColorsManager.mainCard.withOpacity(0.2),
+                          min: 0.0,
+                          max: homeCubit.durationSeconds.toDouble(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.rSp),
+                          child: Row(
+                            children: [
+                              DefaultText(
+                                style: Style.small,
+                                title: homeCubit.formatDuration(
+                                    snapshot.data?.inSeconds ?? 0),
+                              ),
+                              const Spacer(),
+                              DefaultText(
+                                style: Style.small,
+                                title: homeCubit.formatDuration(
+                                    homeCubit.player.duration
+                                        ?.inSeconds ??
+                                        0),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    Padding(
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 20.rSp),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: IconButton(
+                                onPressed: () {
+                                  if (homeCubit.player.position.inSeconds > 6) {
+                                    homeCubit.changePlaying(value: true);
+                                    homeCubit.player.seek(homeCubit.player.position - const Duration(seconds: 5),
+                                    );
+                                  }
+                                },
+                                icon: const Icon(
+                                  Icons.replay_5,
+                                  color: ColorsManager.mainCard,
+                                )),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: IconButton(
+                                padding: EdgeInsets.only(bottom: 5.h),
+                                onPressed: () async {
+                                  if (appBloc.isAppConnected) {
+                                    homeCubit.player.setVolume(1);
+                                    debugPrintFullText(
+                                        homeCubit.playingValue);
+                                    homeCubit.changePlaying();
+                                    if (homeCubit.changePlayingValue) {
+                                      await homeCubit.player.play().then((value){
+                                        if(homeCubit.player.playerState.processingState.name == 'completed'){
+                                          homeCubit.changePlaying(value: false);
+                                          homeCubit.hideCard(false);
+                                          homeCubit.disposeAudio();
+                                        }
+                                      });
+
+                                    } else {
+                                      await homeCubit.player.pause();
+                                    }
+                                  } else {
+                                    designToastDialog(
+                                        context: context,
+                                        toast: TOAST.warning,
+                                        text:
+                                        'من فضلك قم بتشغيل الإنترنت');
+                                  }
+                                },
+                                icon: Icon(
+                                  homeCubit.changePlayingValue ==
+                                      false
+                                      ? Icons.play_circle
+                                      : Icons.pause_circle,
+                                  color: ColorsManager.mainCard,
+                                  size: 70.rSp,
+                                )),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: IconButton(
+                                onPressed: () {
+                                  if (homeCubit
+                                      .player.position.inSeconds <
+                                      homeCubit.player.duration!
+                                          .inSeconds - 6) {
+                                    homeCubit.changePlaying(value: true);
+                                    homeCubit.player.seek(
+                                      homeCubit.player.position + const Duration(seconds: 5),
+                                    );
+                                  }
+                                },
+                                icon: const Icon(
+                                  Icons.forward_5,
+                                  color: ColorsManager.mainCard,
+                                )),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+
+            // child: Padding(
+            //           padding: EdgeInsets.only(bottom: 2.h),
+            //           child: IconButton(
+            //               padding: EdgeInsets.only(bottom: 5.h),
+            //               onPressed: () async {
+            //                 if (appBloc.isAppConnected) {
+            //                   debugPrintFullText(quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1));
+            //                   await player.setSourceUrl(
+            //                       quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1));
+            //                   player.setVolume(1);
+            //                   homeCubit.changePlayingValue == false
+            //                       ? await player.play(UrlSource(
+            //                           quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1)))
+            //                       : await player.pause();
+            //                   player.onPlayerComplete.listen((event) {
+            //                     homeCubit.changePlaying(value: false);
+            //                     debugPrintFullText(homeCubit.changePlayingValue.toString());
+            //                   });
+            //                   homeCubit.changePlaying();
+            //                 } else {
+            //                   designToastDialog(
+            //                       context: context,
+            //                       toast: TOAST.warning,
+            //                       text: 'من فضلك قم بتشغيل الإنترنت');
+            //                 }
+            //               },
+            //               icon: Icon(
+            //                 homeCubit.changePlayingValue == false
+            //                     ? Icons.play_circle
+            //                     : Icons.pause_circle,
+            //                 color: ColorsManager.mainCard,
+            //                 size: 70.rSp,
+            //               )),
+            //       ),
                 )
               : homeCubit.hideCardValue
                   ? Container(
@@ -701,13 +862,9 @@ class _SurahWidgetState extends State<SurahWidget> {
                                       flex: 2,
                                       child: IconButton(
                                           onPressed: () {
-                                            if (homeCubit
-                                                    .player.position.inSeconds >
-                                                11) {
+                                            if (homeCubit.player.position.inSeconds > 11) {
                                               homeCubit.changePlaying(value: true);
-                                              homeCubit.player.seek(
-                                                homeCubit.player.position -
-                                                    const Duration(seconds: 10),
+                                              homeCubit.player.seek(homeCubit.player.position - const Duration(seconds: 10),
                                               );
                                             }
                                           },
