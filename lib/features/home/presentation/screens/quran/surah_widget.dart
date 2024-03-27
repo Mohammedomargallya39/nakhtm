@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -170,26 +171,29 @@ class _SurahWidgetState extends State<SurahWidget> {
                                   color: ColorsManager.mainCard,
                                 )),
                             Expanded(
+                              flex: 2,
                               child: DefaultText(
                                 align: TextAlign.end,
-                                title: quran
-                                    .getSurahNameArabic(widget.surahNumber),
+                                title: quran.getSurahNameArabic(widget.surahNumber),
                                 style: Style.medium,
                                 fontSize: 30.rSp,
                                 fontFamily: 'arabic',
+                                maxLines: 1,
                               ),
                             ),
-                            const Spacer(),
-                            IconButton(
-                                onPressed: () async {
-                                  Navigator.pop(context);
-                                  homeCubit.ayahPressedValue = false;
-                                  homeCubit.changePlayingValue = false;
-                                  homeCubit.hideCard(false);
-                                  homeCubit.disposeAudio();
-                                  player.stop();
-                                },
-                                icon: const Icon(Icons.arrow_forward_ios))
+                            horizontalSpace(20.w),
+                            Expanded(
+                              child: IconButton(
+                                  onPressed: () async {
+                                    Navigator.pop(context);
+                                    homeCubit.ayahPressedValue = false;
+                                    homeCubit.changePlayingValue = false;
+                                    homeCubit.hideCard(false);
+                                    homeCubit.disposeAudio();
+                                    player.stop();
+                                  },
+                                  icon: const Icon(Icons.arrow_forward_ios)),
+                            )
                           ],
                         ),
                         verticalSpace(2.h),
@@ -362,24 +366,17 @@ class _SurahWidgetState extends State<SurahWidget> {
                                               homeCubit.ayahPressed();
                                             } else {
                                               pressedIndex = index;
-                                              homeCubit.ayahPressed(
-                                                  value: true);
-                                              homeCubit.changePlaying(
-                                                  value: false);
+                                              homeCubit.ayahPressed(value: true);
+                                              homeCubit.changePlaying(value: false);
                                               player.stop();
                                             }
-
                                             if(homeCubit.isAudioInit)
                                             {
                                               homeCubit.disposeAudio();
                                               homeCubit.changePlaying(value: false);
                                             }
-
                                             homeCubit.initializeStream();
                                             homeCubit.initializeAudio(quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1));
-                                            homeCubit.hideCard(true);
-
-
                                           },
 
                                           onLongPress: () {
@@ -563,7 +560,10 @@ class _SurahWidgetState extends State<SurahWidget> {
                               ),
                             ],
                           ),
-                        )
+                        ),
+                        if(homeCubit.ayahPressedValue || homeCubit.hideCardValue)
+                        verticalSpace(15.h),
+
                       ],
                     ),
                   ),
@@ -602,11 +602,10 @@ class _SurahWidgetState extends State<SurahWidget> {
                               end: 3.w, top: 1.h),
                           child: InkWell(
                             onTap: (){
-                              homeCubit.hideCard(false);
+                              homeCubit.ayahPressed(value: false);
                               homeCubit.disposeAudio();
                               homeCubit.changePlaying(value: false);
-                              debugPrintFullText(
-                                  '${homeCubit.streamController.isClosed}');
+                              debugPrintFullText('${homeCubit.streamController.isClosed}');
                             },
                             child: const Icon(Icons.close),
                           ),
@@ -661,6 +660,42 @@ class _SurahWidgetState extends State<SurahWidget> {
                             flex: 2,
                             child: IconButton(
                                 onPressed: () {
+                                  // if (homeCubit.player.position.inSeconds > 6) {
+                                  //   homeCubit.changePlaying(value: true);
+                                  //   homeCubit.player.seek(homeCubit.player.position - const Duration(seconds: 5),
+                                  //   );
+                                  // }
+
+                                  if (homeCubit.isStreamInitialized) {
+                                    homeCubit.closeStream();
+                                    homeCubit.disposeAudio();
+                                    homeCubit.hideCard(false);
+                                    debugPrintFullText(
+                                        '++++++++++++++++++++++++');
+                                  }
+                                  if(pressedIndex != 0){
+                                    pressedIndex = pressedIndex! - 1;
+                                    homeCubit.ayahPressed(value: true);
+                                      homeCubit.changePlaying(value: false);
+                                      player.stop();
+                                      if(homeCubit.isAudioInit)
+                                      {
+                                        homeCubit.disposeAudio();
+                                        homeCubit.changePlaying(value: false);
+                                      }
+                                      homeCubit.initializeStream();
+                                    homeCubit.initializeAudio(quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1));
+                                  }
+                                },
+                                icon: const Icon(
+                                  Icons.skip_previous,
+                                  color: ColorsManager.mainCard,
+                                )),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: IconButton(
+                                onPressed: () {
                                   if (homeCubit.player.position.inSeconds > 6) {
                                     homeCubit.changePlaying(value: true);
                                     homeCubit.player.seek(homeCubit.player.position - const Duration(seconds: 5),
@@ -685,9 +720,24 @@ class _SurahWidgetState extends State<SurahWidget> {
                                     if (homeCubit.changePlayingValue) {
                                       await homeCubit.player.play().then((value){
                                         if(homeCubit.player.playerState.processingState.name == 'completed'){
+                                          if (homeCubit.isStreamInitialized) {
+                                            homeCubit.closeStream();
+                                            homeCubit.disposeAudio();
+                                            homeCubit.hideCard(false);
+                                            debugPrintFullText(
+                                                '++++++++++++++++++++++++');
+                                          }
+                                          pressedIndex;
+                                          homeCubit.ayahPressed(value: true);
                                           homeCubit.changePlaying(value: false);
-                                          homeCubit.hideCard(false);
-                                          homeCubit.disposeAudio();
+                                          player.stop();
+                                          if(homeCubit.isAudioInit)
+                                          {
+                                            homeCubit.disposeAudio();
+                                            homeCubit.changePlaying(value: false);
+                                          }
+                                          homeCubit.initializeStream();
+                                          homeCubit.initializeAudio(quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1));
                                         }
                                       });
 
@@ -715,10 +765,7 @@ class _SurahWidgetState extends State<SurahWidget> {
                             flex: 2,
                             child: IconButton(
                                 onPressed: () {
-                                  if (homeCubit
-                                      .player.position.inSeconds <
-                                      homeCubit.player.duration!
-                                          .inSeconds - 6) {
+                                  if (homeCubit.player.position.inSeconds < homeCubit.player.duration!.inSeconds - 6) {
                                     homeCubit.changePlaying(value: true);
                                     homeCubit.player.seek(
                                       homeCubit.player.position + const Duration(seconds: 5),
@@ -727,6 +774,41 @@ class _SurahWidgetState extends State<SurahWidget> {
                                 },
                                 icon: const Icon(
                                   Icons.forward_5,
+                                  color: ColorsManager.mainCard,
+                                )),
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: IconButton(
+                                onPressed: () {
+                                  // if (homeCubit.player.position.inSeconds > 6) {
+                                  //   homeCubit.changePlaying(value: true);
+                                  //   homeCubit.player.seek(homeCubit.player.position - const Duration(seconds: 5),
+                                  //   );
+                                  // }
+                                  if (homeCubit.isStreamInitialized) {
+                                    homeCubit.closeStream();
+                                    homeCubit.disposeAudio();
+                                    homeCubit.hideCard(false);
+                                    debugPrintFullText(
+                                        '++++++++++++++++++++++++');
+                                  }
+                                  if(pressedIndex != quran.getVerseCount(widget.surahNumber) - 1){
+                                    pressedIndex = pressedIndex! + 1;
+                                    homeCubit.ayahPressed(value: true);
+                                    homeCubit.changePlaying(value: false);
+                                    player.stop();
+                                    if(homeCubit.isAudioInit)
+                                    {
+                                      homeCubit.disposeAudio();
+                                      homeCubit.changePlaying(value: false);
+                                    }
+                                    homeCubit.initializeStream();
+                                    homeCubit.initializeAudio(quran.getAudioURLByVerse(homeCubit.selectedShiekh, widget.surahNumber, pressedIndex! + 1));
+                                  }
+                                },
+                                icon: const Icon(
+                                  Icons.skip_next,
                                   color: ColorsManager.mainCard,
                                 )),
                           ),

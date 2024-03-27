@@ -144,8 +144,7 @@ class _QuranWidgetState extends State<QuranWidget> {
                                     return Column(
                                       children: [
                                         InkWell(
-                                          onTap: ()
-                                          {
+                                          onTap: () {
                                             navigateTo(context, SurahScreen(surahNum: index+1,));
                                             if(showGuideValue)
                                             {
