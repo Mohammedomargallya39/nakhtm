@@ -46,3 +46,4 @@ class DisposeAudioState extends HomeState{}
 class ChangeSliderValueState extends HomeState{}
 class AudioInitializedState extends HomeState{}
 class CloseStreamState extends HomeState{}
+class SearchSurahNameState extends HomeState{}

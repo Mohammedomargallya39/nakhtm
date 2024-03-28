@@ -125,6 +125,14 @@ class HomeCubit extends Cubit<HomeState> {
     '«اللهم صل وسلم على سيدنا محمد وعلى آله، صلاة تكون لنا طريقًا لقربه، وتأكيدًا لحبه، وبابًا لجمعنا عليه، وهدية مقبولة بين يديه، وسلم وبارك كذلك أبدًا، وارض عن آله وصحبه السعداء، واكسنا حُلل الرضا».'
   ];
 
+  Map<String,int> surahsInfo= {};
+  List<String>? searchList;
+  void searchBySurahName(String name){
+    searchList = surahsInfo.keys.where((element) => element.contains(name)).toList();
+    print('search ====>>>>> $searchList');
+    emit(SearchSurahNameState());
+  }
+
   bool ended = false;
 
   List<String>? azkarMorning;

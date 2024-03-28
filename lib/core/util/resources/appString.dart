@@ -28,6 +28,7 @@ class AppString {
   static const altormozy = 'الترمذي';
   static const ebnMaga = 'ابن ماجه';
   static const aboDawood = 'ابو داوود';
+  static const search = 'بحث';
 
 
 }
