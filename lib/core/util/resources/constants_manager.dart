@@ -129,7 +129,7 @@ Future<void> designToastDialog({
                         Text(
                           chooseTitle(toast, context),
                           style:
-                              Theme.of(context).textTheme.subtitle1!.copyWith(
+                              Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: ColorsManager.darkGrey,
                                     fontWeight: FontWeightManager.bold,
                                     fontSize: 18.0.rSp,
@@ -142,7 +142,7 @@ Future<void> designToastDialog({
                               : appTranslation().deleteMessage,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.caption!.copyWith(
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               color: ColorsManager.darkGrey,
                               fontWeight: FontWeightManager.regular,
                               fontSize: 14.0.rSp),
